@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // State Variables
     let currentSlide = 0;
-    const totalSlides = 15;
+    const totalSlides = 17;
     let isDarkTheme = true;
     let timerSeconds = 0;
     let timerRunning = false;
@@ -9,50 +9,103 @@ document.addEventListener('DOMContentLoaded', () => {
     // Script Font Size State
     const fontSizes = ['sm', 'md', 'lg', 'xl'];
     let currentFontSizeIndex = 1;
-
+ 
     // Slide Pacing Budget (seconds)
     const pacingTargets = [
-        1.5, 2.5, 4.5, 6.5, 8.5, 10.5, 12.5, 14.5, 16.5, 18.5, 20.5, 22.0, 23.5, 25.0, 26.0
+        1.5,   // Slide 1: Title
+        3.0,   // Slide 2: Agenda
+        4.5,   // Slide 3: Why semiconductors matter
+        6.0,   // Slide 4: From silicon to a finished chip
+        7.5,   // Slide 5: Procurement of semiconductors
+        9.5,   // Slide 6: How semiconductor buying usually works
+        11.5,  // Slide 7: What exactly must be sourced?
+        13.5,  // Slide 8: Main risks and how companies reduce them
+        15.0,  // Slide 9: The global semiconductor supply chain
+        17.5,  // Slide 10: Who does what in the chip chain?
+        19.5,  // Slide 11: From design file to final product
+        21.5,  // Slide 12: Why semiconductor supply chains become fragile
+        23.0,  // Slide 13: Industries that semiconductors end up using
+        25.5,  // Slide 14: Automotive and electric vehicles
+        27.5,  // Slide 15: AI, data centers, healthcare, and industry
+        29.0,  // Slide 16: Key takeaways
+        30.0   // Slide 17: Sources used
     ];
-
+ 
     // Slide scripts copy for standalone display
     const slideScripts = [
-        "Welcome everyone to this presentation. Today we are going to talk about one of the most critical foundation blocks of our modern society: Semiconductors.\n\nOver the next 25 to 30 minutes, we will explore three key assignments. First, the procurement of semiconductors, meaning how we source the extreme raw materials and equipment to make them. Second, we will look at the global supply chain, which is arguably the most complex and distributed logistics network on Earth. Finally, we'll discuss the end-use industries that consume these chips, from artificial intelligence to automotive and defense systems.\n\nLet's get started.",
-        "Here is the agenda for our session. We will break this talk down into three key pillars:\n\n1. Procurement: Sourcing silicon, specialized chemicals, and photolithography machines like EUV from ASML, as well as electronic design software.\n\n2. The Global Supply Chain: How design flows into manufacturing, the difference between fabless companies and foundries like TSMC, the final testing and assembly, and the geopolitical bottlenecks.\n\n3. End-Use Industries: A detailed breakdown of where these chips go, focusing on high-performance computing, automotive, consumer devices, and industrial/military applications.",
-        "Before diving into procurement, let's establish a foundational understanding of what a semiconductor actually is.\n\nA semiconductor is a material, typically silicon, that has electrical conductivity properties between a conductor (like copper) and an insulator (like rubber). By applying small electrical currents, we can use these materials as switches, or transistors, representing binary 1s and 0s.\n\nUnder Moore's Law, the number of transistors on a microchip doubles roughly every two years. Today's leading-edge chips pack tens of billions of transistors into an area the size of a fingernail, with features measured in nanometers—smaller than a strand of DNA.",
-        "Let's cover Assignment 1: Semiconductor Procurement, beginning with raw materials.\n\nThe process starts with silicon sand, or quartzite. This is refined into metallurgical-grade silicon and then purified into polysilicon of electronic grade—requiring an astonishing purity level of 99.999999999%, often referred to as 'eleven nines.'\n\nThis polysilicon is melted and grown into a single crystal silicon ingot, which is sliced with high-precision wire saws into wafers. These wafers are polished to an atomic scale.\n\nBeyond silicon, fabs must procure specialized high-purity chemicals, photoresists (which react to light), and gases like silane and phosphine, plus millions of gallons of ultra-pure water daily. Sourcing these chemicals is a highly specialized process, with Japan supplying over 70% of critical photoresists globally.",
-        "Next in procurement is photolithography and capital equipment.\n\nThis is the most expensive and complex step in chip making. Fabs must procure lithography machines, which act like ultra-precise slide projectors, printing microscopic circuit designs onto the silicon wafer.\n\nASML, a company in the Netherlands, has a 100% monopoly on Extreme Ultraviolet, or EUV, lithography machines. Each EUV machine costs upwards of $150 to $200 million, contains over 100,000 parts, uses Zeiss mirrors polished to atomic flatness, and requires three Boeing 747s to ship. Without procuring these specific machines, manufacturing chips below 7 nanometers is practically impossible.",
-        "The final pillar of semiconductor procurement is design intellectual property and software.\n\nBefore you manufacture a chip, you must design it. This requires Electronic Design Automation (EDA) software. The EDA market is dominated by three companies, mostly based in the U.S.: Synopsys, Cadence, and Siemens EDA. These tools allow engineers to model and verify circuits containing billions of transistors.\n\nAdditionally, companies procure chip architecture IP rather than designing from scratch. ARM licenses its architecture to companies like Apple and Qualcomm, while RISC-V is gaining ground as an open-source alternative. Sourcing software licenses and IP blocks is a major capital cost before a single wafer is ever baked.",
-        "Now let's transition to Assignment 2: The Global Supply Chain.\n\nThis map demonstrates the highly globalized nature of semiconductor manufacturing. A single chip can travel over 25,000 miles, cross international borders 70 times, and take up to 100 days to complete.\n\nTypically, U.S. and European firms dominate chip design and software. The equipment comes from the Netherlands (ASML), Japan, and the U.S. Raw materials are sourced from Japan and Germany. Wafer fabrication occurs primarily in Taiwan (TSMC) and South Korea (Samsung). Assembly and testing take place in Southeast Asia, particularly Malaysia and China. It is a highly interconnected web with no single country self-sufficient.",
-        "Within the supply chain, the industry split into the Fabless-Foundry model in the late 1980s.\n\n- Fabless companies, like NVIDIA, Apple, AMD, and Qualcomm, focus entirely on design, marketing, and software. They own no factories (fabs) because building a modern 3nm fab costs over $15-20 billion.\n\n- Pure-play Foundries, pioneered by TSMC (Taiwan Semiconductor Manufacturing Company) in Taiwan, manufacture chips designed by others. TSMC commands over 60% of global foundry revenues and over 90% of leading-edge production.\n\n- Integrated Device Manufacturers, or IDMs, like Intel and Samsung, both design and manufacture their own chips, though Intel is now moving toward a split foundry model to compete with TSMC.",
-        "Once a wafer is fabricated, it must undergo Assembly, Packaging, and Testing, often outsourced to OSAT companies (Outsourced Semiconductor Assembly and Test).\n\nThe circular wafer is diced into individual square chips (dies). These dies are mounted on lead frames or substrates, wired (wire-bonding or flip-chip), and encapsulated in protective plastic or ceramic cases.\n\nAdvanced packaging has become critical to extending Moore's Law. Technologies like TSMC's CoWoS (Chip-on-Wafer-on-Substrate) allow multiple dies (like HBM memory and GPU cores) to be stacked side-by-side on a silicon interposer. Southeast Asia, specifically Malaysia, accounts for about 13% of global back-end testing and packaging.",
-        "The extreme concentration of the supply chain creates significant geopolitical bottlenecks and vulnerabilities.\n\nTSMC alone produces over 90% of the world's advanced processors. If Taiwan's fabs were disrupted due to an earthquake, conflict, or water shortage, it is estimated it would cost the global economy trillions of dollars and halt electronics production worldwide.\n\nIn response, governments are trying to build supply chain resilience. The U.S. passed the $52B CHIPS Act, and the European Union passed the EU Chips Act to fund local foundries. However, rebuilding complete domestic supply chains is incredibly difficult and will take decades due to the lack of specialized labor and ecosystem concentration.",
-        "Now, let's explore Assignment 3: End-Use Industries that rely on semiconductors, starting with High-Performance Computing and AI.\n\nThis is the fastest-growing sector, driven by generative AI models like ChatGPT. Large language models require massive datacenters packed with thousands of GPUs and specialized AI accelerators, like NVIDIA's H100 or Blackwell chips.\n\nThese chips require the most advanced fabrication processes (3nm and 4nm) and advanced packaging (CoWoS) to handle high-bandwidth memory. HPC is driving the demand for cutting-edge nodes, pushing foundries to invest in 2nm and 1.4nm technologies.",
-        "The second major end-use industry is Consumer Electronics, historically the volume driver of the industry.\n\nSmartphones, PCs, laptops, and tablets consume an enormous volume of chips. A single modern smartphone contains a leading-edge application processor (like Apple's A-series), 5G modems, image sensors, power management integrated circuits (PMICs), and flash memory.\n\nWhile computing power is key, consumer electronics are highly cost-sensitive and rely on a mix of leading-edge nodes for the main processors and mature nodes for peripheral chips.",
-        "The third end-use industry is Automotive, which has seen its semiconductor content skyrocket.\n\nModern cars are essentially 'computers on wheels.' Electric vehicles (EVs) require specialized power semiconductors (using Silicon Carbide - SiC) to manage high voltages and batteries. Advanced Driver Assistance Systems (ADAS) and autonomous driving require powerful processors, cameras, and radar sensors.\n\nInterestingly, the automotive industry relies heavily on mature nodes (like 28nm, 40nm, and 90nm) for microcontrollers. During the 2021 shortages, automotive factories halted not because of a lack of AI chips, but because they couldn't procure 50-cent microcontrollers for window wipers.",
-        "Finally, we have Industrial, Medical, and Aerospace/Defense industries.\n\n- Industrial applications include factory automation, smart grids, and robotics, which require rugged analog sensors and power management chips.\n\n- Medical devices range from MRI scanners and pacemakers to digital thermometers, demanding high reliability.\n\n- Aerospace and Defense require specialized, radiation-hardened chips for satellites, missiles, guidance systems, and communications. Because these systems have lifecycles spanning decades, they rely heavily on secure, trusted foundries producing mature, highly stable nodes.",
-        "In conclusion, we have traveled through the entire semiconductor lifecycle.\n\nWe saw that procurement is highly specialized, relying on extreme materials and monopolistic equipment like ASML's EUV. We learned that the global supply chain is incredibly efficient but fragile, with critical bottlenecks in Taiwan. Finally, we looked at how semiconductors power every pillar of modern society, from AI datacenters to everyday vehicles.\n\nLooking forward, new materials like Gallium Nitride and Silicon Carbide, along with quantum computing, will define the next era of technology. Sourcing and securing these chips remains the ultimate geopolitical challenge of our time.\n\nThank you, and I am open to any questions."
+        // Slide 1: Title
+        "Hello everyone, my name is Phyoe Sat Paing. Today, I am presenting my assignment on semiconductors. This presentation is structured into three main sections to explain how semiconductors are procured, how their global supply chain operates, and which industries end up using them. Over the next 30 minutes, we will look at this critical technology from silicon sand to the cars and data centers that power our modern world.",
+        
+        // Slide 2: Agenda
+        "To cover the three assignments comprehensively, I have structured this 30-minute presentation into five distinct parts. We will spend 3 minutes defining what semiconductors are, followed by 8 minutes on procurement, 10 minutes tracing the global supply chain, and 7 minutes examining the downstream industries. We will finish with a 2-minute wrap-up and Q&A. The core message here is that chips are not simple commodities; they are strategic products that connect design, fabrication, logistics, and global markets.",
+        
+        // Slide 3: Why semiconductors matter
+        "Before diving into the assignments, let's establish why semiconductors matter. These chips are the hidden brain of modern society. A single chip controls, stores, senses, and processes information, powering everything from household light switches to military defense systems. Economically, global sales reached a record $791.7 billion in 2025, and are projected by the SIA to approach $1 trillion in 2026. In response to recent disruptions, programs like the US CHIPS Act are investing over $50 billion to secure manufacturing. In logistics, a failure in the chip supply chain immediately stops production across automotive, medical, and electronics industries.",
+        
+        // Slide 4: From silicon to a finished chip
+        "This slide shows the basic flow from raw silicon to a finished chip. We start with silicon wafers, which are printed with circuit layouts using photolithography. Photolithography is the most critical step, printing patterns at nanometer scales. Next, the wafers are etched and chemical layers are deposited. Wafers are then diced into individual dies, which are packaged and tested. A key lesson for procurement is that you are not just buying the finished chip; you must secure the entire upstream pipeline including raw wafers, specialty gases, packaging materials, and testing services.",
+        
+        // Slide 5: Procurement of semiconductors
+        "Now we begin Assignment 1: Procurement. In this industry, procurement goes far beyond buying components; it is an active exercise in risk management. What is bought ranges from finished microchips to chemical gases and manufacturing equipment. The buyers include consumer electronics companies, automakers, cloud providers, and defense firms. Each buyer is chasing the core procurement goals: securing a stable supply, ensuring chips meet precise technical specifications, controlling costs, ensuring quality compliance, and establishing backup sourcing options.",
+        
+        // Slide 6: How semiconductor buying usually works
+        "Let's examine how the buying process actually works. It is structured and slow because chips must go through rigorous qualification. First, we forecast demand based on product launches. Second, we define the technical specifications like the manufacturing node and power requirements. Third, we select suppliers—evaluating distributors, foundries, and packaging houses. Fourth, the qualification stage begins: testing the chips for defects and reliability. Finally, we negotiate contracts and logistics. A major mistake companies make is treating chips like simple spare parts; in reality, replacing a single chip can trigger months of redesign and re-testing.",
+        
+        // Slide 7: What exactly must be sourced?
+        "To illustrate procurement complexity, this slide maps out the entire sourcing ecosystem. We categorize these into four pillars: raw materials like photoresist and wafers; advanced equipment like lithography scanners and metrology tools; design inputs which include Electronic Design Automation software, IP blocks, and engineering talent; and back-end services like assembly and final testing. The complexity is extreme because a bottleneck in just one chemical or a single design license can delay a multi-billion dollar production line.",
+        
+        // Slide 8: Main risks and how companies reduce them
+        "Given these complexities, companies face major risks. We identify five primary procurement threats: long lead times, which we mitigate with safety stock and long-term agreements; single-source dependencies, which require dual-sourcing strategies; quality defects, managed by strict traceability; export controls and geopolitical shifts, which demand compliance monitoring; and sudden demand spikes, resolved through early capacity reservations. Ultimately, a modern procurement strategy must balance cost, security, compliance, and quality.",
+        
+        // Slide 9: The global semiconductor supply chain
+        "Now we move to Assignment 2: The Global Supply Chain. The key takeaway here is interdependence. No single country contains all the steps required to design and build a chip. The supply chain flows from global R&D and design, through EDA software modeling, wafer fabrication, equipment and material inputs, back-end assembly and testing, distribution, and finally to end products. This chain represents the most complex division of labor in industrial history.",
+        
+        // Slide 10: Who does what in the chip chain?
+        "This slide breaks down regional specialization. The United States leads in design and software; Taiwan dominates advanced foundry fabrication and packaging; South Korea excels in memory and manufacturing; Japan holds massive control over raw materials and mature nodes; Europe supplies the world's lithography scanners and equipment; and China and Southeast Asia host the largest footprint for back-end assembly, packaging, and testing. Because of this high specialization, supply-chain resilience cannot be achieved by isolation; it requires deep international coordination.",
+        
+        // Slide 11: From design file to final product
+        "Let's track a chip's physical journey from a design file to a final product. The process spans design houses, foundry fabs, OSAT packaging houses, distributors, and finally end customers. For example, a cutting-edge AI chip is designed in the US, fabricated in Taiwan, packaged in Southeast Asia, integrated into a server, and finally deployed in a European data center. The logistical challenge is massive: every handoff requires strict temperature controls, shock protection, customs compliance, and defect traceability.",
+        
+        // Slide 12: Why semiconductor supply chains become fragile
+        "Why is this supply chain so fragile? It boils down to structural bottlenecks. First, advanced tools like EUV lithography scanners are manufactured by only one company, ASML. Second, capacity is highly inelastic; building a new fab takes at least 3 years and costs up to $20 billion. Third, chemical materials are highly concentrated. Finally, policy risks like tariffs and export controls create massive friction. This means a minor bottleneck in a single chemical or tool immediately ripples downstream, halting multiple global industries simultaneously.",
+        
+        // Slide 13: Industries that semiconductors end up using
+        "Now we begin Assignment 3: End-Use Industries. While every modern sector relies on semiconductors, their needs differ dramatically. We divide the end-use market into 8 primary categories: consumer electronics, automotive, AI/data centers, healthcare, industrial automation, energy grids, aerospace/defense, and telecom. Because foundry capacity is finite, these diverse industries must actively compete for fab allocations, turning chips into a strategic geopolitical resource.",
+        
+        // Slide 14: Automotive and electric vehicles
+        "Let's perform a deep dive into the automotive sector. Modern electric vehicles are essentially computers on wheels. They require Microcontrollers for engines and brakes; power semiconductors to manage battery electricity; sensors like radar and lidar; infotainment systems for navigation; and advanced AI chips for self-driving features. Importantly, most automotive chips are built on mature nodes, not leading-edge ones. This means automakers do not compete for 3-nanometer nodes, but are highly vulnerable to shortages of cheaper, older legacy chips.",
+        
+        // Slide 15: AI, data centers, healthcare, and industry
+        "This slide covers other key sectors: AI and data centers, healthcare, industrial automation, and telecom infrastructure. In AI and data centers, the demand is skyrocketing for GPUs, High-Bandwidth Memory, and high-speed networking. Healthcare requires advanced chips for MRI imaging and surgical robots. Industrial automation relies on machine vision and control PLCs. Telecom needs chips for 5G base stations. According to the SIA, the explosive growth in 2025 was driven heavily by logic and memory chips to satisfy this massive computing and AI demand.",
+        
+        // Slide 16: Key takeaways
+        "To summarize my presentation, we have connected the three assignments into one cohesive narrative. First, procurement is not just purchasing; it is a complex exercise in risk management and compliance. Second, the global supply chain is highly specialized, making it efficient but structurally vulnerable to geopolitical events. Third, downstream industries compete for the same foundry capacity. My final message is that a chip shortage is not simply a technology problem; it is a procurement, logistics, manufacturing, and strategic planning challenge.",
+        
+        // Slide 17: Sources used
+        "Finally, here are the main references I used for my research, including reports from the Semiconductor Industry Association, NIST, CSET Georgetown, ASML, and the World Semiconductor Trade Statistics. Thank you very much for your time and attention. I am now open to any questions you may have."
     ];
-
+ 
     // Slide Titles
     const slideTitles = [
         "Title Slide",
-        "Presentation Agenda",
-        "Theoretical Framework",
-        "Procurement: Raw Materials",
-        "Procurement: Lithography & Equipment",
-        "Procurement: Design & EDA",
-        "Supply Chain: GVC Map",
-        "Supply Chain: Models",
-        "Supply Chain: OSAT Packaging",
-        "Supply Chain: Risks & Resilience",
-        "End-Use: Econometric Demand",
-        "End-Use: HPC & AI Capex",
-        "End-Use: Automotive Shortages",
-        "End-Use: Infrastructure & Defense",
-        "Conclusion & Future"
+        "30-minute presentation plan",
+        "Why semiconductors matter",
+        "From silicon to a finished chip",
+        "Procurement of semiconductors",
+        "How semiconductor buying usually works",
+        "What exactly must be sourced?",
+        "Main risks and how companies reduce them",
+        "The global semiconductor supply chain",
+        "Who does what in the chip chain?",
+        "From design file to final product",
+        "Why semiconductor supply chains become fragile",
+        "Industries that semiconductors end up using",
+        "Automotive and electric vehicles",
+        "AI, data centers, healthcare, and industry",
+        "Key takeaways",
+        "Sources used"
     ];
-
+ 
     // DOM Elements
     const elements = {
         timerDisplay: document.getElementById('timer-display'),
@@ -70,16 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
         btnNext: document.getElementById('btn-next'),
         slideNumIndicator: document.getElementById('slide-num-indicator')
     };
-
+ 
     // Broadcast Channel for Dual Screen Sync
     const syncChannel = new BroadcastChannel('semiconductor-presentation');
-
+ 
     function init() {
         setupEventListeners();
-        // Request current state from the main presentation window upon load
         syncChannel.postMessage({ type: 'REQUEST_INITIAL_SYNC' });
     }
-
+ 
     // Broadcast Channel Listener
     syncChannel.onmessage = (event) => {
         const data = event.data;
@@ -102,27 +154,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
     };
-
+ 
     function syncSlideUI() {
         elements.slideNumIndicator.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
         elements.scriptText.textContent = slideScripts[currentSlide];
         
-        // Reset scroll position on slide change
         document.querySelector('.script-section').scrollTop = 0;
-
+ 
         elements.previewCurrentTitle.textContent = `${currentSlide + 1}. ${slideTitles[currentSlide]}`;
         if (currentSlide < totalSlides - 1) {
             elements.previewNextTitle.textContent = `${currentSlide + 2}. ${slideTitles[currentSlide + 1]}`;
         } else {
             elements.previewNextTitle.textContent = "End of Presentation";
         }
-
+ 
         elements.btnPrev.disabled = currentSlide === 0;
         elements.btnNext.disabled = currentSlide === totalSlides - 1;
-
+ 
         updatePacingGuide();
     }
-
+ 
     function syncTimerUI() {
         const mins = Math.floor(timerSeconds / 60);
         const secs = timerSeconds % 60;
@@ -132,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updatePacingGuide();
         handleAutoscroll();
     }
-
+ 
     function syncThemeUI() {
         if (isDarkTheme) {
             document.documentElement.removeAttribute('data-theme');
@@ -140,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.setAttribute('data-theme', 'light');
         }
     }
-
+ 
     function updatePacingGuide() {
         const targetMins = pacingTargets[currentSlide];
         const targetSeconds = targetMins * 60;
@@ -152,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
             elements.pacingStatus.style.color = "var(--text-muted)";
             return;
         }
-
+ 
         const difference = timerSeconds - targetSeconds;
         
         if (difference > 60) {
@@ -166,13 +217,13 @@ document.addEventListener('DOMContentLoaded', () => {
             elements.pacingStatus.style.color = "var(--accent-green)";
         }
     }
-
+ 
     function handleAutoscroll() {
         if (!elements.chkAutoscroll.checked || !timerRunning) return;
         
         const scriptSection = document.querySelector('.script-section');
         if (!scriptSection) return;
-
+ 
         const targetMins = pacingTargets[currentSlide] - (currentSlide > 0 ? pacingTargets[currentSlide - 1] : 0);
         const durationSeconds = targetMins * 60;
         
@@ -185,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             scriptSection.scrollTop = scrollRatio * scrollHeight;
         }
     }
-
+ 
     // Font resizing logic
     function adjustFontSize(direction) {
         if (direction === 'inc' && currentFontSizeIndex < fontSizes.length - 1) {
@@ -195,35 +246,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         applyFontSize();
     }
-
+ 
     function applyFontSize() {
         const sizeClass = `script-font-${fontSizes[currentFontSizeIndex]}`;
         fontSizes.forEach(sz => elements.scriptText.classList.remove(`script-font-${sz}`));
         elements.scriptText.classList.add(sizeClass);
     }
-
+ 
     function setupEventListeners() {
-        // Navigation clicks (send commands back to main presentation)
         elements.btnPrev.addEventListener('click', () => {
             syncChannel.postMessage({ type: 'NAV_PREV' });
         });
         elements.btnNext.addEventListener('click', () => {
             syncChannel.postMessage({ type: 'NAV_NEXT' });
         });
-
-        // Timer clicks (send commands back to main presentation)
+ 
         elements.btnTimerPlay.addEventListener('click', () => {
             syncChannel.postMessage({ type: 'TIMER_PLAY_PAUSE' });
         });
         elements.btnTimerReset.addEventListener('click', () => {
             syncChannel.postMessage({ type: 'TIMER_RESET' });
         });
-
-        // Text Sizing clicks
+ 
         elements.btnTextDec.addEventListener('click', () => adjustFontSize('dec'));
         elements.btnTextInc.addEventListener('click', () => adjustFontSize('inc'));
-
-        // Keyboard navigation forward-controls from this window
+ 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
                 syncChannel.postMessage({ type: 'NAV_NEXT' });
@@ -234,6 +281,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
+ 
     init();
 });

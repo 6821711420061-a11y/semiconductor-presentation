@@ -767,21 +767,27 @@ footer {
     }
 }
 
-/* INTERACTIVE COMPONENT: PROCUREMENT FLOW (Slide 4) */
-.procurement-flow-container {
+/* INTERACTIVE COMPONENT: PROCESS FLOWS (Slides 4, 6, 11) */
+.procurement-flow-container,
+.buying-flow-container,
+.flow-step-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.procurement-steps {
+.procurement-steps,
+.buying-steps,
+.flow-steps {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 0.75rem;
 }
 
-.procurement-step {
+.procurement-step,
+.buying-step,
+.flow-step {
     padding: 1rem;
     text-align: center;
     cursor: pointer;
@@ -789,13 +795,17 @@ footer {
     z-index: 10;
 }
 
-.procurement-step.active {
+.procurement-step.active,
+.buying-step.active,
+.flow-step.active {
     border-color: var(--accent-cyan);
     background: rgba(0, 242, 254, 0.08);
     box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
 }
 
-.procurement-step-num {
+.procurement-step-num,
+.buying-step-num,
+.flow-step-num {
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -809,12 +819,16 @@ footer {
     font-weight: 700;
 }
 
-.procurement-step.active .procurement-step-num {
+.procurement-step.active .procurement-step-num,
+.buying-step.active .buying-step-num,
+.flow-step.active .flow-step-num {
     background: var(--gradient-primary);
     color: #ffffff;
 }
 
-.procurement-step-title {
+.procurement-step-title,
+.buying-step-title,
+.flow-step-title {
     font-family: var(--font-heading);
     font-size: 0.95rem;
     font-weight: 600;
@@ -822,16 +836,22 @@ footer {
     margin-bottom: 0.25rem;
 }
 
-.procurement-step-desc {
+.procurement-step-desc,
+.buying-step-desc,
+.flow-step-desc {
     font-size: 0.75rem;
     color: var(--text-muted);
 }
 
-.procurement-step.active .procurement-step-desc {
+.procurement-step.active .procurement-step-desc,
+.buying-step.active .buying-step-desc,
+.flow-step.active .flow-step-desc {
     color: var(--text-secondary);
 }
 
-.procurement-detail-display {
+.procurement-detail-display,
+.buying-detail-display,
+.flow-detail-display {
     min-height: 110px;
     padding: 1.2rem;
     background: rgba(0, 0, 0, 0.15);
@@ -839,7 +859,9 @@ footer {
     border-left: 4px solid var(--accent-cyan);
 }
 
-.procurement-detail-title {
+.procurement-detail-title,
+.buying-detail-title,
+.flow-detail-title {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.1rem;
@@ -847,7 +869,9 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-.procurement-detail-body {
+.procurement-detail-body,
+.buying-detail-body,
+.flow-detail-body {
     font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.5;
