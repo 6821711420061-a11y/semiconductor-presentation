@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literature Synthesis: Global Semiconductor Value Chain</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Top Navigation Bar -->
+        <header>
+            <div class="logo-section">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                </svg>
+                <div class="logo-text">SILICON NEXUS</div>
+            </div>
+            
+            <div class="header-controls">
+                <div class="slide-number-indicator" id="slide-num-indicator">Slide 1 of 15</div>
+                
+                <button class="btn-icon" id="btn-theme" title="Toggle Theme (T)">
+                    <!-- Sun/Moon icon filled dynamically by JS -->
+                </button>
+                
+                <button class="btn-icon" id="btn-fullscreen" title="Toggle Fullscreen (F)">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Display Viewport -->
+        <main id="main-viewport">
+            
+            <!-- Slide Stage -->
+            <div id="slides-frame">
+                <div class="slide-screen">
+                    
+                    <!-- SLIDE 1: ACADEMIC TITLE -->
+                    <div class="slide slide-title-page active">
+                        <div class="hero-badge">Literature Synthesis</div>
+                        <h1 class="slide-title">Procurement, Global Supply Chains, and Downstream Markets: A Semiconductor Value Chain Review</h1>
+                        <p class="subtitle">An economic and operational analysis of the modern microchip ecosystem based on empirical research and industrial organization models.</p>
+                        <div class="meta-info">
+                            <div class="meta-info-item">Subject: <strong>Industrial Economics</strong></div>
+                            <div class="meta-info-item">Focus: <strong>Sourcing, GVCs, &amp; Market Dynamics</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 2: AGENDA (ACADEMIC) -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Structure</span>
+                            <h2 class="slide-title">Literature Synthesis Agenda</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="agenda-grid">
+                                <div class="glass-panel agenda-card highlight-border">
+                                    <div class="agenda-num">01</div>
+                                    <h3>Upstream Procurement</h3>
+                                    <p>Sourcing economics of critical raw materials (11-Nines polysilicon), chemical dependencies, ASML EUV capital equipment networks, and EDA tool/IP barriers.</p>
+                                </div>
+                                <div class="glass-panel agenda-card highlight-border">
+                                    <div class="agenda-num">02</div>
+                                    <h3>Global Value Chain (GVC)</h3>
+                                    <p>Geographic concentration chokepoints, Fabless-Foundry vertical disintegration models, OSAT advanced packaging engineering, and macroeconomic risk simulations.</p>
+                                </div>
+                                <div class="glass-panel agenda-card highlight-border">
+                                    <div class="agenda-num">03</div>
+                                    <h3>Industrial Integration</h3>
+                                    <p>Econometric market analysis, high-performance computing (AI Capex), JIT inventory failures in automotive systems, and aerospace/defense secure sourcing regimes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Agenda</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 3: THEORETICAL FRAMEWORK -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Theory</span>
+                            <h2 class="slide-title">Theoretical &amp; Conceptual Framework</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="slide-content-left">
+                                <ul class="bullet-list">
+                                    <li class="bullet-item"><strong>Global Value Chain (GVC) Theory:</strong> Gary Gereffi's framework describes the spatial fragmentation of design, tool sourcing, and fabrication. High-margin steps are concentrated in developed nations.</li>
+                                    <li class="bullet-item"><strong>Transaction Cost Economics (TCE):</strong> Williamson's asset specificity concept explains why fabless firms outsource manufacturing to foundries, avoiding $15B+ asset lock-in.</li>
+                                    <li class="bullet-item"><strong>The Bullwhip Effect:</strong> Hau Lee's supply chain model demonstrates how upstream supply volatility is amplified by lagged downstream forecasting.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right">
+                                <div class="glass-panel highlight-border" style="width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 1.5rem;">
+                                    <h4 style="color: var(--accent-cyan); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 0.95rem; text-align: center;">GVC Value Distribution (Smile Curve)</h4>
+                                    <svg viewBox="0 0 200 110" style="width: 100%; height: auto;">
+                                        <!-- Smile Curve Line -->
+                                        <path d="M 15 20 Q 100 95 185 20" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5"/>
+                                        
+                                        <!-- Dots on curve -->
+                                        <circle cx="15" cy="20" r="4" fill="var(--accent-purple)"/> <!-- R&D / Design -->
+                                        <circle cx="50" cy="40" r="4" fill="var(--accent-purple)"/> <!-- Equipment -->
+                                        <circle cx="100" cy="73" r="4" fill="var(--accent-cyan)"/> <!-- Fabrication -->
+                                        <circle cx="150" cy="40" r="4" fill="var(--accent-green)"/> <!-- OSAT Packaging -->
+                                        <circle cx="185" cy="20" r="4" fill="var(--accent-amber)"/> <!-- Sales & IP -->
+                                        
+                                        <!-- Axis -->
+                                        <line x1="10" y1="90" x2="190" y2="90" stroke="var(--border-color)" stroke-width="1"/>
+                                        <line x1="10" y1="10" x2="10" y2="90" stroke="var(--border-color)" stroke-width="1"/>
+                                        
+                                        <!-- Text Labels -->
+                                        <text x="12" y="10" font-size="5" fill="var(--text-secondary)">Value Add</text>
+                                        <text x="188" y="96" font-size="5" fill="var(--text-secondary)" text-anchor="end">Value Chain Stage</text>
+                                        
+                                        <text x="25" y="15" font-size="5.5" fill="var(--text-primary)">Design/IP</text>
+                                        <text x="45" y="32" font-size="5.5" fill="var(--text-primary)">Equipment</text>
+                                        <text x="100" y="83" font-size="5.5" fill="var(--accent-cyan)" text-anchor="middle">Fab (TSMC)</text>
+                                        <text x="155" y="32" font-size="5.5" fill="var(--text-primary)">OSAT</text>
+                                        <text x="180" y="15" font-size="5.5" fill="var(--text-primary)" text-anchor="end">Services</text>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Theoretical Framework</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 4: PROCUREMENT - RAW MATERIALS -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 1: Procurement</span>
+                            <h2 class="slide-title">Procurement: Critical Raw Materials &amp; Chemical Dependencies</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="procurement-flow-container">
+                                <div class="procurement-steps">
+                                    <div class="glass-panel procurement-step active" 
+                                         data-title="1. Silica Sand &amp; Polysilicon Reduction" 
+                                         data-desc="Raw quartzite (silica) undergoes carbothermic reduction to produce metallurgical silicon. Distilled into trichlorosilane gas and deposited as high-purity electronic-grade polysilicon.">
+                                        <div class="procurement-step-num">1</div>
+                                        <div class="procurement-step-title">Quartzite Sand</div>
+                                        <div class="procurement-step-desc">Reduction refining</div>
+                                    </div>
+                                    <div class="glass-panel procurement-step" 
+                                         data-title="2. Electronic-Grade Polysilicon (11-Nines)" 
+                                         data-desc="Sourcing requires an extreme purity level of 99.999999999% (eleven-nines). Achieved via Siemens chemical vapor deposition processes. Highly energy-intensive.">
+                                        <div class="procurement-step-num">2</div>
+                                        <div class="procurement-step-title">Polysilicon</div>
+                                        <div class="procurement-step-desc">99.999999999% purity</div>
+                                    </div>
+                                    <div class="glass-panel procurement-step" 
+                                         data-title="3. Monocrystalline Ingot Pulling" 
+                                         data-desc="Purified polysilicon is melted in a quartz crucible at 1,425°C. A seed crystal is rotated and slowly pulled out (Czochralski method) to grow a single-crystal ingot.">
+                                        <div class="procurement-step-num">3</div>
+                                        <div class="procurement-step-title">Ingot Pulling</div>
+                                        <div class="procurement-step-desc">Czochralski crystal</div>
+                                    </div>
+                                    <div class="glass-panel procurement-step" 
+                                         data-title="4. Diamond Wire Slicing" 
+                                         data-desc="Ingots are cropped and ground to diameter, then sliced into 300mm wafers using high-tension diamond wire saw webs, resulting in wafers less than 1mm thick.">
+                                        <div class="procurement-step-num">4</div>
+                                        <div class="procurement-step-title">Wafer Slicing</div>
+                                        <div class="procurement-step-desc">Ultra-thin slicing</div>
+                                    </div>
+                                    <div class="glass-panel procurement-step" 
+                                         data-title="5. CMP Polishing &amp; Chemical Sourcing" 
+                                         data-desc="Wafers undergo Chemical-Mechanical Polishing (CMP) for atomic flatness. Procurement includes critical photoresists (Japan commands 70% share) and high-purity gases.">
+                                        <div class="procurement-step-num">5</div>
+                                        <div class="procurement-step-title">CMP &amp; Chemicals</div>
+                                        <div class="procurement-step-desc">Sourcing chokepoints</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid-2col" style="margin-top: 1rem; align-items: stretch; gap: 1.5rem;">
+                                    <div class="procurement-detail-display" style="min-height: auto; margin-top: 0;">
+                                        <div class="procurement-detail-title" id="procurement-detail-title">1. Silica Sand &amp; Polysilicon Reduction</div>
+                                        <div class="procurement-detail-body" id="procurement-detail-body">
+                                            Raw quartzite (silica) undergoes carbothermic reduction to produce metallurgical silicon. Distilled into trichlorosilane gas and deposited as high-purity electronic-grade polysilicon.
+                                        </div>
+                                    </div>
+                                    <div class="glass-panel" style="padding: 0; overflow: hidden; border-radius: 8px; height: 130px; border-color: rgba(0, 242, 254, 0.2);">
+                                        <img src="silicon_ingot_sourcing.png" alt="Silicon Ingot Sourcing" style="width: 100%; height: 100%; object-fit: cover;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Critical Raw Materials</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 5: PROCUREMENT - LITHOGRAPHY & EQUIPMENT -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 1: Procurement</span>
+                            <h2 class="slide-title">Procurement: Lithography Scanner Capital &amp; R&amp;D Alliances</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="slide-content-left">
+                                <ul class="bullet-list">
+                                    <li class="bullet-item"><strong>Extreme Ultraviolet (EUV) Photolithography:</strong> Essential to print sub-7nm transistor features. Projects 13.5nm wavelength light onto light-sensitive photoresist.</li>
+                                    <li class="bullet-item"><strong>ASML's Monopoly Moat:</strong> Sourced exclusively from Dutch manufacturer ASML. High barrier to entry built through co-development networks with suppliers like Zeiss and Trumpf.</li>
+                                    <li class="bullet-item"><strong>Asset Specificity (TCE):</strong> Scanners cost $150M-$200M+ each, require three Boeing 747s to transport, and have lead times of 12-18 months.</li>
+                                    <li class="bullet-item"><strong>Zeiss Optics Sourcing:</strong> Uses mirrors polished to atomic flatness—if scaled to size of the USA, the tallest bump would be less than 1 millimeter.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right">
+                                <div class="glass-panel highlight-border" style="padding: 0; overflow: hidden; width: 100%; height: 100%; border-radius: 12px; border-color: rgba(0, 242, 254, 0.2);">
+                                    <img src="lithography_scanner_process.png" alt="ASML EUV Photolithography Scanner" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>EUV Lithography Sourcing</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 6: PROCUREMENT - DESIGN TOOLS & IP -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 1: Procurement</span>
+                            <h2 class="slide-title">Procurement: Upstream Design IP &amp; EDA Software Moats</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="slide-content-left">
+                                <ul class="bullet-list">
+                                    <li class="bullet-item"><strong>Electronic Design Automation (EDA):</strong> Highly consolidated software triopoly (Synopsys, Cadence, Siemens EDA) required to simulate and verify circuits before manufacture.</li>
+                                    <li class="bullet-item"><strong>Proprietary IP Block Licensing:</strong> Design firms license pre-verified functional blocks (e.g. PCIe, memory controllers) rather than drafting from scratch.</li>
+                                    <li class="bullet-item"><strong>ISA Architecture Sourcing:</strong> ARM licenses its instruction set architecture (ISA) globally. Under trade control risks, RISC-V is studied as an open-source alternative.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right">
+                                <div class="glass-panel" style="width: 100%; display: flex; flex-direction: column; gap: 0.75rem;">
+                                    <h4 style="color: var(--accent-purple); font-family: var(--font-heading); font-size: 1.1rem;">Pre-Manufacture Procurement Stack</h4>
+                                    
+                                    <div class="glass-panel compact-card highlight-border" style="padding: 0.75rem;">
+                                        <div class="card-icon" style="color: var(--accent-purple); background: rgba(192, 132, 252, 0.1);"><svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg></div>
+                                        <div class="card-info">
+                                            <h4>EDA Software Licenses</h4>
+                                            <p>Synopsys, Cadence, Siemens. Systemic barrier to entry for design validation.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="glass-panel compact-card highlight-border" style="padding: 0.75rem;">
+                                        <div class="card-icon" style="color: var(--accent-cyan); background: rgba(0, 242, 254, 0.1);"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+                                        <div class="card-info">
+                                            <h4>IP Sourcing &amp; ISA Licenses</h4>
+                                            <p>Licensing standard ARM architecture or custom RISC-V blocks.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Design IP &amp; EDA</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 7: GLOBAL SUPPLY CHAIN ECOSYSTEM MAP -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 2: GVC</span>
+                            <h2 class="slide-title">Global Value Chain: Geographic Dispersal &amp; Chokepoints</h2>
+                        </div>
+                        <div class="slide-body" style="flex-direction: column; gap: 1rem; justify-content: flex-start;">
+                            <div class="supply-chain-map-container">
+                                <svg class="map-svg" viewBox="0 0 800 300">
+                                    <!-- Simple Map Outlines (Mock background continents) -->
+                                    <path d="M 50 80 Q 120 70 170 120 T 130 220 Q 90 240 70 200 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                    <path d="M 320 60 Q 380 50 420 110 T 380 180 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                    <path d="M 600 70 Q 720 80 750 140 T 650 240 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                    
+                                    <!-- Flow lines -->
+                                    <path id="line-us-tw" class="map-connection-line" d="M 150 100 Q 400 60 660 160" stroke="var(--accent-cyan)" stroke-width="1.5"/>
+                                    <path id="line-eu-tw" class="map-connection-line" d="M 370 70 Q 500 50 660 160" stroke="var(--accent-purple)" stroke-width="1.5"/>
+                                    <path id="line-jp-tw" class="map-connection-line" d="M 700 90 Q 680 120 660 160" stroke="var(--accent-amber)" stroke-width="1.5"/>
+                                    <path id="line-tw-my" class="map-connection-line" d="M 660 160 Q 645 200 630 230" stroke="var(--accent-green)" stroke-width="1.5"/>
+                                    
+                                    <!-- US Node (Design) -->
+                                    <g class="map-node" id="us-design" data-line="line-us-tw" data-title="United States (Silicon Valley, Austin)" data-desc="Dominates EDA licenses, core processor microarchitecture, design IP (NVIDIA, Apple, Qualcomm), and advanced systems software.">
+                                        <circle class="map-node-ping" cx="150" cy="100" r="12" stroke="var(--accent-cyan)"/>
+                                        <circle class="map-node-core" cx="150" cy="100" r="6" fill="var(--accent-cyan)"/>
+                                    </g>
+                                    <text x="150" y="85" font-family="var(--font-heading)" font-size="8" fill="var(--text-secondary)" text-anchor="middle">USA: Design &amp; EDA</text>
+
+                                    <!-- Europe Node (ASML Equipment) -->
+                                    <g class="map-node" id="eu-equip" data-line="line-eu-tw" data-title="Europe (Eindhoven, Oberkochen)" data-desc="Monopolistic center of advanced capital lithography systems (ASML EUV) and high-precision optics (Zeiss).">
+                                        <circle class="map-node-ping" cx="370" cy="70" r="12" stroke="var(--accent-purple)"/>
+                                        <circle class="map-node-core" cx="370" cy="70" r="6" fill="var(--accent-purple)"/>
+                                    </g>
+                                    <text x="370" y="55" font-family="var(--font-heading)" font-size="8" fill="var(--text-secondary)" text-anchor="middle">Europe: Equipment</text>
+
+                                    <!-- Japan Node (Wafers & Chemicals) -->
+                                    <g class="map-node" id="jp-wafer" data-line="line-jp-tw" data-title="Japan (Tokyo, Shin-Etsu)" data-desc="Critical chemical supplies, photoresists (Japan commands 70% share), CMP slurries, and silicon wafer substrates.">
+                                        <circle class="map-node-ping" cx="700" cy="90" r="12" stroke="var(--accent-amber)"/>
+                                        <circle class="map-node-core" cx="700" cy="90" r="6" fill="var(--accent-amber)"/>
+                                    </g>
+                                    <text x="730" y="85" font-family="var(--font-heading)" font-size="8" fill="var(--text-secondary)" text-anchor="middle">Japan: Materials</text>
+
+                                    <!-- Taiwan Node (Fabs / TSMC) -->
+                                    <g class="map-node" id="tw-fab" data-line="line-tw-my" data-title="Taiwan (Hsinchu Science Park)" data-desc="The manufacturing hub. TSMC fabricates over 60% of chips globally and over 90% of sub-7nm advanced nodes.">
+                                        <circle class="map-node-ping" cx="660" cy="160" r="12" stroke="var(--accent-cyan)"/>
+                                        <circle class="map-node-core" cx="660" cy="160" r="6" fill="var(--accent-cyan)"/>
+                                    </g>
+                                    <text x="700" y="165" font-family="var(--font-heading)" font-size="8" fill="var(--accent-cyan)" text-anchor="start">Taiwan: Fabrication (Fabs)</text>
+
+                                    <!-- Malaysia Node (OSAT Packaging) -->
+                                    <g class="map-node" id="my-osat" data-line="line-tw-my" data-title="Malaysia (Penang, Kuala Lumpur)" data-desc="Key node in assembly, testing, and packaging (OSAT). Accounts for 13% of global testing/packaging capacity.">
+                                        <circle class="map-node-ping" cx="630" cy="230" r="12" stroke="var(--accent-green)"/>
+                                        <circle class="map-node-core" cx="630" cy="230" r="6" fill="var(--accent-green)"/>
+                                    </g>
+                                    <text x="630" y="248" font-family="var(--font-heading)" font-size="8" fill="var(--text-secondary)" text-anchor="middle">Malaysia: OSAT</text>
+                                </svg>
+                                
+                                <div class="map-tooltip" id="map-tooltip" style="opacity: 0;">
+                                    <div class="map-tooltip-title" id="map-tooltip-title">Taiwan (Hsinchu Science Park)</div>
+                                    <div class="map-tooltip-body" id="map-tooltip-body">
+                                        The manufacturing heart. TSMC fabricates over 60% of chips globally and over 90% of sub-7nm advanced chips.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Global Value Chain Map</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 8: FABLESS VS FOUNDRY MODEL -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 2: GVC</span>
+                            <h2 class="slide-title">Industrial Organization: Fabless-Foundry Disintegration</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="agenda-grid" style="grid-template-columns: 1fr 1fr 1fr; width: 100%;">
+                                <div class="glass-panel highlight-border">
+                                    <div class="agenda-num" style="font-size: 2rem;">FABLESS</div>
+                                    <h4 style="margin: 0.5rem 0; font-family: var(--font-heading); color: var(--accent-cyan);">Design Specialization</h4>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 0.75rem;">Focuses on core architecture and design, avoiding massive capital expenditures of fabs (exceeding $15B).</p>
+                                    <div style="font-size: 0.8rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+                                        <strong>Research Model:</strong> Vertical disintegration of production. Examples: NVIDIA, Apple, AMD.
+                                    </div>
+                                </div>
+                                <div class="glass-panel highlight-border">
+                                    <div class="agenda-num" style="font-size: 2rem; background: var(--gradient-purple); -webkit-background-clip: text;">FOUNDRY</div>
+                                    <h4 style="margin: 0.5rem 0; font-family: var(--font-heading); color: var(--accent-purple);">Pure-Play Fabs</h4>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 0.75rem;">Contract fabrication for design firms. Commits to a non-compete model, establishing trust with IP holders.</p>
+                                    <div style="font-size: 0.8rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+                                        <strong>Market Leader:</strong> TSMC (Taiwan) holds 60%+ foundry revenue and 90%+ advanced nodes.
+                                    </div>
+                                </div>
+                                <div class="glass-panel highlight-border">
+                                    <div class="agenda-num" style="font-size: 2rem; background: var(--gradient-warm); -webkit-background-clip: text;">IDM</div>
+                                    <h4 style="margin: 0.5rem 0; font-family: var(--font-heading); color: var(--accent-amber);">Integrated Model</h4>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 0.75rem;">Designs, manufactures, and markets internally. Transitioning to hybrid structures to offset soaring fab costs.</p>
+                                    <div style="font-size: 0.8rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+                                        <strong>Examples:</strong> Intel (moving to Intel Foundry Services model), Samsung, TI.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Vertical Disintegration Models</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 9: ASSEMBLY, TESTING, AND PACKAGING -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 2: GVC</span>
+                            <h2 class="slide-title">Assembly, Packaging, &amp; Testing (OSAT): Post-Moore Era</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="slide-content-left">
+                                <ul class="bullet-list">
+                                    <li class="bullet-item"><strong>OSAT Transition:</strong> Outsourced Semiconductor Assembly &amp; Test (OSAT) is transitioning from low-value commodity testing to a key driver of computational performance.</li>
+                                    <li class="bullet-item"><strong>Heterogeneous Integration:</strong> Stacking separate dies (logic, memory) onto a single substrate to bypass physical limits of monolithic chip scaling.</li>
+                                    <li class="bullet-item"><strong>CoWoS Packaging:</strong> TSMC's Chip-on-Wafer-on-Substrate. Employs a silicon interposer with microbumps to route connections between HBM and GPUs.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right">
+                                <div class="glass-panel highlight-border" style="padding: 0; overflow: hidden; width: 100%; height: 100%; border-radius: 12px; border-color: rgba(0, 242, 254, 0.2);">
+                                    <img src="advanced_packaging_microchip.png" alt="Advanced Chip Packaging Microscope View" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>OSAT Advanced Packaging</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 10: GEOPOLITICS & RESILIENCE -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 2: GVC</span>
+                            <h2 class="slide-title">Supply Chain Vulnerabilities &amp; Macroeconomic Disruption Models</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="slide-content-left">
+                                <ul class="bullet-list">
+                                    <li class="bullet-item"><strong>Geographic Vulnerability:</strong> Extreme concentration of fabs in Taiwan Strait. Macroeconomic models (e.g. Rhodium Group / Bloomberg Economics) simulate a shutdown costing $10 Trillion in global GDP (10% global output).</li>
+                                    <li class="bullet-item"><strong>Reshoring Legislation:</strong> Government subsidies (US CHIPS Act at $52B, EU Chips Act at $47B) designed to decouple critical fabrication from singular chokepoints.</li>
+                                    <li class="bullet-item"><strong>Friction Factors:</strong> De-globalization faces structural headwinds—extreme construction capital, long cycles (3-5 years to build), and shortages of specialized engineering talent.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right">
+                                <div class="glass-panel highlight-border" style="width: 100%; display: flex; flex-direction: column; gap: 0.5rem;">
+                                    <h4 style="color: var(--accent-rose); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 0.95rem;">Geopolitical Chokepoint Risks</h4>
+                                    
+                                    <div style="background: rgba(244,63,94,0.1); border-left: 3px solid var(--accent-rose); padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.8rem;">
+                                        <strong>Taiwan Strait Concentration:</strong> 90%+ advanced node fab capacity.
+                                    </div>
+                                    <div style="background: rgba(251,191,36,0.1); border-left: 3px solid var(--accent-amber); padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.8rem;">
+                                        <strong>Material Dependencies:</strong> Japanese chemical moats, Russian neon gases, Chinese gallium.
+                                    </div>
+                                    <div style="background: rgba(192,132,252,0.1); border-left: 3px solid var(--accent-purple); padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.8rem;">
+                                        <strong>ASML EUV Monopsony:</strong> 100% of advanced photolithography systems supplied by one firm.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Supply Chain Risk &amp; Resilience</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 11: END-USE: HPC & AI -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 3: Markets</span>
+                            <h2 class="slide-title">End-Use Markets: Econometric Demand Drivers &amp; Volatility</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="industry-chart-container">
+                                <svg class="donut-chart-svg" viewBox="0 0 100 100">
+                                    <!-- Segment 1: HPC (37%) -->
+                                    <circle class="donut-segment" pathLength="100" cx="50" cy="50" r="30" stroke="var(--accent-cyan)" stroke-dasharray="37 63" stroke-dashoffset="0"/>
+                                    <!-- Segment 2: Consumer (32%) -->
+                                    <circle class="donut-segment" pathLength="100" cx="50" cy="50" r="30" stroke="var(--accent-purple)" stroke-dasharray="32 68" stroke-dashoffset="-37"/>
+                                    <!-- Segment 3: Auto (15%) -->
+                                    <circle class="donut-segment" pathLength="100" cx="50" cy="50" r="30" stroke="var(--accent-green)" stroke-dasharray="15 85" stroke-dashoffset="-69"/>
+                                    <!-- Segment 4: Industrial (10%) -->
+                                    <circle class="donut-segment" pathLength="100" cx="50" cy="50" r="30" stroke="var(--accent-amber)" stroke-dasharray="10 90" stroke-dashoffset="-84"/>
+                                    <!-- Segment 5: Defense/Medical (6%) -->
+                                    <circle class="donut-segment" pathLength="100" cx="50" cy="50" r="30" stroke="var(--accent-rose)" stroke-dasharray="6 94" stroke-dashoffset="-94"/>
+                                </svg>
+                                
+                                <div class="chart-legend">
+                                    <div class="legend-item active" data-index="0">
+                                        <div class="legend-item-left">
+                                            <span class="legend-color-dot" style="background: var(--accent-cyan);"></span>
+                                            <span class="legend-label">HPC &amp; AI Datacenters</span>
+                                        </div>
+                                        <span class="legend-value">37%</span>
+                                    </div>
+                                    <div class="legend-item" data-index="1">
+                                        <div class="legend-item-left">
+                                            <span class="legend-color-dot" style="background: var(--accent-purple);"></span>
+                                            <span class="legend-label">Consumer Electronics</span>
+                                        </div>
+                                        <span class="legend-value">32%</span>
+                                    </div>
+                                    <div class="legend-item" data-index="2">
+                                        <div class="legend-item-left">
+                                            <span class="legend-color-dot" style="background: var(--accent-green);"></span>
+                                            <span class="legend-label">Automotive</span>
+                                        </div>
+                                        <span class="legend-value">15%</span>
+                                    </div>
+                                    <div class="legend-item" data-index="3">
+                                        <div class="legend-item-left">
+                                            <span class="legend-color-dot" style="background: var(--accent-amber);"></span>
+                                            <span class="legend-label">Industrial &amp; IoT</span>
+                                        </div>
+                                        <span class="legend-value">10%</span>
+                                    </div>
+                                    <div class="legend-item" data-index="4">
+                                        <div class="legend-item-left">
+                                            <span class="legend-color-dot" style="background: var(--accent-rose);"></span>
+                                            <span class="legend-label">Critical Infrast. &amp; Defense</span>
+                                        </div>
+                                        <span class="legend-value">6%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="glass-panel" style="width: 300px; height: 100%; display: flex; flex-direction: column; justify-content: center;" id="industry-detail-panel">
+                                <h4 id="industry-detail-title" style="color: var(--accent-cyan); font-family: var(--font-heading); margin-bottom: 0.25rem; font-size: 1.1rem;">HPC &amp; AI</h4>
+                                <div id="industry-detail-value" style="font-weight: 700; margin-bottom: 0.5rem; font-size: 0.9rem;">Global Market Share: 37%</div>
+                                <p id="industry-detail-body" style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4;">
+                                    Driven by generative AI, large language models, cloud databases, and hyper-scale compute farms. Requires leading-edge nodes (3nm, 5nm) and CoWoS advanced packaging.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>End-Use Industry Breakdown</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 12: END-USE: CONSUMER ELECTRONICS -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 3: Markets</span>
+                            <h2 class="slide-title">End-Use: High-Performance Computing &amp; AI Capex Cycle</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="slide-content-left">
+                                <ul class="bullet-list">
+                                    <li class="bullet-item"><strong>Capital Expenditure Hypercycles:</strong> Driven by cloud hyperscaler demand for LLM training arrays. HPC has bypassed smartphones to become the primary driver of foundry revenues.</li>
+                                    <li class="bullet-item"><strong>Leading-Edge Node Dependency:</strong> Involves advanced fabrication nodes (3nm/5nm) and CoWoS advanced packaging to support high-bandwidth memory (HBM).</li>
+                                    <li class="bullet-item"><strong>Inelastic Demand Dynamics:</strong> Prioritizes performance metrics and thermal efficiency over unit cost, making design firms sensitive to advanced foundry allocations.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right">
+                                <div class="glass-panel highlight-border" style="width: 100%; padding: 1.25rem;">
+                                    <h4 style="color: var(--accent-cyan); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 0.95rem;">HPC &amp; AI Hardware Allocation</h4>
+                                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">
+                                        <li style="display: flex; justify-content: space-between;"><span>GPU Core Logic Nodes</span> <strong>TSMC 3nm / 4nm</strong></li>
+                                        <li style="display: flex; justify-content: space-between;"><span>HBM Stacked Memory</span> <strong>SK Hynix / Samsung</strong></li>
+                                        <li style="display: flex; justify-content: space-between;"><span>Advanced Packaging</span> <strong>TSMC CoWoS Interposer</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>AI Capex &amp; HPC Hardware</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 13: END-USE: AUTOMOTIVE CASE STUDY -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 3: Markets</span>
+                            <h2 class="slide-title">The Automotive Supply Chain: A Case Study of JIT Failures</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="slide-content-left">
+                                <ul class="bullet-list">
+                                    <li class="bullet-item"><strong>Just-in-Time (JIT) Inventory Breakdown:</strong> Automotive OEMs cut semiconductor orders during the 2020 pandemic. Fabs reallocated capacity to consumer electronics, locking out automotive firms when sales recovered.</li>
+                                    <li class="bullet-item"><strong>Mature Node Chokepoints:</strong> Modern EVs require 1,500+ chips. Sourcing failures for 50-cent microcontrollers built on mature nodes (28nm to 90nm) halted multi-billion dollar assembly lines.</li>
+                                    <li class="bullet-item"><strong>Pacing Financial Impact:</strong> Shortages cost the global automotive sector over $200 Billion in lost revenue during 2021, prompting a shift from JIT to strategic buffer stockpiling.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right">
+                                <div class="glass-panel highlight-border" style="width: 100%; padding: 1.25rem;">
+                                    <h4 style="color: var(--accent-green); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 0.95rem;">Automotive Semiconductor Demands</h4>
+                                    <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1rem;">
+                                        <div style="text-align: center; flex: 1;">
+                                            <div style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary);">~600</div>
+                                            <div style="font-size: 0.75rem; color: var(--text-muted);">Traditional ICE Car</div>
+                                        </div>
+                                        <div style="font-size: 1.5rem; color: var(--accent-green);">&#10142;</div>
+                                        <div style="text-align: center; flex: 1;">
+                                            <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-green);">~1,500+</div>
+                                            <div style="font-size: 0.75rem; color: var(--text-muted);">Modern EV/ADAS Car</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Automotive Supply Case Study</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 14: END-USE: DEFENSE & AEROSPACE -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Pillar 3: Markets</span>
+                            <h2 class="slide-title">Critical Infrastructure, Medical, &amp; Defense Sourcing Regimes</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="slide-content-left">
+                                <ul class="bullet-list">
+                                    <li class="bullet-item"><strong>Extreme Reliability Requirements:</strong> Industrial robotics, medical imaging, and aerospace guidance systems require chips certified to operate in harsh environment thresholds.</li>
+                                    <li class="bullet-item"><strong>Trusted Foundry Programs:</strong> Defense arrays source chips from certified secure facilities to prevent hardware-level backdoors.</li>
+                                    <li class="bullet-item"><strong>Legacy Node Longevity:</strong> Because defense platforms operate for decades, contracts guarantee the long-term support of legacy nodes (28nm to 90nm), shielding them from consumer obsolescence.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right">
+                                <div class="glass-panel" style="width: 100%; display: flex; flex-direction: column; gap: 0.5rem;">
+                                    <h4 style="color: var(--accent-rose); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 0.95rem;">Aerospace &amp; Defense Sourcing Needs</h4>
+                                    
+                                    <div class="glass-panel compact-card highlight-border" style="padding: 0.5rem 0.75rem;">
+                                        <div class="card-icon" style="color: var(--accent-rose); background: rgba(244,63,94,0.1); width: 24px; height: 24px;"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+                                        <div class="card-info">
+                                            <h5 style="color: var(--text-primary); font-size: 0.85rem;">Radiation Hardening</h5>
+                                            <p style="font-size: 0.75rem;">Shielded from high-energy particles for orbital satellite deployments.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="glass-panel compact-card highlight-border" style="padding: 0.5rem 0.75rem;">
+                                        <div class="card-icon" style="color: var(--accent-amber); background: rgba(251,191,36,0.1); width: 24px; height: 24px;"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg></div>
+                                        <div class="card-info">
+                                            <h5 style="color: var(--text-primary); font-size: 0.85rem;">Trusted Foundry Program</h5>
+                                            <p style="font-size: 0.75rem;">Fabs must be geographically local and secure to prevent supply tampering.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Secure &amp; Specialized Sourcing</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 15: CONCLUSION -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">Summary</span>
+                            <h2 class="slide-title">Conclusion: Policy Recommendations &amp; Future Paradigms</h2>
+                        </div>
+                        <div class="slide-body">
+                            <div class="slide-content-left">
+                                <ul class="bullet-list">
+                                    <li class="bullet-item"><strong>Geopolitical Decoupling Limits:</strong> Rebuilding complete domestic supply chains is economically unfeasible due to deep global value chain interdependence.</li>
+                                    <li class="bullet-item"><strong>Next-Generation Materials:</strong> Sourcing focus is shifting toward Silicon Carbide (SiC) and Gallium Nitride (GaN) to manage high-efficiency power in EVs and grids.</li>
+                                    <li class="bullet-item"><strong>Strategic Reserves Sourcing:</strong> Recommends shifting critical infrastructure sectors from JIT models to strategic national buffers.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right">
+                                <div class="glass-panel highlight-border" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+                                    <div>
+                                        <div style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.5rem;">THANK YOU</div>
+                                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; max-width: 250px; margin: 0 auto;">Questions? Full paper literature citations and slides resource stack are available on request.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>Silicon Nexus</span>
+                            <span>Literature Synthesis Summary</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Presenter Notes Control Panel (Split Right Panel) -->
+            <div id="presenter-panel">
+                <div class="presenter-header">
+                    <div class="presenter-title">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                        Presenter Control Panel
+                    </div>
+                    <div class="autoscroll-toggle">
+                        <input type="checkbox" id="chk-autoscroll" checked>
+                        <label for="chk-autoscroll">Auto-scroll</label>
+                    </div>
+                </div>
+
+                <div class="timer-section">
+                    <div class="timer-display" id="timer-display">00:00</div>
+                    <div class="timer-controls">
+                        <button class="timer-btn" id="btn-timer-play">Start</button>
+                        <button class="timer-btn" id="btn-timer-reset">Reset</button>
+                    </div>
+                    <div class="pacing-guide">
+                        <span id="pacing-target" class="pacing-target">Target: < 01:30</span>
+                        <span id="pacing-status">Timer inactive</span>
+                    </div>
+                </div>
+
+                <div class="script-section">
+                    <div class="script-controls">
+                        <span class="script-label">Speaking Script (Read at comfortable pace)</span>
+                        <div class="text-resize">
+                            <button id="btn-text-dec" title="Decrease size">A-</button>
+                            <button id="btn-text-inc" title="Increase size">A+</button>
+                        </div>
+                    </div>
+                    <!-- Detailed speaking notes go here -->
+                    <div class="script-text" id="script-text">Loading script...</div>
+                </div>
+
+                <div class="preview-section">
+                    <div class="preview-box">
+                        <span class="preview-box-label">Current Slide</span>
+                        <div class="preview-box-title" id="preview-current-title">1. Introduction</div>
+                    </div>
+                    <div class="preview-box" style="border-left: 1px solid var(--border-color); padding-left: 1rem;">
+                        <span class="preview-box-label">Next Slide</span>
+                        <div class="preview-box-title" id="preview-next-title">2. Agenda</div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer Control Toolbar -->
+        <footer>
+            <div class="footer-left">
+                <div class="navigation-buttons">
+                    <button class="btn-nav" id="btn-prev" title="Previous Slide (Left Arrow / Backspace)">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                        Prev
+                    </button>
+                    <button class="btn-nav" id="btn-next" title="Next Slide (Right Arrow / Space)">
+                        Next
+                        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </button>
+                </div>
+                
+                <!-- Slide Progress Tracker -->
+                <div id="progress-bar-container">
+                    <div id="progress-bar-fill"></div>
+                </div>
+            </div>
+            
+            <div class="footer-right" style="display: flex; gap: 0.75rem;">
+                <button class="btn-toggle-presenter" id="btn-popout-presenter" title="Pop out Presenter View to MacBook Screen (Separate Window)">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                    </svg>
+                    Pop-out Presenter
+                </button>
+                <button class="btn-toggle-presenter" id="btn-presenter" title="Toggle Presenter Overlay (P)">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM10 7H8v6H5v2h5v-2H8V9h2V7zm5 0h-5v8h5c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zm0 6h-3V9h3v4z"/>
+                    </svg>
+                    Presenter Mode
+                </button>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
