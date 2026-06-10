@@ -137,6 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
  
     // Initialize UI
     function init() {
+        // Strip "Key Message:" prefix and add custom class for Bookman ITC Std font
+        document.querySelectorAll('.slide-body div, .slide-body p').forEach(el => {
+            if (el.textContent.includes('Key Message:')) {
+                el.innerHTML = el.innerHTML.replace(/\s*Key Message:\s*/, '');
+                el.classList.add('key-message-callout');
+            }
+        });
+
         if (window.lucide) {
             lucide.createIcons();
         }

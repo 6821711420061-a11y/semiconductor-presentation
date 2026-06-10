@@ -1221,3 +1221,7 @@ header, footer {
         background: #B84A2F !important;
     }
 }
+
+.key-message-callout {
+    font-family: 'Bookman ITC Std', Georgia, serif !important;
+}

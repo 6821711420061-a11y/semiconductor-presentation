@@ -11,6 +11,13 @@ const tempSlideForProto = pptx.addSlide();
 const slideProto = Object.getPrototypeOf(tempSlideForProto);
 const originalAddText = slideProto.addText;
 slideProto.addText = function(text, options) {
+    if (typeof text === 'string' && text.includes('Key Message:')) {
+        text = text.replace(/^\s*Key Message:\s*/, '');
+        if (options) {
+            options.fontFace = 'Bookman ITC Std';
+        }
+    }
+    
     if (options && options.fontFace === 'Helvetica') {
         let fontName = 'Aeonik'; // Default body (Aeonik)
         
