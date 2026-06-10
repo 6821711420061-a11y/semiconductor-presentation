@@ -12,20 +12,19 @@ const slideProto = Object.getPrototypeOf(tempSlideForProto);
 const originalAddText = slideProto.addText;
 slideProto.addText = function(text, options) {
     if (options && options.fontFace === 'Helvetica') {
-        let useSerif = false;
-        if (options.fontSize >= 32) {
-            useSerif = true; // Slide Title, Cover Title, Stat numbers
+        let fontName = 'VVDS Fifties SCond Reg'; // Default body (SCond Reg)
+        
+        if (options.fontSize >= 32 || options.fontSize === 36 || options.fontSize === 50 || options.fontSize === 54) {
+            fontName = 'VVDS Fifties Exp SBold'; // Display/Title (Exp SBold)
         } else if (options.fontSize === 20 && options.bold) {
-            useSerif = true; // Card Titles are fontSize 20 and bold: true
+            fontName = 'VVDS Fifties SExp Reg'; // Card Titles/Sub-headings (SExp Reg)
         } else if (options.fontSize === 24) {
-            useSerif = true; // Flow / Card numbers
-        } else if (options.fontSize === 36) {
-            useSerif = true; // Stat display numbers
-        } else if (options.fontSize === 50 || options.fontSize === 54) {
-            useSerif = true; // Large stat numbers
+            fontName = 'VVDS Fifties Exp SBold'; // Flow Card Numbers (Exp SBold)
+        } else if (options.fontSize === 12 || options.fontSize === 14 || options.fontSize === 10) {
+            fontName = 'VVDS Fifties Exp Reg'; // Category / Labels / Footers (Exp Reg)
         }
         
-        options.fontFace = useSerif ? 'PP Mondwest' : 'Bookman ITC Std';
+        options.fontFace = fontName;
     }
     return originalAddText.call(this, text, options);
 };

@@ -12,8 +12,9 @@
     --color-error: #C0392B;
     
     /* Font Families */
-    --font-primary: 'PP Mondwest', 'Instrument Serif', Georgia, serif;
-    --font-ui: 'Bookman ITC Std', 'AT Aero', 'DM Sans', sans-serif;
+    --font-primary: 'VVDS Fifties Exp SBold', 'PP Mondwest', 'Instrument Serif', Georgia, serif;
+    --font-ui: 'VVDS Fifties SCond Reg', 'Bookman ITC Std', 'AT Aero', 'DM Sans', sans-serif;
+    --font-ui-labels: 'VVDS Fifties Exp Reg', 'DM Sans', sans-serif;
     --font-mono: 'Fira Code', monospace;
     
     --slide-aspect: 16/9;
@@ -59,7 +60,10 @@ h1, h2, h3, h4 {
 h1 { font-size: 48px; }
 h2 { font-size: 36px; }
 h3 { font-size: 28px; }
-h4 { font-size: 22px; }
+h4 {
+    font-family: 'VVDS Fifties SExp Reg', var(--font-primary);
+    font-size: 22px;
+}
 h5 { font-size: 18px; font-family: var(--font-ui); font-weight: 500; }
 
 p, li, span, td, div {
@@ -109,7 +113,7 @@ strong {
 }
 
 .sidebar-subtitle {
-    font-family: var(--font-ui);
+    font-family: var(--font-ui-labels);
     font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
@@ -142,7 +146,7 @@ strong {
 }
 
 .sidebar-section-title {
-    font-family: var(--font-ui);
+    font-family: var(--font-ui-labels);
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
@@ -160,7 +164,7 @@ strong {
 }
 
 .sidebar-link {
-    font-family: var(--font-ui);
+    font-family: var(--font-ui-labels);
     font-size: 14px;
     font-weight: 400;
     color: var(--color-text-muted);
@@ -203,7 +207,7 @@ button, .btn-nav, .timer-btn, .btn-icon, .btn-toggle-presenter {
     color: var(--color-text);
     padding: 0.5rem 1rem;
     border-radius: 4px !important;
-    font-family: 'VVDS Fifties', 'DM Sans', sans-serif !important;
+    font-family: var(--font-ui-labels) !important;
     font-size: 14px !important;
     font-weight: 500 !important;
     text-transform: uppercase !important;
@@ -336,7 +340,7 @@ button:disabled:hover, .btn-nav:disabled:hover {
 }
 
 .slide-tag {
-    font-family: var(--font-ui);
+    font-family: var(--font-ui-labels);
     font-size: 11px;
     font-weight: 500;
     text-transform: uppercase;
@@ -734,7 +738,7 @@ button:disabled:hover, .btn-nav:disabled:hover {
 }
 
 .section-divider-badge {
-    font-family: var(--font-ui);
+    font-family: var(--font-ui-labels);
     font-weight: 500;
     font-size: 11px;
     text-transform: uppercase;
