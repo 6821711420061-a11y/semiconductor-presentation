@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
  
         // Update script and presenter details
-        elements.scriptText.textContent = slideScripts[currentSlide];
+        elements.scriptText.textContent = "Syncing presentation script... only show in pop up";
         
         // Reset script container scroll to top on slide change
         const scriptSection = document.querySelector('.script-section');
