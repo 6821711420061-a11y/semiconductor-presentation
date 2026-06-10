@@ -149,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         }
         setupEventListeners();
+        syncSlideUI();
         syncChannel.postMessage({ type: 'REQUEST_INITIAL_SYNC' });
     }
  
