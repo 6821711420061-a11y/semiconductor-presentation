@@ -12,7 +12,7 @@
     --color-error: #C0392B;
     
     /* Font Families */
-    --font-primary: 'VVDS Fifties Exp SBold', 'PP Mondwest', 'Instrument Serif', Georgia, serif;
+    --font-primary: 'PP Mondwest', 'Instrument Serif', Georgia, serif;
     --font-ui: 'VVDS Fifties SCond Reg', 'Bookman ITC Std', 'AT Aero', 'DM Sans', sans-serif;
     --font-ui-labels: 'VVDS Fifties Exp Reg', 'DM Sans', sans-serif;
     --font-mono: 'Fira Code', monospace;
@@ -61,7 +61,7 @@ h1 { font-size: 48px; }
 h2 { font-size: 36px; }
 h3 { font-size: 28px; }
 h4 {
-    font-family: 'VVDS Fifties SExp Reg', var(--font-primary);
+    font-family: 'PP Mondwest', var(--font-primary);
     font-size: 22px;
 }
 h5 { font-size: 18px; font-family: var(--font-ui); font-weight: 500; }

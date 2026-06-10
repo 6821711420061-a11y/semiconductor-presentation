@@ -15,11 +15,11 @@ slideProto.addText = function(text, options) {
         let fontName = 'VVDS Fifties SCond Reg'; // Default body (SCond Reg)
         
         if (options.fontSize >= 32 || options.fontSize === 36 || options.fontSize === 50 || options.fontSize === 54) {
-            fontName = 'VVDS Fifties Exp SBold'; // Display/Title (Exp SBold)
+            fontName = 'PP Mondwest'; // Display/Title (PP Mondwest)
         } else if (options.fontSize === 20 && options.bold) {
-            fontName = 'VVDS Fifties SExp Reg'; // Card Titles/Sub-headings (SExp Reg)
+            fontName = 'PP Mondwest'; // Card Titles/Sub-headings (PP Mondwest)
         } else if (options.fontSize === 24) {
-            fontName = 'VVDS Fifties Exp SBold'; // Flow Card Numbers (Exp SBold)
+            fontName = 'PP Mondwest'; // Flow Card Numbers (PP Mondwest)
         } else if (options.fontSize === 12 || options.fontSize === 14 || options.fontSize === 10) {
             fontName = 'VVDS Fifties Exp Reg'; // Category / Labels / Footers (Exp Reg)
         }
