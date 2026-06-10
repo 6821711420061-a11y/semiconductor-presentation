@@ -1139,7 +1139,7 @@ header, footer {
     
     html, body {
         width: 297mm;
-        height: 210mm;
+        height: auto !important;
         background: #FFFDF8 !important;
         color: #1A1714 !important;
         -webkit-print-color-adjust: exact;
@@ -1185,6 +1185,7 @@ header, footer {
         height: auto !important;
         position: relative !important;
         display: block !important;
+        overflow: visible !important;
         box-shadow: none !important;
         border: none !important;
     }
