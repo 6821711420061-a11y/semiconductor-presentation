@@ -11,6 +11,13 @@
     --color-primary-hover: #9A3A22;
     --color-error: #C0392B;
     
+    /* Warm Editorial Accent Colors */
+    --accent-cyan: #B84A2F;   /* Terracotta Red */
+    --accent-purple: #7D6880; /* Plum/Lavender */
+    --accent-green: #768C7C;  /* Sage Green */
+    --accent-amber: #B8946C;  /* Warm Ochre */
+    --accent-rose: #C48C8C;   /* Muted Rose */
+    
     /* Font Families */
     --font-primary: 'PP Mondwest', 'Instrument Serif', Georgia, serif;
     --font-ui: 'Aeonik', 'VVDS Fifties SCond Reg', 'Bookman ITC Std', 'AT Aero', 'DM Sans', sans-serif;
@@ -30,6 +37,13 @@
     --color-primary: #D46247;
     --color-primary-hover: #E67E65;
     --color-error: #E05D4F;
+    
+    /* Dark Mode Warm Editorial Accent Colors */
+    --accent-cyan: #D46247;
+    --accent-purple: #9E85A3;
+    --accent-green: #97B09F;
+    --accent-amber: #D1AE84;
+    --accent-rose: #E8A7A7;
 }
 
 * {

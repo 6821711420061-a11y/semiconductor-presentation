@@ -167,10 +167,31 @@ let slide1 = pptx.addSlide();
 slide1.background = { color: COLOR_BG };
 slide1.addNotes(scripts[0]);
  
+// Badge Card (CONSOLIDATED REMEDIAL BRIEFING)
+slide1.addShape(pptx.shapes.RECTANGLE, {
+    x: 0.8,
+    y: 1.5,
+    w: 3.8,
+    h: 0.4,
+    fill: { color: COLOR_CARD },
+    line: { color: COLOR_ACCENT_CYAN, width: 1 }
+});
+slide1.addText("CONSOLIDATED REMEDIAL BRIEFING", {
+    x: 0.9,
+    y: 1.55,
+    w: 3.6,
+    h: 0.3,
+    fontSize: 10,
+    fontFace: 'Helvetica',
+    color: COLOR_ACCENT_CYAN,
+    bold: true,
+    charSpacing: 1.5
+});
+
 // Cover Title
 slide1.addText("The 2026 Semiconductor Ecosystem", {
     x: 0.8,
-    y: 2.2,
+    y: 2.1,
     w: 11.5,
     h: 1.2,
     fontSize: 48,
@@ -180,9 +201,9 @@ slide1.addText("The 2026 Semiconductor Ecosystem", {
 });
  
 // Cover Subtitle
-slide1.addText("A Strategic Briefing on Procurement, Global Supply Chains, and End-User Verticals", {
+slide1.addText("A Comprehensive Analysis of Sourcing Strategies, Supply Chain Architecture, and Global End-User Industries", {
     x: 0.8,
-    y: 3.5,
+    y: 3.3,
     w: 11.5,
     h: 0.8,
     fontSize: 20,
@@ -193,21 +214,26 @@ slide1.addText("A Strategic Briefing on Procurement, Global Supply Chains, and E
 // Border line
 slide1.addShape(pptx.shapes.RECTANGLE, {
     x: 0.8,
-    y: 4.4,
+    y: 4.3,
     w: 5.0,
     h: 0.04,
     fill: { color: COLOR_ACCENT_CYAN }
 });
  
 // Meta Info
-slide1.addText("Presenter: Phyoe Sat Paing\nBoardroom Strategic Briefing", {
+slide1.addText([
+    { text: "Presenter: ", options: { color: COLOR_TEXT_SEC, fontSize: 12 } },
+    { text: "Phyoe Sat Paing (ID: 6821711420061)\n", options: { color: COLOR_TEXT_PRI, bold: true, fontSize: 12 } },
+    { text: "Course: ", options: { color: COLOR_TEXT_SEC, fontSize: 12 } },
+    { text: "501105, logistics and supply chain management\n", options: { color: COLOR_TEXT_PRI, bold: true, fontSize: 12 } },
+    { text: "Date: ", options: { color: COLOR_TEXT_SEC, fontSize: 12 } },
+    { text: "June 2026", options: { color: COLOR_TEXT_PRI, bold: true, fontSize: 12 } }
+], {
     x: 0.8,
-    y: 4.8,
-    w: 5.0,
-    h: 0.8,
-    fontSize: 14,
-    fontFace: 'Helvetica',
-    color: COLOR_TEXT_SEC
+    y: 4.7,
+    w: 8.0,
+    h: 1.5,
+    fontFace: 'Helvetica'
 });
  
 // ==========================================
@@ -239,14 +265,14 @@ slide2.addText("Key Message: Navigating a $1.3 trillion market requires balancin
 // Body Supporting points
 slide2.addText(
     "- Record-High Valuations: Growth is driven by explosive global demand for AI systems and electric vehicle power logic.\n\n" +
-    "- Systemic Fragility: Leading-edge fabs operate near maximum capacity, leaving the industry vulnerable to minor material delays.\n\n" +
+    "- Systemic Fragility & Node Allocation: Leading-edge fabrication is a massive chokepoint where global availability of advanced computing rests entirely on sub-3nm allocations. The concentration of Extreme Ultraviolet (EUV) lithography capacity leaves the industry vulnerable to minor material delays.\n\n" +
     "- Strategic Pivot: Sourcing HBM (High Bandwidth Memory) and advanced logic requires a shift from transactional purchasing to capacity reservation models.",
     {
         x: 0.6,
         y: 2.8,
         w: 7.2,
         h: 3.8,
-        fontSize: 18,
+        fontSize: 16,
         fontFace: 'Helvetica',
         color: COLOR_TEXT_SEC,
         bullet: true
@@ -340,12 +366,12 @@ slide3.addText("Lean JIT (Commoditized Nodes)", {
     color: COLOR_ACCENT_CYAN,
     bold: true
 });
-slide3.addText("Used for standardized legacy passive elements and commoditized logic chips. Minimizes capital lock-up and inventory holding costs while keeping storage footprint low.", {
+slide3.addText("Used for standardized legacy passive elements and commoditized logic chips. Minimizes capital lock-up and inventory holding costs. However, global supply shocks exposed severe operational risks in pure JIT models, including zero safety buffers, sudden factory halts, supplier insolvency, and shipping delays.", {
     x: 0.9,
-    y: 3.8,
+    y: 3.7,
     w: 5.1,
-    h: 2.4,
-    fontSize: 18,
+    h: 2.6,
+    fontSize: 15,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC
 });
@@ -371,10 +397,10 @@ slide3.addText("Strategic Buffers (Critical Nodes)", {
 });
 slide3.addText("Maintaining 3 to 6 months of safety stock for sole-sourced, high-margin microcomponents (HBM, custom GPUs) to guarantee manufacturing continuity.", {
     x: 7.2,
-    y: 3.8,
+    y: 3.7,
     w: 5.1,
-    h: 2.4,
-    fontSize: 18,
+    h: 2.6,
+    fontSize: 15,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC
 });
@@ -431,12 +457,22 @@ slide4.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_GREEN, width: 1 }
 });
-slide4.addText("Leading-Edge Nodes\n\nFocus: Deep alliances, R&D partnerships, capacity reservations.", {
+slide4.addText("LEADING-EDGE NODES (SUB-7NM)", {
     x: 8.6,
-    y: 1.7,
+    y: 1.6,
     w: 3.8,
-    h: 1.9,
-    fontSize: 16,
+    h: 0.3,
+    fontSize: 12,
+    fontFace: 'Helvetica',
+    color: COLOR_ACCENT_GREEN,
+    bold: true
+});
+slide4.addText("Focus: Secure allocation in sub-7nm alliances, multi-billion capacity reservation fees (LTAs), and joint R&D partnerships.", {
+    x: 8.6,
+    y: 1.95,
+    w: 3.8,
+    h: 1.75,
+    fontSize: 13,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC
 });
@@ -449,12 +485,22 @@ slide4.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_AMBER, width: 1 }
 });
-slide4.addText("Legacy Nodes\n\nFocus: Multi-sourcing, distributor networks, life-cycle tracking.", {
+slide4.addText("LEGACY NODES (28NM+)", {
     x: 8.6,
-    y: 4.4,
+    y: 4.3,
     w: 3.8,
-    h: 1.9,
-    fontSize: 16,
+    h: 0.3,
+    fontSize: 12,
+    fontFace: 'Helvetica',
+    color: COLOR_ACCENT_AMBER,
+    bold: true
+});
+slide4.addText("Focus: Broad multi-sourcing, alternate distributor qualification, spot buy strategies, and lifecycle obsolescence tracking.", {
+    x: 8.6,
+    y: 4.65,
+    w: 3.8,
+    h: 1.75,
+    fontSize: 13,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC
 });
@@ -552,14 +598,15 @@ slide5.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_CYAN, width: 1 }
 });
-slide5.addText("AI integration automatically tracks tier-2 chemical and substrate suppliers to detect factory closures or export blocks before they ripple into final fab allocations.", {
+slide5.addText([
+    { text: "AI Business Intelligence Cockpits: ", options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 13 } },
+    { text: "Advanced analytics systems parse unstructured global feeds—including weather logs, border congestion, and raw chemical shortages—to build a multi-tier dependency map, tracking Tier-2/3 volatility and supplier insolvency risks before they disrupt Tier-1 deliveries.", options: { color: COLOR_TEXT_SEC, fontSize: 13 } }
+], {
     x: 0.8,
-    y: 5.8,
+    y: 5.75,
     w: 11.6,
-    h: 0.7,
-    fontSize: 15,
-    fontFace: 'Helvetica',
-    color: COLOR_TEXT_SEC
+    h: 0.8,
+    fontFace: 'Helvetica'
 });
  
 // ==========================================
@@ -706,14 +753,26 @@ slide7.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_CYAN, width: 1 }
 });
-slide7.addText("USA: Design IP\n\n80%+ market share in advanced EDA software tools.", {
+slide7.addText("USA: DESIGN IP", {
     x: 8.6,
-    y: 1.7,
+    y: 1.6,
     w: 3.8,
-    h: 1.9,
-    fontSize: 16,
+    h: 0.3,
+    fontSize: 12,
     fontFace: 'Helvetica',
-    color: COLOR_TEXT_SEC
+    color: COLOR_ACCENT_CYAN,
+    bold: true
+});
+slide7.addText([
+    { text: "Market Leader: U.S. design firms capture the majority of global chip value, controlling ", options: { color: COLOR_TEXT_SEC, fontSize: 13 } },
+    { text: "80%+ of the Electronic Design Automation (EDA)", options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 13 } },
+    { text: " software market and holding core IP for high-end CPU/GPU microarchitectures.", options: { color: COLOR_TEXT_SEC, fontSize: 13 } }
+], {
+    x: 8.6,
+    y: 1.95,
+    w: 3.8,
+    h: 1.75,
+    fontFace: 'Helvetica'
 });
  
 slide7.addShape(pptx.shapes.RECTANGLE, {
@@ -724,14 +783,26 @@ slide7.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_PURPLE, width: 1 }
 });
-slide7.addText("ASML (EU): Lithography\n\n100% monopsony on EUV printing technology.", {
+slide7.addText("ASML (EU): LITHOGRAPHY", {
     x: 8.6,
-    y: 4.4,
+    y: 4.3,
     w: 3.8,
-    h: 1.9,
-    fontSize: 16,
+    h: 0.3,
+    fontSize: 12,
     fontFace: 'Helvetica',
-    color: COLOR_TEXT_SEC
+    color: COLOR_ACCENT_PURPLE,
+    bold: true
+});
+slide7.addText([
+    { text: "Critical Enabler: European-based ASML holds a ", options: { color: COLOR_TEXT_SEC, fontSize: 13 } },
+    { text: "100% EUV (Extreme Ultraviolet) Monopsony", options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 13 } },
+    { text: " for high-end printing scanners, making it the sole hardware gatekeeper for sub-7nm node fabrication.", options: { color: COLOR_TEXT_SEC, fontSize: 13 } }
+], {
+    x: 8.6,
+    y: 4.65,
+    w: 3.8,
+    h: 1.75,
+    fontFace: 'Helvetica'
 });
  
 // ==========================================
@@ -798,7 +869,7 @@ slide8.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_GREEN, width: 1 }
 });
-slide8.addText("Back-End: Advanced Packaging Chokepoint", {
+slide8.addText("Back-End: CoWoS & HBM Integration", {
     x: 7.2,
     y: 3.0,
     w: 5.1,
@@ -808,12 +879,12 @@ slide8.addText("Back-End: Advanced Packaging Chokepoint", {
     color: COLOR_ACCENT_GREEN,
     bold: true
 });
-slide8.addText("Integrating multiple logic dies and High Bandwidth Memory (HBM) via CoWoS interposers is more constrained than wafer printing.", {
+slide8.addText("Stacking logic dies and High Bandwidth Memory (HBM) via Chip-on-Wafer-on-Substrate (CoWoS) formats has surpassed wafer printing as the primary supply chain bottleneck.", {
     x: 7.2,
     y: 3.6,
     w: 5.1,
     h: 1.5,
-    fontSize: 18,
+    fontSize: 16,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC
 });
@@ -827,14 +898,15 @@ slide8.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_GREEN, width: 1 }
 });
-slide8.addText("Logistics bottleneck: Reaching target AI yields depends heavily on advanced back-end capacity, not just front-end print nodes.", {
+slide8.addText([
+    { text: "Logistics bottleneck: ", options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 13 } },
+    { text: "Yield limitations are no longer dominated by front-end node lithography, but by the capacity limits of advanced back-end CoWoS and 3D stacking processes.", options: { color: COLOR_TEXT_SEC, fontSize: 13 } }
+], {
     x: 0.8,
-    y: 5.8,
+    y: 5.75,
     w: 11.6,
-    h: 0.7,
-    fontSize: 15,
-    fontFace: 'Helvetica',
-    color: COLOR_TEXT_SEC
+    h: 0.8,
+    fontFace: 'Helvetica'
 });
  
 // ==========================================
@@ -889,37 +961,32 @@ slide9.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_ROSE, width: 1 }
 });
-slide9.addText("CRITICAL CHOKEPOINT", {
-    x: 8.4,
-    y: 2.2,
-    w: 4.2,
-    h: 0.4,
-    fontSize: 12,
+slide9.addText("GALLIUM & GERMANIUM EXPORT RESTRICTIONS", {
+    x: 8.6,
+    y: 1.8,
+    w: 3.8,
+    h: 0.6,
+    fontSize: 14,
     fontFace: 'Helvetica',
     color: COLOR_ACCENT_ROSE,
     align: 'center',
     bold: true
 });
-slide9.addText("Gallium &\nGermanium", {
-    x: 8.4,
-    y: 2.8,
-    w: 4.2,
-    h: 1.2,
-    fontSize: 36,
+slide9.addText([
+    { text: "China controls ", options: { color: COLOR_TEXT_SEC, fontSize: 13 } },
+    { text: "90%+ of Gallium", options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 13 } },
+    { text: " and ", options: { color: COLOR_TEXT_SEC, fontSize: 13 } },
+    { text: "60%+ of Germanium", options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 13 } },
+    { text: " sourcing. Recent export restrictions require explicit licenses, causing price volatility and sourcing delays for next-generation power electronics and optical systems.\n\n", options: { color: COLOR_TEXT_SEC, fontSize: 13 } },
+    { text: "Strategic Risk: ", options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 11 } },
+    { text: "Material bottlenecks can disrupt entire optoelectronic supply chains.", options: { color: COLOR_TEXT_SEC, fontSize: 11, italic: true } }
+], {
+    x: 8.6,
+    y: 2.6,
+    w: 3.8,
+    h: 3.6,
     fontFace: 'Helvetica',
-    color: COLOR_TEXT_PRI,
-    align: 'center',
-    bold: true
-});
-slide9.addText("Strict raw material export control levers", {
-    x: 8.4,
-    y: 4.2,
-    w: 4.2,
-    h: 0.8,
-    fontSize: 15,
-    fontFace: 'Helvetica',
-    color: COLOR_TEXT_SEC,
-    align: 'center'
+    align: 'left'
 });
  
 // ==========================================
@@ -996,12 +1063,12 @@ slide10.addText("Circular Reclamation", {
     color: COLOR_ACCENT_GREEN,
     bold: true
 });
-slide10.addText("Mining the 'urban mine'—recovering rare earth elements from old electronics to reduce dependency on volatile mining regions.", {
+slide10.addText("Transitioning to industrial e-waste harvesting to extract high-purity minerals. Recovering up to 99% of Copper, 98% of Gold, and 95% of Silicon substrates from decommissioned hardware to buffer raw mining volatility.", {
     x: 7.2,
     y: 3.6,
     w: 5.1,
-    h: 1.5,
-    fontSize: 18,
+    h: 1.7,
+    fontSize: 15,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC
 });
@@ -1028,7 +1095,7 @@ slide10.addText("Autonomous logistics systems automatically scan trade flows to 
 // ==========================================
 // SLIDE 11: THE UBIQUITY OF SILICON
 // ==========================================
-let slide11 = createBaseSlide("PART 3: END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "The Ubiquity of Silicon: Powering the Modern World", 11, scripts[10]);
+let slide11 = createBaseSlide("PART 3: DOWNSTREAM END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "The Ubiquity of Silicon: Powering the Modern World", 11, scripts[10]);
  
 // Key Message Callout Box
 slide11.addShape(pptx.shapes.RECTANGLE, {
@@ -1077,43 +1144,36 @@ slide11.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_MUTED, width: 1 }
 });
-slide11.addText("KEY METRIC", {
-    x: 8.4,
-    y: 2.2,
-    w: 4.2,
-    h: 0.4,
-    fontSize: 12,
+slide11.addText("SILICON INTENSITY INDEX", {
+    x: 8.6,
+    y: 1.8,
+    w: 3.8,
+    h: 0.6,
+    fontSize: 15,
     fontFace: 'Helvetica',
     color: COLOR_ACCENT_PURPLE,
     align: 'center',
     bold: true
 });
-slide11.addText("Silicon\nIntensity", {
-    x: 8.4,
-    y: 2.8,
-    w: 4.2,
-    h: 1.2,
-    fontSize: 36,
+slide11.addText([
+    { text: "Defined as ", options: { color: COLOR_TEXT_SEC, fontSize: 13 } },
+    { text: "the total monetary value of silicon content embedded per finished product unit", options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 13 } },
+    { text: ". This index is the primary metric tracking how deeply semiconductors add value to downstream hardware.\n\n", options: { color: COLOR_TEXT_SEC, fontSize: 13 } },
+    { text: "Value Metric: ", options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 11 } },
+    { text: "Measures semiconductor reliance across all downstream products.", options: { color: COLOR_TEXT_SEC, fontSize: 11, italic: true } }
+], {
+    x: 8.6,
+    y: 2.6,
+    w: 3.8,
+    h: 3.6,
     fontFace: 'Helvetica',
-    color: COLOR_TEXT_PRI,
-    align: 'center',
-    bold: true
-});
-slide11.addText("Primary industrial competitiveness index", {
-    x: 8.4,
-    y: 4.2,
-    w: 4.2,
-    h: 0.8,
-    fontSize: 15,
-    fontFace: 'Helvetica',
-    color: COLOR_TEXT_SEC,
-    align: 'center'
+    align: 'left'
 });
  
 // ==========================================
 // SLIDE 12: THE DEMAND LANDSCAPE IN 2026
 // ==========================================
-let slide12 = createBaseSlide("PART 3: END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "Executive Summary: The Demand Landscape in 2026", 12, scripts[11]);
+let slide12 = createBaseSlide("PART 3: DOWNSTREAM END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "Executive Summary: The Demand Landscape in 2026", 12, scripts[11]);
  
 // Key Message Callout Box
 slide12.addShape(pptx.shapes.RECTANGLE, {
@@ -1136,42 +1196,107 @@ slide12.addText("Key Message: Demand is shifting from traditional computing towa
     bold: true
 });
  
-// Columns for sectors
-const sectors = [
-    { title: "AI Datacenters", desc: "Nearly 50% of semiconductor industry growth and revenue is driven by high-performance AI accelerators.", color: COLOR_ACCENT_CYAN },
-    { title: "Automotive", desc: "The fastest growing volume segment, requiring massive numbers of legacy control nodes and SiC power chips.", color: COLOR_ACCENT_PURPLE },
-    { title: "Smartphones & PCs", desc: "Traditional core segments face volume saturation, driving consolidation and focus on specialized edge accelerators.", color: COLOR_ACCENT_GREEN }
+// Table Header labels at y: 2.4
+slide12.addText("INDUSTRY SEGMENT", {
+    x: 0.8,
+    y: 2.4,
+    w: 2.5,
+    h: 0.3,
+    fontSize: 10,
+    fontFace: 'Helvetica',
+    color: COLOR_TEXT_SEC,
+    bold: true
+});
+slide12.addText("GROWTH SPEED & STATUS", {
+    x: 3.5,
+    y: 2.4,
+    w: 3.5,
+    h: 0.3,
+    fontSize: 10,
+    fontFace: 'Helvetica',
+    color: COLOR_TEXT_SEC,
+    bold: true
+});
+slide12.addText("SOURCING & TECHNOLOGY FOCUS", {
+    x: 7.2,
+    y: 2.4,
+    w: 5.2,
+    h: 0.3,
+    fontSize: 10,
+    fontFace: 'Helvetica',
+    color: COLOR_TEXT_SEC,
+    bold: true
+});
+
+const horizontalRows = [
+    {
+        segment: "AI Datacenters",
+        growth: "50% CAGR (Exponential Value Growth)",
+        growthBold: "50% CAGR",
+        focus: "GPUs, HBM (High Bandwidth Memory), advanced optical links, sub-3nm allocations.",
+        color: COLOR_ACCENT_CYAN
+    },
+    {
+        segment: "Automotive",
+        growth: "Fastest Volume Growth (High Intensity scaling)",
+        growthBold: "Fastest Volume Growth",
+        focus: "ADAS logic, Lidar, Silicon Carbide (SiC) power logic, 28nm+ legacy microcontrollers.",
+        color: COLOR_ACCENT_PURPLE
+    },
+    {
+        segment: "Smartphones & PCs",
+        growth: "Volume Saturation (Flat/Steady volume growth)",
+        growthBold: "Volume Saturation",
+        focus: "Edge-AI acceleration NPUs, standard application processors, memory, sensor logic.",
+        color: COLOR_ACCENT_GREEN
+    }
 ];
- 
-sectors.forEach((sec, idx) => {
-    let xPos = 0.6 + (idx * 4.2);
+
+horizontalRows.forEach((row, idx) => {
+    let yPos = 2.8 + (idx * 1.3); // y: 2.8, 4.1, 5.4
     
+    // Draw row card background
     slide12.addShape(pptx.shapes.RECTANGLE, {
-        x: xPos,
-        y: 2.8,
-        w: 3.6,
-        h: 3.8,
+        x: 0.6,
+        y: yPos,
+        w: 12.0,
+        h: 1.1,
         fill: { color: COLOR_CARD },
         line: { color: COLOR_MUTED, width: 1 }
     });
     
-    slide12.addText(sec.title, {
-        x: xPos + 0.3,
-        y: 3.1,
-        w: 3.0,
+    // Segment Name (Col 1)
+    slide12.addText(row.segment, {
+        x: 0.8,
+        y: yPos + 0.3,
+        w: 2.5,
         h: 0.5,
-        fontSize: 20,
+        fontSize: 16,
         fontFace: 'Helvetica',
-        color: sec.color,
+        color: row.color,
         bold: true
     });
     
-    slide12.addText(sec.desc, {
-        x: xPos + 0.3,
-        y: 3.8,
-        w: 3.0,
-        h: 2.5,
-        fontSize: 18,
+    // Growth Status (Col 2)
+    const growthParts = row.growth.split(row.growthBold);
+    slide12.addText([
+        { text: row.growthBold, options: { bold: true, color: COLOR_TEXT_PRI, fontSize: 13 } },
+        { text: growthParts[1] || "", options: { color: COLOR_TEXT_SEC, fontSize: 13 } }
+    ], {
+        x: 3.5,
+        y: yPos + 0.3,
+        w: 3.3,
+        h: 0.5,
+        fontFace: 'Helvetica'
+    });
+    
+    // Focus (Col 3)
+    slide12.addText(row.focus, {
+        x: 7.2,
+        y: yPos + 0.2,
+        w: 5.2,
+        h: 0.7,
+        fontSize: 13,
         fontFace: 'Helvetica',
         color: COLOR_TEXT_SEC
     });
@@ -1180,7 +1305,7 @@ sectors.forEach((sec, idx) => {
 // ==========================================
 // SLIDE 13: AI & DATA CENTERS
 // ==========================================
-let slide13 = createBaseSlide("PART 3: END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "AI & Data Centers: The Generative Revolution", 13, scripts[12]);
+let slide13 = createBaseSlide("PART 3: DOWNSTREAM END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "AI & Data Centers: The Generative Revolution", 13, scripts[12]);
  
 // Key Message Callout Box
 slide13.addShape(pptx.shapes.RECTANGLE, {
@@ -1205,7 +1330,7 @@ slide13.addText("Key Message: Data centers have evolved into \"Intelligence Engi
  
 // Body points
 slide13.addText(
-    "- Accelerator Market ($500B): Generative models and neural computing demand massive scaling of TPU and GPU nodes.\n\n" +
+    "- Accelerator Market ($500B+): Generative models and neural computing demand massive scaling of TPU and GPU nodes.\n\n" +
     "- Sub-3nm Node Sourcing: The primary consumers of the most advanced wafer print architectures globally.\n\n" +
     "- Memory & Interconnect: Demands extreme density of High Bandwidth Memory (HBM) and customized routing interconnect silicon.",
     {
@@ -1229,7 +1354,7 @@ slide13.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_GREEN, width: 1 }
 });
-slide13.addText("ANALYST PROJECT", {
+slide13.addText("CONSENSUS FORECAST", {
     x: 8.4,
     y: 2.2,
     w: 4.2,
@@ -1240,7 +1365,7 @@ slide13.addText("ANALYST PROJECT", {
     align: 'center',
     bold: true
 });
-slide13.addText("$500B", {
+slide13.addText("$500B+", {
     x: 8.4,
     y: 2.8,
     w: 4.2,
@@ -1251,21 +1376,22 @@ slide13.addText("$500B", {
     align: 'center',
     bold: true
 });
-slide13.addText("AI Accelerator market size by 2026", {
-    x: 8.4,
+slide13.addText("AI Accelerator Market Projected Size by 2026", {
+    x: 8.5,
     y: 4.2,
-    w: 4.2,
+    w: 4.0,
     h: 0.8,
-    fontSize: 15,
+    fontSize: 14,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC,
-    align: 'center'
+    align: 'center',
+    bold: true
 });
  
 // ==========================================
 // SLIDE 14: AUTOMOTIVE: THE SMARTPHONE ON WHEELS
 // ==========================================
-let slide14 = createBaseSlide("PART 3: END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "Automotive: The \"Smartphone on Wheels\"", 14, scripts[13]);
+let slide14 = createBaseSlide("PART 3: DOWNSTREAM END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "Automotive: The \"Smartphone on Wheels\"", 14, scripts[13]);
  
 // Key Message Callout Box
 slide14.addShape(pptx.shapes.RECTANGLE, {
@@ -1314,7 +1440,7 @@ slide14.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_MUTED, width: 1 }
 });
-slide14.addText("ESTIMATE", {
+slide14.addText("EV CONTENT GROWTH", {
     x: 8.4,
     y: 2.2,
     w: 4.2,
@@ -1336,21 +1462,22 @@ slide14.addText("$1,000+", {
     align: 'center',
     bold: true
 });
-slide14.addText("Silicon value content per EV unit", {
-    x: 8.4,
+slide14.addText("$1,000+ semiconductor content per EV unit", {
+    x: 8.5,
     y: 4.2,
-    w: 4.2,
+    w: 4.0,
     h: 0.8,
-    fontSize: 15,
+    fontSize: 14,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC,
-    align: 'center'
+    align: 'center',
+    bold: true
 });
  
 // ==========================================
 // SLIDE 15: INDUSTRIAL, IOT & HEALTHCARE
 // ==========================================
-let slide15 = createBaseSlide("PART 3: END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "Industrial, IoT & Healthcare: Intelligence at the Edge", 15, scripts[14]);
+let slide15 = createBaseSlide("PART 3: DOWNSTREAM END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "Industrial, IoT & Healthcare: Intelligence at the Edge", 15, scripts[14]);
  
 // Key Message Callout Box
 slide15.addShape(pptx.shapes.RECTANGLE, {
@@ -1434,7 +1561,7 @@ slide15.addText("Semiconductors enable smart wearable diagnostics, active health
 // ==========================================
 // SLIDE 16: CONSUMER ELECTRONICS & EMERGING FRONTIERS
 // ==========================================
-let slide16 = createBaseSlide("PART 3: END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "Consumer Electronics & Emerging Frontiers", 16, scripts[15]);
+let slide16 = createBaseSlide("PART 3: DOWNSTREAM END-USER INDUSTRIES & APPLICATION ECOSYSTEM", "Consumer Electronics & Emerging Frontiers", 16, scripts[15]);
  
 // Key Message Callout Box
 slide16.addShape(pptx.shapes.RECTANGLE, {
@@ -1570,7 +1697,7 @@ slide17.addText("KEY TAKEAWAYS SUMMARY", {
 const takeaways = [
     { title: "Procurement", desc: "Shift from JIT to Strategic Hybrid; resilience is the new ROI.", color: COLOR_ACCENT_CYAN },
     { title: "Supply Chain", desc: "Chokepoints in Advanced Packaging and SME are the new strategic risks.", color: COLOR_ACCENT_PURPLE },
-    { title: "Industries", desc: "AI is the Value King; Automotive is the Volume King.", color: COLOR_ACCENT_GREEN }
+    { title: "Downstream End-User Industries", desc: "AI is the Value King; Automotive is the Volume King.", color: COLOR_ACCENT_GREEN }
 ];
 
 takeaways.forEach((tk, idx) => {
@@ -1679,12 +1806,12 @@ slide18.addShape(pptx.shapes.RECTANGLE, {
 });
 
 // Meta Info
-slide18.addText("Presenter: Phyoe Sat Paing\nBoardroom Strategic Briefing", {
+slide18.addText("Presenter: Phyoe Sat Paing (ID: 6821711420061)\nCourse: 501105, logistics and supply chain management\nDate: June 2026", {
     x: 0.8,
     y: 4.8,
     w: 5.0,
-    h: 0.8,
-    fontSize: 14,
+    h: 1.2,
+    fontSize: 12,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC
 });
