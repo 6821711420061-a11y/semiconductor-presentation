@@ -1520,93 +1520,111 @@ slide16.addText("Standard hardware in 2026 client electronics (laptops, phones)"
 // SLIDE 17: CONCLUSION
 // ==========================================
 let slide17 = createBaseSlide("SUMMARY & ROADMAP", "Conclusion: A Silicon-Dependent Civilization", 17, scripts[16]);
- 
-// Key Message Callout Box
+
+// Key Message Callout Box (Left Column: w=6.0)
 slide17.addShape(pptx.shapes.RECTANGLE, {
     x: 0.6,
-    y: 1.4,
-    w: 12.0,
+    y: 1.3,
+    w: 6.0,
     h: 0.9,
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_CYAN, width: 1.5 }
 });
 slide17.addText("Key Message: We have reached a point of \"Total Silicon Dependency.\" The path to a $2 trillion industry is certain.", {
     x: 0.8,
-    y: 1.45,
-    w: 11.6,
+    y: 1.35,
+    w: 5.6,
     h: 0.8,
-    fontSize: 18,
+    fontSize: 14,
     fontFace: 'Helvetica',
     color: COLOR_ACCENT_CYAN,
     italic: true,
     bold: true
 });
- 
+
 // Sub-statement
 slide17.addText("Mastery of the semiconductor ecosystem is mastery of the future. The \"Chip Wars\" aren't just about manufacturing; they are about who can best harness silicon to transform their industries.", {
     x: 0.6,
-    y: 2.4,
-    w: 12.0,
-    h: 0.8,
-    fontSize: 18,
+    y: 2.3,
+    w: 6.0,
+    h: 1.0,
+    fontSize: 14,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC
 });
- 
+
 // Key Takeaways label
 slide17.addText("KEY TAKEAWAYS SUMMARY", {
     x: 0.6,
-    y: 3.3,
-    w: 12.0,
+    y: 3.4,
+    w: 6.0,
     h: 0.3,
-    fontSize: 12,
+    fontSize: 10,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_PRI,
     bold: true,
     charSpacing: 1
 });
- 
-// 3 Takeaways Cards
+
+// 3 Takeaways Cards (stacked vertically)
 const takeaways = [
     { title: "Procurement", desc: "Shift from JIT to Strategic Hybrid; resilience is the new ROI.", color: COLOR_ACCENT_CYAN },
     { title: "Supply Chain", desc: "Chokepoints in Advanced Packaging and SME are the new strategic risks.", color: COLOR_ACCENT_PURPLE },
     { title: "Industries", desc: "AI is the Value King; Automotive is the Volume King.", color: COLOR_ACCENT_GREEN }
 ];
- 
+
 takeaways.forEach((tk, idx) => {
-    let xPos = 0.6 + (idx * 4.2);
+    let yPos = 3.8 + (idx * 0.95);
     
     slide17.addShape(pptx.shapes.RECTANGLE, {
-        x: xPos,
-        y: 3.7,
-        w: 3.6,
-        h: 3.0,
+        x: 0.6,
+        y: yPos,
+        w: 6.0,
+        h: 0.8,
         fill: { color: COLOR_CARD },
         line: { color: COLOR_MUTED, width: 1 }
     });
     
     slide17.addText(tk.title, {
-        x: xPos + 0.3,
-        y: 3.9,
-        w: 3.0,
-        h: 0.4,
-        fontSize: 20,
+        x: 0.8,
+        y: yPos + 0.1,
+        w: 5.6,
+        h: 0.25,
+        fontSize: 13,
         fontFace: 'Helvetica',
         color: tk.color,
         bold: true
     });
     
     slide17.addText(tk.desc, {
-        x: xPos + 0.3,
-        y: 4.4,
-        w: 3.0,
-        h: 2.1,
-        fontSize: 18,
+        x: 0.8,
+        y: yPos + 0.35,
+        w: 5.6,
+        h: 0.4,
+        fontSize: 11,
         fontFace: 'Helvetica',
         color: COLOR_TEXT_SEC
     });
 });
- 
+
+// Right Column: Infographic Image Card & Image
+slide17.addShape(pptx.shapes.RECTANGLE, {
+    x: 6.9,
+    y: 1.3,
+    w: 5.9,
+    h: 5.4,
+    fill: { color: COLOR_CARD },
+    line: { color: COLOR_MUTED, width: 1 }
+});
+
+slide17.addImage({
+    path: 'critical_materials.png',
+    x: 7.0,
+    y: 1.4,
+    w: 5.7,
+    h: 5.2
+});
+
 // ==========================================
 // SLIDE 18 (HTML SLIDE 20): THANK YOU
 // ==========================================
@@ -1614,11 +1632,12 @@ let slide18 = pptx.addSlide();
 slide18.background = { color: COLOR_BG };
 slide18.addNotes(scripts[17]);
 
+// Left Column: Thank You details
 // "THE END" Tag
 slide18.addText("THE END", {
     x: 0.8,
-    y: 1.5,
-    w: 11.5,
+    y: 1.8,
+    w: 5.0,
     h: 0.4,
     fontSize: 14,
     fontFace: 'Helvetica',
@@ -1630,8 +1649,8 @@ slide18.addText("THE END", {
 // Thank You Title
 slide18.addText("Thank You", {
     x: 0.8,
-    y: 2.0,
-    w: 11.5,
+    y: 2.3,
+    w: 5.0,
     h: 1.2,
     fontSize: 56,
     fontFace: 'Helvetica',
@@ -1642,8 +1661,8 @@ slide18.addText("Thank You", {
 // Slogan
 slide18.addText("Mastery of the semiconductor ecosystem is mastery of the future.", {
     x: 0.8,
-    y: 3.3,
-    w: 11.5,
+    y: 3.6,
+    w: 5.0,
     h: 0.8,
     fontSize: 20,
     fontFace: 'Helvetica',
@@ -1653,8 +1672,8 @@ slide18.addText("Mastery of the semiconductor ecosystem is mastery of the future
 // Border line
 slide18.addShape(pptx.shapes.RECTANGLE, {
     x: 0.8,
-    y: 4.2,
-    w: 5.0,
+    y: 4.5,
+    w: 4.0,
     h: 0.04,
     fill: { color: COLOR_ACCENT_CYAN }
 });
@@ -1662,13 +1681,67 @@ slide18.addShape(pptx.shapes.RECTANGLE, {
 // Meta Info
 slide18.addText("Presenter: Phyoe Sat Paing\nBoardroom Strategic Briefing", {
     x: 0.8,
-    y: 4.6,
+    y: 4.8,
     w: 5.0,
     h: 0.8,
     fontSize: 14,
     fontFace: 'Helvetica',
     color: COLOR_TEXT_SEC
 });
+
+// Right Column: References Card & 2-column lists
+slide18.addShape(pptx.shapes.RECTANGLE, {
+    x: 6.4,
+    y: 1.3,
+    w: 6.3,
+    h: 5.4,
+    fill: { color: COLOR_CARD },
+    line: { color: COLOR_MUTED, width: 1 }
+});
+
+slide18.addText("References", {
+    x: 6.6,
+    y: 1.5,
+    w: 5.9,
+    h: 0.4,
+    fontSize: 20,
+    fontFace: 'Helvetica', // maps to PP Mondwest since fontSize=20 and bold=true
+    color: COLOR_ACCENT_CYAN,
+    bold: true
+});
+
+const refCol1Text = [
+    { text: "1. Gartner: Revenue Forecast\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.gartner.com/en/newsroom/press-releases/...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "2. Phihong: JIT vs JIC Sourcing\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.phihong.com/just-in-time-vs-just-in-case...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "3. Maria O.: Supply Chain Continuity\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.linkedin.com/posts/pmochoamc...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "4. Porsche: Semiconductor Superiority\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.porsche-consulting.com/sites/...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "5. CSET: Semiconductor Supply Chain\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://cset.georgetown.edu/publication/...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "6. CSIS: Mineral Demands for Resilient\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.csis.org/analysis/mineral-demands...\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } }
+];
+
+const refCol2Text = [
+    { text: "7. SIA: Emerging Resilience\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.semiconductors.org/emerging-resilience...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "8. A. Masood: Semiconductors in 2026\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://medium.com/@adnanmasood/semiconductors...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "9. OECD: Mapping the Value Chain\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.oecd.org/content/dam/oecd/en/...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "10. Deloitte: 2026 Industry Outlook\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.deloitte.com/us/en/insights/...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "11. GM Insights: Aerospace Market Size\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.gminsights.com/industry-analysis/...\n\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } },
+    { text: "12. Edge Silica: AI & EVs Trends\n", options: { bold: true, fontSize: 8.5, color: COLOR_TEXT_PRI } },
+    { text: "https://www.linkedin.com/posts/edgesilica...\n", options: { fontSize: 8, color: COLOR_ACCENT_CYAN } }
+];
+
+slide18.addText(refCol1Text, { x: 6.6, y: 2.0, w: 2.9, h: 4.4, fontFace: 'Helvetica' });
+slide18.addText(refCol2Text, { x: 9.6, y: 2.0, w: 2.9, h: 4.4, fontFace: 'Helvetica' });
 
 // Slide Footer
 slide18.addText("The 2026 Semiconductor Ecosystem | Slide 18", {
