@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // State Variables
     let currentSlide = 0;
-    const totalSlides = 19;
+    const totalSlides = 20;
     let isDarkTheme = true;
     let timerSeconds = 0;
     let timerRunning = false;
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentFontSizeIndex = 1;
  
     // Slide Pacing Budget (Target cumulative minutes for the end of each slide)
-    // For a 20-minute presentation across 19 slides (including transition dividers):
+    // For a 20-minute presentation across 20 slides (including transition dividers):
     const pacingTargets = [
         1.5,   // Slide 1: Cover Title (Intro 0:00 - 1:30)
         2.6,   // Slide 2: Executive Summary: The Procurement Paradox
@@ -31,13 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         15.2,  // Slide 16: Automotive: The "Smartphone on Wheels"
         16.2,  // Slide 17: Industrial, IoT & Healthcare: Intelligence at the Edge
         17.0,  // Slide 18: Consumer Electronics & Emerging Frontiers (Part 3 ends 17:00)
-        20.0   // Slide 19: Conclusion: A Silicon-Dependent Civilization (Closing ends 20:00)
+        19.0,  // Slide 19: Conclusion: A Silicon-Dependent Civilization
+        20.0   // Slide 20: Thank You & Q&A (Closing ends 20:00)
     ];
  
     // Slide scripts copy for standalone display
     const slideScripts = [
         // Slide 1: Title
-        "Hello everyone. I’m Manus, and today we are conducting a deep-dive into the 'nerve system' of our modern civilization: the 2026 Semiconductor Ecosystem. Over the next 20 minutes, we are going to move beyond the headlines of 'chip shortages' and look at the actual structural mechanics of how silicon is procured, how it moves across the globe, and finally, how it is fundamentally rewriting the DNA of every major industry. Whether you are an investor, a procurement lead, or a strategic planner, this briefing is designed to give you the high-ground view of the $1.3 trillion silicon economy.",
+        "Hello everyone. I’m Phyoe Sat Paing, and today we are conducting a deep-dive into the 'nerve system' of our modern civilization: the 2026 Semiconductor Ecosystem. Over the next 20 minutes, we are going to move beyond the headlines of 'chip shortages' and look at the actual structural mechanics of how silicon is procured, how it moves across the globe, and finally, how it is fundamentally rewriting the DNA of every major industry. Whether you are an investor, a procurement lead, or a strategic planner, this briefing is designed to give you the high-ground view of the $1.3 trillion silicon economy.",
         
         // Slide 2: Executive Summary: The Procurement Paradox
         "We start with the 'Procurement Paradox.' In 2026, we are seeing record-breaking revenue, yet the supply chain has never felt more fragile. Why? Because the 'Just-in-Time' model we spent thirty years perfecting was built for a world of stability—not the world of 'Chip Wars' and AI super-cycles we live in today.",
@@ -91,7 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         "And looking at the horizon—Quantum, 6G, and Neuromorphic computing. These aren't science fiction anymore. We are already building the 2030 roadmap. We are designing chips that work like the human brain and networks that make 5G look like dial-up. The innovation cycle is actually accelerating.",
         
         // Slide 19: Conclusion
-        "To conclude, the 2026 ecosystem tells us one thing: Silicon Intensity is the new gold standard. The winners of the next decade won't just be the ones with the best software; they will be the ones who master the procurement, the supply chain, and the application of these chips.\n\nBefore we go, look at this infographic. These are the five materials that keep the lights on. From Gallium in your 5G phone to Neon in the lasers that print the chips, these are the true foundations. Most of these are concentrated in a few regions, which is why the 'Silicon Journey' is as much about geology as it is about geometry.\n\nThe 'Chip Wars' are far from over. In fact, they are just beginning. Mastery of this ecosystem is mastery of the future. Thank you for your time."
+        "To conclude, the 2026 ecosystem tells us one thing: Silicon Intensity is the new gold standard. The winners of the next decade won't just be the ones with the best software; they will be the ones who master the procurement, the supply chain, and the application of these chips.\n\nBefore we go, look at this infographic. These are the five materials that keep the lights on. From Gallium in your 5G phone to Neon in the lasers that print the chips, these are the true foundations. Most of these are concentrated in a few regions, which is why the 'Silicon Journey' is as much about geology as it is about geometry.\n\nThe 'Chip Wars' are far from over. In fact, they are just beginning. Mastery of this ecosystem is mastery of the future. Thank you for your time.",
+        
+        // Slide 20: Thank You
+        "Thank you everyone for your time. I would now like to open the floor to any questions you may have."
     ];
  
     // Slide Titles
@@ -114,7 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "Automotive: The \"Smartphone on Wheels\"",
         "Industrial, IoT & Healthcare: Intelligence at the Edge",
         "Consumer Electronics & Emerging Frontiers",
-        "Conclusion: A Silicon-Dependent Civilization"
+        "Conclusion: A Silicon-Dependent Civilization",
+        "Thank You"
     ];
  
     // DOM Elements

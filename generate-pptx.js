@@ -25,7 +25,7 @@ slideProto.addText = function(text, options) {
             useSerif = true; // Large stat numbers
         }
         
-        options.fontFace = useSerif ? 'PP Mondwest' : 'VVDS Fifties';
+        options.fontFace = useSerif ? 'PP Mondwest' : 'AT Aero';
     }
     return originalAddText.call(this, text, options);
 };
@@ -100,7 +100,7 @@ function createBaseSlide(category, title, slideNum, notes) {
 // Speaker notes data
 const scripts = [
     // Slide 1: Title
-    "Hello everyone. I’m Manus, and today we are conducting a deep-dive into the 'nerve system' of our modern civilization: the 2026 Semiconductor Ecosystem. Over the next 20 minutes, we are going to move beyond the headlines of 'chip shortages' and look at the actual structural mechanics of how silicon is procured, how it moves across the globe, and finally, how it is fundamentally rewriting the DNA of every major industry. Whether you are an investor, a procurement lead, or a strategic planner, this briefing is designed to give you the high-ground view of the $1.3 trillion silicon economy.",
+    "Hello everyone. I’m Phyoe Sat Paing, and today we are conducting a deep-dive into the 'nerve system' of our modern civilization: the 2026 Semiconductor Ecosystem. Over the next 20 minutes, we are going to move beyond the headlines of 'chip shortages' and look at the actual structural mechanics of how silicon is procured, how it moves across the globe, and finally, how it is fundamentally rewriting the DNA of every major industry. Whether you are an investor, a procurement lead, or a strategic planner, this briefing is designed to give you the high-ground view of the $1.3 trillion silicon economy.",
     
     // Slide 2: Executive Summary: The Procurement Paradox
     "We start with the 'Procurement Paradox.' In 2026, we are seeing record-breaking revenue, yet the supply chain has never felt more fragile. Why? Because the 'Just-in-Time' model we spent thirty years perfecting was built for a world of stability—not the world of 'Chip Wars' and AI super-cycles we live in today.",
@@ -148,7 +148,10 @@ const scripts = [
     "And looking at the horizon—Quantum, 6G, and Neuromorphic computing. These aren't science fiction anymore. We are already building the 2030 roadmap. We are designing chips that work like the human brain and networks that make 5G look like dial-up. The innovation cycle is actually accelerating.",
     
     // Slide 17: Conclusion
-    "To conclude, the 2026 ecosystem tells us one thing: Silicon Intensity is the new gold standard. The winners of the next decade won't just be the ones with the best software; they will be the ones who master the procurement, the supply chain, and the application of these chips.\n\nBefore we go, look at this infographic. These are the five materials that keep the lights on. From Gallium in your 5G phone to Neon in the lasers that print the chips, these are the true foundations. Most of these are concentrated in a few regions, which is why the 'Silicon Journey' is as much about geology as it is about geometry.\n\nThe 'Chip Wars' are far from over. In fact, they are just beginning. Mastery of this ecosystem is mastery of the future. Thank you for your time."
+    "To conclude, the 2026 ecosystem tells us one thing: Silicon Intensity is the new gold standard. The winners of the next decade won't just be the ones with the best software; they will be the ones who master the procurement, the supply chain, and the application of these chips.\n\nBefore we go, look at this infographic. These are the five materials that keep the lights on. From Gallium in your 5G phone to Neon in the lasers that print the chips, these are the true foundations. Most of these are concentrated in a few regions, which is why the 'Silicon Journey' is as much about geology as it is about geometry.\n\nThe 'Chip Wars' are far from over. In fact, they are just beginning. Mastery of this ecosystem is mastery of the future. Thank you for your time.",
+    
+    // Slide 20: Thank You
+    "Thank you everyone for your time. I would now like to open the floor to any questions you may have."
 ];
  
 // ==========================================
@@ -191,7 +194,7 @@ slide1.addShape(pptx.shapes.RECTANGLE, {
 });
  
 // Meta Info
-slide1.addText("Presenter: Manus\nBoardroom Strategic Briefing", {
+slide1.addText("Presenter: Phyoe Sat Paing\nBoardroom Strategic Briefing", {
     x: 0.8,
     y: 4.8,
     w: 5.0,
@@ -1598,6 +1601,80 @@ takeaways.forEach((tk, idx) => {
     });
 });
  
+// ==========================================
+// SLIDE 18 (HTML SLIDE 20): THANK YOU
+// ==========================================
+let slide18 = pptx.addSlide();
+slide18.background = { color: COLOR_BG };
+slide18.addNotes(scripts[17]);
+
+// "THE END" Tag
+slide18.addText("THE END", {
+    x: 0.8,
+    y: 1.5,
+    w: 11.5,
+    h: 0.4,
+    fontSize: 14,
+    fontFace: 'Helvetica',
+    color: COLOR_ACCENT_CYAN,
+    bold: true,
+    charSpacing: 1.5
+});
+
+// Thank You Title
+slide18.addText("Thank You", {
+    x: 0.8,
+    y: 2.0,
+    w: 11.5,
+    h: 1.2,
+    fontSize: 56,
+    fontFace: 'Helvetica',
+    color: COLOR_TEXT_PRI,
+    bold: true
+});
+
+// Slogan
+slide18.addText("Mastery of the semiconductor ecosystem is mastery of the future.", {
+    x: 0.8,
+    y: 3.3,
+    w: 11.5,
+    h: 0.8,
+    fontSize: 20,
+    fontFace: 'Helvetica',
+    color: COLOR_TEXT_SEC
+});
+
+// Border line
+slide18.addShape(pptx.shapes.RECTANGLE, {
+    x: 0.8,
+    y: 4.2,
+    w: 5.0,
+    h: 0.04,
+    fill: { color: COLOR_ACCENT_CYAN }
+});
+
+// Meta Info
+slide18.addText("Presenter: Phyoe Sat Paing\nBoardroom Strategic Briefing", {
+    x: 0.8,
+    y: 4.6,
+    w: 5.0,
+    h: 0.8,
+    fontSize: 14,
+    fontFace: 'Helvetica',
+    color: COLOR_TEXT_SEC
+});
+
+// Slide Footer
+slide18.addText("The 2026 Semiconductor Ecosystem | Slide 18", {
+    x: 0.6,
+    y: 7.0,
+    w: 12.0,
+    h: 0.3,
+    fontSize: 10,
+    fontFace: 'Helvetica',
+    color: COLOR_TEXT_SEC
+});
+
 // ==========================================
 // SAVE PRESENTATION
 // ==========================================
