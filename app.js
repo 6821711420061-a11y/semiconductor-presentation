@@ -21,77 +21,77 @@ document.addEventListener('DOMContentLoaded', () => {
     // Slide Pacing Budget (Target cumulative minutes for the end of each slide)
     // For a 30-minute presentation across 17 slides:
     const pacingTargets = [
-        1.5,   // Slide 1: Title
-        3.0,   // Slide 2: Agenda
-        4.5,   // Slide 3: Why semiconductors matter
-        6.0,   // Slide 4: From silicon to a finished chip
-        7.5,   // Slide 5: Procurement of semiconductors
-        9.5,   // Slide 6: How semiconductor buying usually works
-        11.5,  // Slide 7: What exactly must be sourced?
-        13.5,  // Slide 8: Main risks and how companies reduce them
-        15.0,  // Slide 9: The global semiconductor supply chain
-        17.5,  // Slide 10: Who does what in the chip chain?
-        19.5,  // Slide 11: From design file to final product
-        21.5,  // Slide 12: Why semiconductor supply chains become fragile
-        23.0,  // Slide 13: Industries that semiconductors end up using
-        25.5,  // Slide 14: Automotive and electric vehicles
-        27.5,  // Slide 15: AI, data centers, healthcare, and industry
-        29.0,  // Slide 16: Key takeaways
-        30.0   // Slide 17: Sources used
+        1.5,   // Slide 1: Cover Title
+        3.0,   // Slide 2: Executive Summary: The Procurement Paradox
+        4.5,   // Slide 3: Evolution of Procurement: The Strategic Hybrid Model
+        6.0,   // Slide 4: Key Procurement Challenges & Strategic Sourcing
+        8.0,   // Slide 5: Digitalization & Resilience in Procurement
+        10.0,  // Slide 6: The Global Supply Chain: A Web of Unprecedented Complexity
+        12.0,  // Slide 7: Architecture of the Global Value Chain (GVC)
+        14.0,  // Slide 8: Front-End & Back-End Bottlenecks
+        16.0,  // Slide 9: SME, Materials & Geopolitical Fragmentation
+        18.0,  // Slide 10: Supply Chain Resilience: Digital & Circular
+        20.0,  // Slide 11: The Ubiquity of Silicon: Powering the Modern World
+        21.5,  // Slide 12: Executive Summary: The Demand Landscape in 2026
+        23.5,  // Slide 13: AI & Data Centers: The Generative Revolution
+        25.5,  // Slide 14: Automotive: The "Smartphone on Wheels"
+        27.0,  // Slide 15: Industrial, IoT & Healthcare: Intelligence at the Edge
+        28.5,  // Slide 16: Consumer Electronics & Emerging Frontiers
+        30.0   // Slide 17: Conclusion: A Silicon-Dependent Civilization
     ];
  
     // Speaking Script text for each slide
     const slideScripts = [
         // Slide 1: Title
-        "Hello everyone, my name is Phyoe Sat Paing. Today, I am presenting my assignment on semiconductors. This presentation is structured into three main sections to explain how semiconductors are procured, how their global supply chain operates, and which industries end up using them. Over the next 30 minutes, we will look at this critical technology from silicon sand to the cars and data centers that power our modern world.",
+        "Good morning everyone, and welcome to this strategic briefing. Today, we are reviewing 'The 2026 Semiconductor Ecosystem' with a focus on procurement, global supply chains, and end-user verticals.\n\nIn 2026, semiconductor procurement has transitioned from a back-office utility into a core strategic capability for technological growth, commercial innovation, and national security. Over this session, we will analyze how organizations can navigate this crucial field to manage risk and secure supply.",
         
-        // Slide 2: Agenda
-        "To cover the three assignments comprehensively, I have structured this 30-minute presentation into five distinct parts. We will spend 3 minutes defining what semiconductors are, followed by 8 minutes on procurement, 10 minutes tracing the global supply chain, and 7 minutes examining the downstream industries. We will finish with a 2-minute wrap-up and Q&A. The core message here is that chips are not simple commodities; they are strategic products that connect design, fabrication, logistics, and global markets.",
+        // Slide 2: Executive Summary: The Procurement Paradox
+        "Let's begin with our executive summary on the procurement paradox. The semiconductor industry has reached a massive $1.3 trillion market valuation. However, this record-breaking growth is accompanied by systemic fragility. Sourcing critical logic nodes and High Bandwidth Memory (HBM) remains highly constrained. To thrive, procurement executives must pivot from traditional transactional buying to deep, long-term strategic relationship management.",
         
-        // Slide 3: Why semiconductors matter
-        "Before diving into the assignments, let's establish why semiconductors matter. These chips are the hidden brain of modern society. A single chip controls, stores, senses, and processes information, powering everything from household light switches to military defense systems. Economically, global sales reached a record $791.7 billion in 2025, and are projected by the SIA to approach $1 trillion in 2026. In response to recent disruptions, programs like the US CHIPS Act are investing over $50 billion to secure manufacturing. In logistics, a failure in the chip supply chain immediately stops production across automotive, medical, and electronics industries.",
+        // Slide 4 (Slide 3): Evolution of Procurement
+        "The traditional 'Just-in-Time' inventory model is obsolete for critical semiconductor components. In 2026, the standard is a hybrid inventory model. Organizations are maintaining 3 to 6 months of buffer stock for high-value, sole-sourced components, while keeping lean, JIT structures for commoditized parts. This balances operational resilience with capital efficiency.",
         
-        // Slide 4: From silicon to a finished chip
-        "This slide shows the basic flow from raw silicon to a finished chip. We start with silicon wafers, which are printed with circuit layouts using photolithography. Photolithography is the most critical step, printing patterns at nanometer scales. Next, the wafers are etched and chemical layers are deposited. Wafers are then diced into individual dies, which are packaged and tested. A key lesson for procurement is that you are not just buying the finished chip; you must secure the entire upstream pipeline including raw wafers, specialty gases, packaging materials, and testing services.",
+        // Slide 5 (Slide 4): Key Procurement Challenges
+        "Category management is the key tool to combat supply chain opacity. We segment the procurement landscape into Leading-edge nodes (sub-7nm) and Legacy nodes (28nm and above). Sourcing leading-edge chips requires deep, multi-year R&D partnerships, while legacy sourcing focuses on active multi-sourcing, life-cycle tracking, and securing long-term supply guarantees.",
         
-        // Slide 5: Procurement of semiconductors
-        "Now we begin Assignment 1: Procurement. In this industry, procurement goes far beyond buying components; it is an active exercise in risk management. What is bought ranges from finished microchips to chemical gases and manufacturing equipment. The buyers include consumer electronics companies, automakers, cloud providers, and defense firms. Each buyer is chasing the core procurement goals: securing a stable supply, ensuring chips meet precise technical specifications, controlling costs, ensuring quality compliance, and establishing backup sourcing options.",
+        // Slide 6 (Slide 5): Digitalization & Resilience
+        "Resilience in 2026 is data-driven. Leading procurement teams utilize AI-enabled 'Business Intelligence Cockpits' to map supplier networks and forecast shortages 6 to 12 months ahead. Furthermore, securing capacity requires proactive commercial structures, including capacity reservation fees and take-or-pay long-term agreements (LTAs).",
         
-        // Slide 6: How semiconductor buying usually works
-        "Let's examine how the buying process actually works. It is structured and slow because chips must go through rigorous qualification. First, we forecast demand based on product launches. Second, we define the technical specifications like the manufacturing node and power requirements. Third, we select suppliers—evaluating distributors, foundries, and packaging houses. Fourth, the qualification stage begins: testing the chips for defects and reliability. Finally, we negotiate contracts and logistics. A major mistake companies make is treating chips like simple spare parts; in reality, replacing a single chip can trigger months of redesign and re-testing.",
+        // Slide 7 (Slide 6): The Global Supply Chain
+        "Now we begin Part 2: The Global Supply Chain. A single microchip can cross international borders over 70 times before completion, making it the most complex value chain in industrial history. This 'Silicon Journey' connects chip designers in the US, equipment manufacturers in Europe, silicon fabricators in East Asia, and packaging facilities in Southeast Asia. This creates unmatched efficiency but extreme vulnerability to regional disruptions.",
         
-        // Slide 7: What exactly must be sourced?
-        "To illustrate procurement complexity, this slide maps out the entire sourcing ecosystem. We categorize these into four pillars: raw materials like photoresist and wafers; advanced equipment like lithography scanners and metrology tools; design inputs which include Electronic Design Automation software, IP blocks, and engineering talent; and back-end services like assembly and final testing. The complexity is extreme because a bottleneck in just one chemical or a single design license can delay a multi-billion dollar production line.",
+        // Slide 8 (Slide 7): GVC Architecture
+        "The Global Value Chain is characterized by extreme cluster concentration. The US controls research, design IP, and EDA software; Europe dominates specialized tooling, led by ASML's monopoly on EUV lithography scanners; and East Asia (specifically TSMC and Samsung) commands wafer fabrication. This high specialization means any single failure point halts the entire global system.",
         
-        // Slide 8: Main risks and how companies reduce them
-        "Given these complexities, companies face major risks. We identify five primary procurement threats: long lead times, which we mitigate with safety stock and long-term agreements; single-source dependencies, which require dual-sourcing strategies; quality defects, managed by strict traceability; export controls and geopolitical shifts, which demand compliance monitoring; and sudden demand spikes, resolved through early capacity reservations. Ultimately, a modern procurement strategy must balance cost, security, compliance, and quality.",
+        // Slide 9 (Slide 8): Front-End & Back-End Bottlenecks
+        "While wafer fabrication nodes (like 3nm and the emerging 2nm node) capture public attention, the primary bottleneck in 2026 is back-end advanced packaging. Heterogeneous packaging techniques like Chip-on-Wafer-on-Substrate (CoWoS) and 3D stacking are highly constrained, making packaging the primary growth limiter for high-performance AI chips.",
         
-        // Slide 9: The global semiconductor supply chain
-        "Now we move to Assignment 2: The Global Supply Chain. The key takeaway here is interdependence. No single country contains all the steps required to design and build a chip. The supply chain flows from global R&D and design, through EDA software modeling, wafer fabrication, equipment and material inputs, back-end assembly and testing, distribution, and finally to end products. This chain represents the most complex division of labor in industrial history.",
+        // Slide 10 (Slide 9): SME & Geopolitical Fragmentation
+        "Geopolitics has fragmented the silicon landscape into a multi-polar world. Government initiatives—such as the US CHIPS Act ($52B) and massive state funding in Europe and China—have triggered a reshoring race. Crucially, raw material chokepoints like Gallium and Germanium are now active levers of trade and foreign policy.",
         
-        // Slide 10: Who does what in the chip chain?
-        "This slide breaks down regional specialization. The United States leads in design and software; Taiwan dominates advanced foundry fabrication and packaging; South Korea excels in memory and manufacturing; Japan holds massive control over raw materials and mature nodes; Europe supplies the world's lithography scanners and equipment; and China and Southeast Asia host the largest footprint for back-end assembly, packaging, and testing. Because of this high specialization, supply-chain resilience cannot be achieved by isolation; it requires deep international coordination.",
+        // Slide 11 (Slide 10): Supply Chain Resilience
+        "To build resilience, leading firms are mapping their supply networks down to Tier-4 and Tier-5 suppliers. Additionally, we are seeing the rise of circular supply chains, where firms recover rare earth metals and copper from e-waste to insulate themselves from mining volatility and supply disruptions.",
         
-        // Slide 11: From design file to final product
-        "Let's track a chip's physical journey from a design file to a final product. The process spans design houses, foundry fabs, OSAT packaging houses, distributors, and finally end customers. For example, a cutting-edge AI chip is designed in the US, fabricated in Taiwan, packaged in Southeast Asia, integrated into a server, and finally deployed in a European data center. The logistical challenge is massive: every handoff requires strict temperature controls, shock protection, customs compliance, and defect traceability.",
+        // Slide 12 (Slide 11): The Ubiquity of Silicon
+        "We now transition to Part 3: End-User Industries. Semiconductors have become the central nervous system of the global economy. 'Silicon Intensity'—the value of semiconductor content per product unit—is now the primary metric of industrial competitiveness. No modern industry can run or innovate without silicon.",
         
-        // Slide 12: Why semiconductor supply chains become fragile
-        "Why is this supply chain so fragile? It boils down to structural bottlenecks. First, advanced tools like EUV lithography scanners are manufactured by only one company, ASML. Second, capacity is highly inelastic; building a new fab takes at least 3 years and costs up to $20 billion. Third, chemical materials are highly concentrated. Finally, policy risks like tariffs and export controls create massive friction. This means a minor bottleneck in a single chemical or tool immediately ripples downstream, halting multiple global industries simultaneously.",
+        // Slide 13 (Slide 12): Executive Summary: Demand Landscape
+        "The demand landscape in 2026 shows a major structural shift. AI infrastructure, automotive electronics, and factory robotics are capturing the majority of growth. While traditional smartphone and PC markets face saturation, specialized automotive and AI accelerator segments are driving industry revenues to new heights.",
         
-        // Slide 13: Industries that semiconductors end up using
-        "Now we begin Assignment 3: End-Use Industries. While every modern sector relies on semiconductors, their needs differ dramatically. We divide the end-use market into 8 primary categories: consumer electronics, automotive, AI/data centers, healthcare, industrial automation, energy grids, aerospace/defense, and telecom. Because foundry capacity is finite, these diverse industries must actively compete for fab allocations, turning chips into a strategic geopolitical resource.",
+        // Slide 14 (Slide 13): AI & Data Centers
+        "AI accelerators have turned data centers into massive intelligence engines, with the market approaching $500 billion. This segment is the primary driver of leading-edge 3nm and 2nm foundry nodes, consuming massive volumes of High Bandwidth Memory and advanced networking silicon.",
         
-        // Slide 14: Automotive and electric vehicles
-        "Let's perform a deep dive into the automotive sector. Modern electric vehicles are essentially computers on wheels. They require Microcontrollers for engines and brakes; power semiconductors to manage battery electricity; sensors like radar and lidar; infotainment systems for navigation; and advanced AI chips for self-driving features. Importantly, most automotive chips are built on mature nodes, not leading-edge ones. This means automakers do not compete for 3-nanometer nodes, but are highly vulnerable to shortages of cheaper, older legacy chips.",
+        // Slide 15 (Slide 14): Automotive: The Smartphone on Wheels
+        "Electric Vehicles and Advanced Driver Assistance Systems (ADAS) are doubling the semiconductor value per vehicle, now exceeding $1,000 per unit. EVs depend heavily on Silicon Carbide (SiC) power electronics for battery efficiency, while autonomous drive systems require massive local compute power and LiDAR arrays.",
         
-        // Slide 15: AI, data centers, healthcare, and industry
-        "This slide covers other key sectors: AI and data centers, healthcare, industrial automation, and telecom infrastructure. In AI and data centers, the demand is skyrocketing for GPUs, High-Bandwidth Memory, and high-speed networking. Healthcare requires advanced chips for MRI imaging and surgical robots. Industrial automation relies on machine vision and control PLCs. Telecom needs chips for 5G base stations. According to the SIA, the explosive growth in 2025 was driven heavily by logic and memory chips to satisfy this massive computing and AI demand.",
+        // Slide 16 (Slide 15): Industrial, IoT & Healthcare
+        "Edge AI is transforming industrial automation and healthcare. Industry 4.0 uses real-time edge analytics for predictive maintenance. In healthcare, semiconductors enable smart implants, wearable biosensors, and personalized diagnostics, demanding highly rugged, long-lifecycle silicon.",
         
-        // Slide 16: Key takeaways
-        "To summarize my presentation, we have connected the three assignments into one cohesive narrative. First, procurement is not just purchasing; it is a complex exercise in risk management and compliance. Second, the global supply chain is highly specialized, making it efficient but structurally vulnerable to geopolitical events. Third, downstream industries compete for the same foundry capacity. My final message is that a chip shortage is not simply a technology problem; it is a procurement, logistics, manufacturing, and strategic planning challenge.",
+        // Slide 17 (Slide 16): Consumer Electronics & Frontiers
+        "While traditional consumer volumes mature, manufacturers are integrating Neural Processing Units (NPUs) into laptops and phones to enable on-device AI. Looking forward, emerging frontiers like quantum computing, 6G telecom, and brain-inspired neuromorphic chips are defining the roadmap toward 2030.",
         
-        // Slide 17: Sources used
-        "Finally, here are the main references I used for my research, including reports from the Semiconductor Industry Association, NIST, CSET Georgetown, ASML, and the World Semiconductor Trade Statistics. Thank you very much for your time and attention. I am now open to any questions you may have."
+        // Slide 18 (Slide 17): Conclusion
+        "In conclusion, we have reached a state of total silicon dependency. The path to a $2 trillion global industry by the early 2030s is clear. The 'Chip Wars' are not just about manufacturing footprint; they are about which nations and companies can best harness silicon to transform their businesses. Let's summarize the key takeaways: Procurement must shift to a hybrid model; packaging is the new supply chokepoint; and AI and Automotive remain the primary engines of value and volume. Thank you, and I am open to any questions."
     ];
  
     // DOM Elements

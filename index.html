@@ -3,8 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semiconductor Ecosystem: Sourcing, Supply Chain &amp; End-Use</title>
+    <title>The 2026 Semiconductor Ecosystem: Sourcing, Supply Chain &amp; End-User Verticals</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add specific section divider and print styles */
+        .section-divider-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0b0f19 0%, #070a10 100%) !important;
+        }
+        .section-divider-badge {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        .key-takeaway-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+        .key-takeaway-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        .key-takeaway-card:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 242, 254, 0.02);
+            transform: translateY(-2px);
+        }
+        .key-takeaway-card h4 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+        .key-takeaway-card p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Print layout adjustments for perfect PDF printing */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 0;
+            }
+            html, body {
+                width: 297mm;
+                height: 210mm;
+                background: #0b0f19 !important;
+                color: #ffffff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: hidden !important;
+            }
+            #app-container {
+                width: 100% !important;
+                height: 100% !important;
+                grid-template-rows: 1fr !important;
+                grid-template-columns: 1fr !important;
+                padding: 0 !important;
+            }
+            header, footer, #presenter-panel {
+                display: none !important;
+            }
+            #main-viewport {
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+            }
+            #slides-frame {
+                border: none !important;
+                box-shadow: none !important;
+                background: transparent !important;
+                width: 100% !important;
+                height: 100% !important;
+                padding: 0 !important;
+            }
+            .slide-screen {
+                transform: none !important;
+                width: 100% !important;
+                height: 100% !important;
+                position: relative !important;
+            }
+            .slide {
+                display: none !important;
+                opacity: 0 !important;
+                page-break-after: always !important;
+                break-after: page !important;
+            }
+            .slide.active {
+                display: flex !important;
+                opacity: 1 !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                box-sizing: border-box !important;
+                padding: 3rem !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="app-container">
@@ -39,404 +156,170 @@
             <div id="slides-frame">
                 <div class="slide-screen">
                     
-                    <!-- SLIDE 1: TITLE -->
+                    <!-- SLIDE 1: COVER TITLE -->
                     <div class="slide slide-title-page active">
-                        <div class="hero-badge">30 MINUTES | 3 ASSIGNMENTS</div>
-                        <h1 class="slide-title">Semiconductor</h1>
-                        <p class="subtitle">Procurement, Global Supply Chain, and End-Use Industries</p>
-                        <div class="meta-info">
+                        <div class="hero-badge">BOARDROOM BRIEFING</div>
+                        <h1 class="slide-title" style="font-size: 3.2rem; line-height: 1.15; margin-bottom: 1rem;">The 2026 Semiconductor Ecosystem</h1>
+                        <p class="subtitle" style="font-size: 1.35rem; margin-bottom: 2rem;">A Strategic Briefing on Procurement, Global Supply Chains, and End-User Verticals</p>
+                        <div class="meta-info" style="margin-top: auto;">
                             <div class="meta-info-item">Presenter: <strong>Phyoe Sat Paing</strong></div>
-                            <div class="meta-info-item">Subject: <strong>Class Presentation</strong></div>
+                            <div class="meta-info-item">Date: <strong>2026</strong></div>
                         </div>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 2rem;">A clear overview of how chips are bought, made globally, and used across modern industries.</p>
                     </div>
 
-                    <!-- SLIDE 2: ROADMAP -->
+                    <!-- SLIDE 2: EXECUTIVE SUMMARY (PROCUREMENT PARADOX) -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">PRESENTATION ROADMAP</span>
-                            <h2 class="slide-title">30-minute presentation plan</h2>
+                            <span class="slide-tag">PART 1: PROCUREMENT OF SEMICONDUCTORS</span>
+                            <h2 class="slide-title">Executive Summary: The Procurement Paradox</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.75rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.5rem; font-size: 0.95rem;">Three assignments combined into one connected story.</p>
-                            
-                            <div class="glass-panel" style="width: 100%; display: flex; flex-direction: column; gap: 0.4rem; padding: 0.75rem 1rem;">
-                                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding: 0.35rem 0;">
-                                    <span style="font-weight: 600; color: var(--accent-cyan);">01. What semiconductors are</span>
-                                    <span style="color: var(--text-secondary); font-size: 0.85rem;">3 min</span>
+                        <div class="slide-body" style="gap: 1.5rem;">
+                            <div class="slide-content-left" style="flex: 1.2;">
+                                <div style="font-size: 1.15rem; font-weight: 600; color: var(--accent-cyan); border-left: 3px solid var(--accent-cyan); padding-left: 1rem; margin-bottom: 1.2rem; line-height: 1.45;">
+                                    Key Message: Navigating a $1.3 trillion market requires balancing unprecedented growth with systemic supply chain fragility.
                                 </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding: 0.35rem 0;">
-                                    <span style="font-weight: 600; color: var(--accent-purple);">02. Procurement of semiconductors</span>
-                                    <span style="color: var(--text-secondary); font-size: 0.85rem;">8 min</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding: 0.35rem 0;">
-                                    <span style="font-weight: 600; color: var(--accent-green);">03. Global supply chain</span>
-                                    <span style="color: var(--text-secondary); font-size: 0.85rem;">10 min</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding: 0.35rem 0;">
-                                    <span style="font-weight: 600; color: var(--accent-amber);">04. Industries that use chips</span>
-                                    <span style="color: var(--text-secondary); font-size: 0.85rem;">7 min</span>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.35rem 0;">
-                                    <span style="font-weight: 600; color: var(--accent-rose);">05. Conclusion + Q&amp;A</span>
-                                    <span style="color: var(--text-secondary); font-size: 0.85rem;">2 min</span>
-                                </div>
+                                <ul class="bullet-list" style="font-size: 0.95rem; line-height: 1.6;">
+                                    <li><strong>Record-High Valuations:</strong> Growth is driven by explosive global demand for AI systems and electric vehicle power logic.</li>
+                                    <li><strong>Systemic Fragility:</strong> Leading-edge fabs operate near maximum capacity, leaving the industry vulnerable to minor material delays.</li>
+                                    <li><strong>Strategic Pivot:</strong> Sourcing HBM (High Bandwidth Memory) and advanced logic requires a shift from transactional purchasing to capacity reservation models.</li>
+                                </ul>
                             </div>
-                            
-                            <div style="margin-top: 0.5rem; padding: 0.5rem 1rem; border-left: 3px solid var(--accent-cyan); background: rgba(0, 242, 254, 0.04); font-size: 0.85rem;">
-                                <strong>Key idea:</strong> Semiconductors are not just electronic parts. They are strategic supply-chain products that connect design, manufacturing, logistics, and final industries.
+                            <div class="slide-content-right" style="flex: 0.8; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="glass-panel highlight-border" style="padding: 1.5rem; text-align: center;">
+                                    <div style="font-size: 3rem; font-weight: 800; color: var(--accent-cyan); line-height: 1; margin-bottom: 0.5rem;">$1.3T</div>
+                                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Market Cap projection</div>
+                                    <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; font-style: italic;">Analyst Consensus 2026</div>
+                                </div>
                             </div>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Semiconductors | 30-minute presentation</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 02</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 3: CONTEXT -->
+                    <!-- SLIDE 3: EVOLUTION OF PROCUREMENT -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">CONTEXT</span>
-                            <h2 class="slide-title">Why semiconductors matter</h2>
+                            <span class="slide-tag">PART 1: PROCUREMENT OF SEMICONDUCTORS</span>
+                            <h2 class="slide-title">Evolution of Procurement: The Strategic Hybrid Model</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.8rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">Chips are the hidden foundation of modern products and digital infrastructure.</p>
+                        <div class="slide-body" style="flex-direction: column; gap: 1rem; justify-content: flex-start;">
+                            <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-purple); border-left: 3px solid var(--accent-purple); padding-left: 1rem; margin-bottom: 0.5rem; line-height: 1.4;">
+                                Key Message: Pure JIT is obsolete; the new standard is a hybrid approach that prioritizes resilience for high-value nodes.
+                            </div>
                             
-                            <p style="font-size: 0.9rem; line-height: 1.4; color: var(--text-primary); border-left: 3px solid var(--accent-purple); padding-left: 0.75rem;">
-                                A semiconductor chip is a tiny electronic device that <strong>controls, stores, senses, or processes information</strong>. It powers products as simple as a light switch and as complex as smartphones, data centers, automobiles, medical devices, and defense systems.
-                            </p>
-                            
-                            <div class="agenda-grid" style="gap: 0.75rem; margin-top: 0.25rem;">
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem;">
-                                    <div class="agenda-num" style="font-size: 1.8rem; color: var(--accent-cyan);">$791.7B</div>
-                                    <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.3;">Global semiconductor sales in 2025, up 25.6% from 2024.</p>
+                            <div class="agenda-grid" style="grid-template-columns: 1fr 1fr; gap: 1.2rem; width: 100%; margin-top: 0.5rem;">
+                                <div class="glass-panel highlight-border" style="padding: 1.2rem;">
+                                    <h4 style="color: var(--accent-cyan); font-family: var(--font-heading); margin-bottom: 0.6rem; font-size: 1.05rem;">Lean JIT (Commoditized Nodes)</h4>
+                                    <p style="font-size: 0.85rem; line-height: 1.45; color: var(--text-secondary);">Used for standardized legacy passive elements and commoditized logic chips. Minimizes capital lock-up and inventory holding costs.</p>
                                 </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem;">
-                                    <div class="agenda-num" style="font-size: 1.8rem; color: var(--accent-purple);">~$1T</div>
-                                    <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.3;">SIA projected annual sales could approach roughly $1 trillion in 2026.</p>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem;">
-                                    <div class="agenda-num" style="font-size: 1.8rem; color: var(--accent-green);">50B+</div>
-                                    <p style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.3;">U.S. CHIPS programs target R&amp;D and manufacturing resilience.</p>
+                                <div class="glass-panel highlight-border" style="padding: 1.2rem;">
+                                    <h4 style="color: var(--accent-purple); font-family: var(--font-heading); margin-bottom: 0.6rem; font-size: 1.05rem;">Strategic Buffers (Critical Nodes)</h4>
+                                    <p style="font-size: 0.85rem; line-height: 1.45; color: var(--text-secondary);">Maintaining 3 to 6 months of safety stock for sole-sourced, high-margin microcomponents (HBM, custom GPUs) to guarantee manufacturing continuity.</p>
                                 </div>
                             </div>
                             
-                            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;">
-                                <strong>Why it matters for logistics:</strong> shortages or delays can stop production lines for cars, phones, servers, and industrial machines.
+                            <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; margin-top: 0.5rem;">
+                                <strong>Strategic Takeaway:</strong> The hybrid sourcing approach secures mission-critical silicon layers while utilizing JIT dynamics where suppliers are abundant.
                             </p>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Source: SIA 2026; NIST CHIPS overview</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 03</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 4: BASICS - FROM SILICON TO FINISHED CHIP -->
+                    <!-- SLIDE 4: KEY PROCUREMENT CHALLENGES -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">BASICS</span>
-                            <h2 class="slide-title">From silicon to a finished chip</h2>
+                            <span class="slide-tag">PART 1: PROCUREMENT OF SEMICONDUCTORS</span>
+                            <h2 class="slide-title">Key Procurement Challenges &amp; Strategic Sourcing</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.75rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">A chip starts as material, becomes a patterned wafer, then is packaged and tested.</p>
-                            
-                            <div class="procurement-flow-container">
-                                <div class="procurement-steps">
-                                    <div class="glass-panel procurement-step active" 
-                                         data-title="1. Silicon wafer" 
-                                         data-desc="Raw sand (quartzite) is refined into high-purity polysilicon, melted, pulled into a single-crystal monocrystalline ingot, and sliced into wafer discs.">
-                                        <div class="procurement-step-num">1</div>
-                                        <div class="procurement-step-title">Silicon wafer</div>
-                                        <div class="procurement-step-desc">Refined raw substrate</div>
-                                    </div>
-                                    <div class="glass-panel procurement-step" 
-                                         data-title="2. Photolithography" 
-                                         data-desc="The most critical step in chip fabrication. Circuit patterns are projected using light wavelength onto a light-sensitive chemical coating on the wafer.">
-                                        <div class="procurement-step-num">2</div>
-                                        <div class="procurement-step-title">Photolithography</div>
-                                        <div class="procurement-step-desc">Nanometer patterning</div>
-                                    </div>
-                                    <div class="glass-panel procurement-step" 
-                                         data-title="3. Etching + deposition" 
-                                         data-desc="Unwanted silicon is etched away with chemical acids, and microscopic layers of copper or other conductive materials are deposited to build circuits.">
-                                        <div class="procurement-step-num">3</div>
-                                        <div class="procurement-step-title">Etching &amp; Deposition</div>
-                                        <div class="procurement-step-desc">Circuit etching layers</div>
-                                    </div>
-                                    <div class="glass-panel procurement-step" 
-                                         data-title="4. Dicing" 
-                                         data-desc="After full circuit layers are formed, the finished wafer is cut (diced) using precision diamond wire saws into hundreds of individual microchip dies.">
-                                        <div class="procurement-step-num">4</div>
-                                        <div class="procurement-step-title">Dicing</div>
-                                        <div class="procurement-step-desc">Cutting into dies</div>
-                                    </div>
-                                    <div class="glass-panel procurement-step" 
-                                         data-title="5. Packaging + test" 
-                                         data-desc="Each die is wrapped in a protective ceramic or plastic case with pins for electrical connection, then tested under stress for final quality control.">
-                                        <div class="procurement-step-num">5</div>
-                                        <div class="procurement-step-title">Packaging + test</div>
-                                        <div class="procurement-step-desc">Assembly &amp; stress test</div>
-                                    </div>
+                        <div class="slide-body" style="gap: 1.5rem;">
+                            <div class="slide-content-left" style="flex: 1.2;">
+                                <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-green); border-left: 3px solid var(--accent-green); padding-left: 1rem; margin-bottom: 1rem; line-height: 1.45;">
+                                    Key Message: Data opacity and reactive risk management are the primary enemies of a resilient procurement strategy.
                                 </div>
-                                
-                                <div class="grid-2col" style="margin-top: 0.5rem; align-items: stretch; gap: 1rem;">
-                                    <div class="procurement-detail-display" style="min-height: 80px; margin-top: 0; padding: 0.8rem;">
-                                        <div class="procurement-detail-title" id="procurement-detail-title" style="font-size: 0.95rem; margin-bottom: 0.25rem;">1. Silicon wafer</div>
-                                        <div class="procurement-detail-body" id="procurement-detail-body" style="font-size: 0.8rem; line-height: 1.4;">
-                                            Raw sand (quartzite) is refined into high-purity polysilicon, melted, pulled into a single-crystal monocrystalline ingot, and sliced into wafer discs.
-                                        </div>
-                                    </div>
-                                    <div class="glass-panel" style="padding: 0; overflow: hidden; border-radius: 8px; height: 95px; border-color: rgba(0, 242, 254, 0.2);">
-                                        <img src="silicon_ingot_sourcing.png" alt="Silicon Ingot Sourcing" style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
+                                <ul class="bullet-list" style="font-size: 0.9rem; line-height: 1.55;">
+                                    <li><strong>Category Management Sourcing:</strong> Slicing procurement into precise technology nodes (Leading-edge sub-7nm vs Legacy nodes).</li>
+                                    <li><strong>Leading-edge Sourcing:</strong> Focuses on deep co-development partnerships, engineering collaboration, and long-term volume commitments.</li>
+                                    <li><strong>Legacy Sourcing:</strong> Emphasizes multi-sourcing, second-sourcing qualification, and legacy lifecycle management to offset obsolescence.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right" style="flex: 0.8; display: flex; flex-direction: column; gap: 0.75rem; justify-content: center;">
+                                <div class="glass-panel highlight-border" style="padding: 1rem; border-color: rgba(57, 211, 83, 0.2);">
+                                    <strong style="color: var(--accent-green); display: block; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.25rem;">Leading-Edge Nodes</strong>
+                                    <span style="font-size: 0.75rem; color: var(--text-secondary);">Focus: Deep alliances, R&amp;D partnerships, capacity reservations</span>
+                                </div>
+                                <div class="glass-panel highlight-border" style="padding: 1rem; border-color: rgba(251, 191, 36, 0.2);">
+                                    <strong style="color: var(--accent-amber); display: block; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.25rem;">Legacy Nodes</strong>
+                                    <span style="font-size: 0.75rem; color: var(--text-secondary);">Focus: Multi-sourcing, distributor networks, life-cycle tracking</span>
                                 </div>
                             </div>
-                            
-                            <p style="font-size: 0.78rem; line-height: 1.3; color: var(--text-muted);">
-                                <strong>Important procurement point:</strong> Semiconductor procurement is not only buying the final chip. It includes sourcing wafers, chemicals, gases, advanced equipment, packaging materials, logistics, and quality testing services.
-                                <br>
-                                <em>Lithography is a key step because it prints extremely small circuit patterns onto silicon.</em>
-                            </p>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Sources: CSET; ASML</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 04</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 5: ASSIGNMENT 1 - PROCUREMENT OF SEMICONDUCTORS -->
+                    <!-- SLIDE 5: DIGITALIZATION & RESILIENCE IN PROCUREMENT -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">ASSIGNMENT 1</span>
-                            <h2 class="slide-title">Procurement of semiconductors</h2>
+                            <span class="slide-tag">PART 1: PROCUREMENT OF SEMICONDUCTORS</span>
+                            <h2 class="slide-title">Digitalization &amp; Resilience in Procurement</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.8rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">Procurement means securing the right chips and production inputs at the right quality, cost, and time.</p>
+                        <div class="slide-body" style="flex-direction: column; gap: 1rem; justify-content: flex-start;">
+                            <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-cyan); border-left: 3px solid var(--accent-cyan); padding-left: 1rem; margin-bottom: 0.5rem; line-height: 1.4;">
+                                Key Message: AI-driven "Business Intelligence Cockpits" are essential for predicting shortages 6-12 months in advance.
+                            </div>
                             
-                            <div class="agenda-grid" style="grid-template-columns: repeat(3, 1fr); width: 100%; gap: 1rem; flex-grow: 1;">
-                                <div class="glass-panel highlight-border" style="padding: 1rem;">
-                                    <h3 style="font-family: var(--font-heading); color: var(--accent-cyan); font-size: 1.1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">What is bought</h3>
-                                    <ul class="bullet-list" style="font-size: 0.85rem; line-height: 1.4;">
-                                        <li>Finished chips</li>
-                                        <li>Wafers</li>
-                                        <li>Chemicals and gases</li>
-                                        <li>Equipment</li>
-                                        <li>Packaging/test services</li>
-                                    </ul>
+                            <div class="agenda-grid" style="grid-template-columns: 1fr 1fr; gap: 1.2rem; width: 100%; margin-top: 0.5rem;">
+                                <div class="glass-panel highlight-border" style="padding: 1rem 1.2rem;">
+                                    <h4 style="color: var(--accent-cyan); font-family: var(--font-heading); margin-bottom: 0.4rem; font-size: 1rem;">LTA &amp; Reservation Fees</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);">Securing fab slots requires upfront reservation fees and take-or-pay clauses in Long-Term Agreements (LTAs).</p>
                                 </div>
-                                <div class="glass-panel highlight-border" style="padding: 1rem;">
-                                    <h3 style="font-family: var(--font-heading); color: var(--accent-purple); font-size: 1.1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Who buys</h3>
-                                    <ul class="bullet-list" style="font-size: 0.85rem; line-height: 1.4;">
-                                        <li>Electronics firms</li>
-                                        <li>Automakers</li>
-                                        <li>Cloud companies</li>
-                                        <li>Industrial manufacturers</li>
-                                        <li>Defense/medical firms</li>
-                                    </ul>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 1rem;">
-                                    <h3 style="font-family: var(--font-heading); color: var(--accent-green); font-size: 1.1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">Procurement goal</h3>
-                                    <ul class="bullet-list" style="font-size: 0.85rem; line-height: 1.4;">
-                                        <li>Stable supply</li>
-                                        <li>Correct specifications</li>
-                                        <li>Controlled cost</li>
-                                        <li>Quality and compliance</li>
-                                        <li>Backup options</li>
-                                    </ul>
+                                <div class="glass-panel highlight-border" style="padding: 1rem 1.2rem;">
+                                    <h4 style="color: var(--accent-green); font-family: var(--font-heading); margin-bottom: 0.4rem; font-size: 1rem;">Friend-Shoring Sourcing</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);">Decoupling supply links from high-risk locations, redirecting procurement to allied geopolitical nodes.</p>
                                 </div>
                             </div>
                             
-                            <div style="padding: 0.5rem 1rem; border-left: 3px solid var(--accent-cyan); background: rgba(0, 242, 254, 0.04); font-size: 0.9rem; font-weight: 600; width: 100%;">
-                                Good procurement is risk management, not just purchasing.
+                            <div class="glass-panel" style="padding: 0.75rem 1.2rem; font-size: 0.82rem; color: var(--text-muted); border-left: 3px solid var(--accent-cyan);">
+                                AI integration automatically tracks tier-2 chemical and substrate suppliers to detect factory closures or export blocks before they ripple into final fab allocations.
                             </div>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Semiconductors | 30-minute presentation</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 05</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 6: HOW SEMICONDUCTOR BUYING USUALLY WORKS -->
-                    <div class="slide">
-                        <div class="slide-header">
-                            <span class="slide-tag">PROCUREMENT PROCESS</span>
-                            <h2 class="slide-title">How semiconductor buying usually works</h2>
-                        </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.75rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">The process is slow because chips must be qualified before mass use.</p>
-                            
-                            <div class="buying-flow-container">
-                                <div class="buying-steps">
-                                    <div class="glass-panel buying-step active" 
-                                         data-title="1. Demand forecast" 
-                                         data-desc="Estimating future production volumes by aligning product launch schedules, historical volumes, and downstream sales forecasts.">
-                                        <div class="buying-step-num">1</div>
-                                        <div class="buying-step-title">Demand forecast</div>
-                                        <div class="buying-step-desc">Volume planning</div>
-                                    </div>
-                                    <div class="glass-panel buying-step" 
-                                         data-title="2. Technical specs" 
-                                         data-desc="Defining the specific node architecture (e.g. 5nm, 28nm), package profile, power tolerances, clock speeds, and thermal safety certifications.">
-                                        <div class="buying-step-num">2</div>
-                                        <div class="buying-step-title">Technical specs</div>
-                                        <div class="buying-step-desc">Node requirements</div>
-                                    </div>
-                                    <div class="glass-panel buying-step" 
-                                         data-title="3. Supplier selection" 
-                                         data-desc="Identifying and auditing vendors, comparing authorized component distributors, pure-play foundries, OSAT partners, and design IP houses.">
-                                        <div class="buying-step-num">3</div>
-                                        <div class="glass-panel-title buying-step-title">Supplier selection</div>
-                                        <div class="buying-step-desc">Vendor comparison</div>
-                                    </div>
-                                    <div class="glass-panel buying-step" 
-                                         data-title="4. Qualification" 
-                                         data-desc="Conducting reliability stress tests, defect density checks, and compliance audits to guarantee the chip operates under extreme industrial environments.">
-                                        <div class="buying-step-num">4</div>
-                                        <div class="buying-step-title">Qualification</div>
-                                        <div class="buying-step-desc">Testing &amp; compliance</div>
-                                    </div>
-                                    <div class="glass-panel buying-step" 
-                                         data-title="5. Contract + logistics" 
-                                         data-desc="Finalizing unit price agreements, allocating capacity guarantees, verifying lead times, safety stocks, and custom logistics pathways.">
-                                        <div class="buying-step-num">5</div>
-                                        <div class="buying-step-title">Contract &amp; Logistics</div>
-                                        <div class="buying-step-desc">Negotiation &amp; delivery</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="buying-detail-display" style="min-height: 80px; margin-top: 0.5rem; padding: 0.8rem;">
-                                    <div class="buying-detail-title" id="buying-detail-title" style="font-size: 0.95rem; margin-bottom: 0.25rem;">1. Demand forecast</div>
-                                    <div class="buying-detail-body" id="buying-detail-body" style="font-size: 0.8rem; line-height: 1.4;">
-                                        Estimating future production volumes by aligning product launch schedules, historical volumes, and downstream sales forecasts.
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; font-style: italic;">
-                                <strong>Common mistake:</strong> treating chips like simple spare parts. In reality, changing a chip can require redesign, re-testing, or re-certification.
-                            </p>
-                        </div>
-                        <div class="slide-footer-watermark">
-                            <span>Semiconductors | 30-minute presentation</span>
-                            <span>Slide 06</span>
-                        </div>
+                    <!-- SLIDE 6: SECTION DIVIDER - PART 2 -->
+                    <div class="slide section-divider-page">
+                        <div class="section-divider-badge">Part 2</div>
+                        <h1 style="font-size: 2.8rem; font-family: var(--font-heading); color: #ffffff; margin-bottom: 0.8rem;">The Global Supply Chain of Semiconductors</h1>
+                        <p style="color: var(--text-secondary); max-width: 500px; font-size: 1rem; line-height: 1.5;">An analysis of geographic concentrations, fabrication bottlenecks, and circular supply-chain resilience models.</p>
                     </div>
 
-                    <!-- SLIDE 7: WHAT EXACTLY MUST BE SOURCED? -->
+                    <!-- SLIDE 7 (Slide 6 in content): THE GLOBAL SUPPLY CHAIN -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">PROCUREMENT INPUTS</span>
-                            <h2 class="slide-title">What exactly must be sourced?</h2>
+                            <span class="slide-tag">PART 2: THE GLOBAL SUPPLY CHAIN OF SEMICONDUCTORS</span>
+                            <h2 class="slide-title">The Global Supply Chain: A Web of Complexity</h2>
                         </div>
                         <div class="slide-body" style="flex-direction: column; gap: 0.8rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">Semiconductor procurement covers a whole ecosystem of materials, tools, IP, and services.</p>
-                            
-                            <div class="agenda-grid" style="grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0.8rem; width: 100%; flex-grow: 1;">
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem;">
-                                    <h4 style="font-family: var(--font-heading); color: var(--accent-cyan); font-size: 1rem; margin-bottom: 0.4rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">Materials</h4>
-                                    <ul style="list-style: none; font-size: 0.8rem; line-height: 1.4; padding: 0;">
-                                        <li>• Silicon wafers</li>
-                                        <li>• Photoresist</li>
-                                        <li>• Specialty gases</li>
-                                        <li>• Chemicals</li>
-                                    </ul>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem;">
-                                    <h4 style="font-family: var(--font-heading); color: var(--accent-purple); font-size: 1rem; margin-bottom: 0.4rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">Equipment</h4>
-                                    <ul style="list-style: none; font-size: 0.8rem; line-height: 1.4; padding: 0;">
-                                        <li>• Lithography</li>
-                                        <li>• Etch/deposition</li>
-                                        <li>• Inspection</li>
-                                        <li>• Metrology</li>
-                                    </ul>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem;">
-                                    <h4 style="font-family: var(--font-heading); color: var(--accent-green); font-size: 1rem; margin-bottom: 0.4rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">Design inputs</h4>
-                                    <ul style="list-style: none; font-size: 0.8rem; line-height: 1.4; padding: 0;">
-                                        <li>• EDA software</li>
-                                        <li>• IP cores</li>
-                                        <li>• Reference designs</li>
-                                        <li>• Engineering talent</li>
-                                    </ul>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem;">
-                                    <h4 style="font-family: var(--font-heading); color: var(--accent-amber); font-size: 1rem; margin-bottom: 0.4rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem;">Back-end services</h4>
-                                    <ul style="list-style: none; font-size: 0.8rem; line-height: 1.4; padding: 0;">
-                                        <li>• Assembly</li>
-                                        <li>• Packaging</li>
-                                        <li>• Burn-in</li>
-                                        <li>• Final testing</li>
-                                    </ul>
-                                </div>
+                            <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-cyan); border-left: 3px solid var(--accent-cyan); padding-left: 1rem; margin-bottom: 0.2rem; line-height: 1.4;">
+                                Key Message: A single chip may cross international borders over 70 times, making it the most geographically dispersed value chain in history.
                             </div>
                             
-                            <p style="font-size: 0.82rem; line-height: 1.3; color: var(--text-primary); background: rgba(251, 191, 36, 0.05); border-left: 3px solid var(--accent-amber); padding: 0.4rem 0.75rem;">
-                                <strong>Procurement complexity</strong> increases because a shortage in one small input can delay the whole chip production process.
-                            </p>
-                        </div>
-                        <div class="slide-footer-watermark">
-                            <span>Sources: CSET; ASML</span>
-                            <span>Slide 07</span>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 8: MAIN RISKS AND HOW COMPANIES REDUCE THEM -->
-                    <div class="slide">
-                        <div class="slide-header">
-                            <span class="slide-tag">PROCUREMENT RISKS</span>
-                            <h2 class="slide-title">Main risks and how companies reduce them</h2>
-                        </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.75rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">Semiconductor supply is high-value, global, and sensitive to disruption.</p>
-                            
-                            <div style="display: flex; flex-direction: column; gap: 0.4rem; width: 100%; flex-grow: 1;">
-                                <div class="glass-panel" style="padding: 0.5rem 0.75rem; border-left: 3px solid var(--accent-cyan); display: flex; align-items: center; gap: 1rem;">
-                                    <span style="font-weight: 700; min-width: 160px; color: var(--accent-cyan); font-size: 0.85rem;">Long lead times</span>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Use demand planning, long-term agreements, and safety stock.</span>
-                                </div>
-                                <div class="glass-panel" style="padding: 0.5rem 0.75rem; border-left: 3px solid var(--accent-purple); display: flex; align-items: center; gap: 1rem;">
-                                    <span style="font-weight: 700; min-width: 160px; color: var(--accent-purple); font-size: 0.85rem;">Single-source suppliers</span>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Create dual sourcing when technically possible.</span>
-                                </div>
-                                <div class="glass-panel" style="padding: 0.5rem 0.75rem; border-left: 3px solid var(--accent-green); display: flex; align-items: center; gap: 1rem;">
-                                    <span style="font-weight: 700; min-width: 160px; color: var(--accent-green); font-size: 0.85rem;">Quality defects</span>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Use qualification, traceability, and reliability testing.</span>
-                                </div>
-                                <div class="glass-panel" style="padding: 0.5rem 0.75rem; border-left: 3px solid var(--accent-amber); display: flex; align-items: center; gap: 1rem;">
-                                    <span style="font-weight: 700; min-width: 160px; color: var(--accent-amber); font-size: 0.85rem;">Export controls / geopolitics</span>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Monitor regulations and build compliant supplier plans.</span>
-                                </div>
-                                <div class="glass-panel" style="padding: 0.5rem 0.75rem; border-left: 3px solid var(--accent-rose); display: flex; align-items: center; gap: 1rem;">
-                                    <span style="font-weight: 700; min-width: 160px; color: var(--accent-rose); font-size: 0.85rem;">Demand spikes</span>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Reserve capacity early and improve forecast sharing.</span>
-                                </div>
-                            </div>
-                            
-                            <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-cyan); text-align: center; margin-top: 0.25rem;">
-                                Procurement strategy = cost + supply security + compliance + quality.
-                            </div>
-                        </div>
-                        <div class="slide-footer-watermark">
-                            <span>Semiconductors | 30-minute presentation</span>
-                            <span>Slide 08</span>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 9: ASSIGNMENT 2 - THE GLOBAL SEMICONDUCTOR SUPPLY CHAIN -->
-                    <div class="slide">
-                        <div class="slide-header">
-                            <span class="slide-tag">ASSIGNMENT 2</span>
-                            <h2 class="slide-title">The global semiconductor supply chain</h2>
-                        </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.8rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">No single country controls the full chain. The industry is highly specialized and interdependent.</p>
-                            
-                            <div class="supply-chain-map-container" style="height: 250px;">
-                                <svg class="map-svg" viewBox="0 0 800 230" style="height: 100%;">
-                                    <!-- Map Outlines -->
-                                    <path d="M 50 60 Q 120 50 170 90 T 130 180 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                                    <path d="M 320 40 Q 380 30 420 80 T 380 140 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                                    <path d="M 600 50 Q 720 60 750 100 T 650 190 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                            <div class="supply-chain-map-container" style="height: 230px;">
+                                <svg class="map-svg" viewBox="0 0 800 210" style="height: 100%;">
+                                    <!-- Simple Map outlines -->
+                                    <path d="M 50 60 Q 120 50 170 90 T 130 180 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                                    <path d="M 320 40 Q 380 30 420 80 T 380 140 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                                    <path d="M 600 50 Q 720 60 750 100 T 650 190 Z" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
                                     
                                     <!-- Flow lines -->
                                     <path id="line-us-tw" class="map-connection-line" d="M 150 70 Q 400 40 660 120" stroke="var(--accent-cyan)" stroke-width="1.5"/>
@@ -445,35 +328,35 @@
                                     <path id="line-tw-my" class="map-connection-line" d="M 660 120 Q 645 150 630 180" stroke="var(--accent-green)" stroke-width="1.5"/>
                                     
                                     <!-- US Node -->
-                                    <g class="map-node" id="us-design" data-line="line-us-tw" data-title="United States" data-desc="Global leader in high-value chip design, core system architecture, Electronic Design Automation (EDA) tooling, and intellectual property.">
+                                    <g class="map-node" id="us-design" data-line="line-us-tw" data-title="United States" data-desc="Commands the upstream GVC layout through advanced EDA design platforms and proprietary processor core licensing.">
                                         <circle class="map-node-ping" cx="150" cy="70" r="10" stroke="var(--accent-cyan)"/>
                                         <circle class="map-node-core" cx="150" cy="70" r="5" fill="var(--accent-cyan)"/>
                                     </g>
                                     <text x="150" y="55" font-family="var(--font-heading)" font-size="8" fill="var(--text-secondary)" text-anchor="middle">USA: Design &amp; EDA</text>
  
                                     <!-- Europe Node -->
-                                    <g class="map-node" id="eu-equip" data-line="line-eu-tw" data-title="Europe" data-desc="Supplies critical photolithography manufacturing scanners (ASML EUV) and optical lenses required to expose sub-7nm silicon features.">
+                                    <g class="map-node" id="eu-equip" data-line="line-eu-tw" data-title="Europe" data-desc="Capital equipment monopoly (ASML EUV) required for leading-edge sub-7nm printing.">
                                         <circle class="map-node-ping" cx="370" cy="50" r="10" stroke="var(--accent-purple)"/>
                                         <circle class="map-node-core" cx="370" cy="50" r="5" fill="var(--accent-purple)"/>
                                     </g>
                                     <text x="370" y="38" font-family="var(--font-heading)" font-size="8" fill="var(--text-secondary)" text-anchor="middle">Europe: Equipment</text>
  
                                     <!-- Japan Node -->
-                                    <g class="map-node" id="jp-wafer" data-line="line-jp-tw" data-title="Japan" data-desc="Supplies indispensable semiconductor raw materials, chemical silicon substrates (wafers), specialized photoresist gases, and precision packaging materials.">
+                                    <g class="map-node" id="jp-wafer" data-line="line-jp-tw" data-title="Japan" data-desc="Supplies critical raw wafers, specialty chemicals, photoresists, and metrology devices.">
                                         <circle class="map-node-ping" cx="700" cy="70" r="10" stroke="var(--accent-amber)"/>
                                         <circle class="map-node-core" cx="700" cy="70" r="5" fill="var(--accent-amber)"/>
                                     </g>
                                     <text x="735" y="65" font-family="var(--font-heading)" font-size="8" fill="var(--text-secondary)" text-anchor="middle">Japan: Materials</text>
  
                                     <!-- Taiwan Node -->
-                                    <g class="map-node" id="tw-fab" data-line="line-tw-my" data-title="Taiwan" data-desc="Global capital of foundry fabrication. Fabs like TSMC construct over 60% of all microchips and over 90% of sub-7nm process designs.">
+                                    <g class="map-node" id="tw-fab" data-line="line-tw-my" data-title="Taiwan" data-desc="Wafer fabrication epicenter. Fabs like TSMC process over 90% of advanced logic microchips.">
                                         <circle class="map-node-ping" cx="660" cy="120" r="10" stroke="var(--accent-cyan)"/>
                                         <circle class="map-node-core" cx="660" cy="120" r="5" fill="var(--accent-cyan)"/>
                                     </g>
                                     <text x="695" y="125" font-family="var(--font-heading)" font-size="8" fill="var(--accent-cyan)" text-anchor="start">Taiwan: Fabrication (Fabs)</text>
  
                                     <!-- Malaysia Node -->
-                                    <g class="map-node" id="my-osat" data-line="line-tw-my" data-title="Malaysia &amp; Southeast Asia" data-desc="Focal point of downstream packaging and testing services (OSAT). Refines and tests raw silicon dies before global transport.">
+                                    <g class="map-node" id="my-osat" data-line="line-tw-my" data-title="Malaysia &amp; Southeast Asia" data-desc="Back-end testing and assembly packaging (OSAT), finalizing raw dies.">
                                         <circle class="map-node-ping" cx="630" cy="180" r="10" stroke="var(--accent-green)"/>
                                         <circle class="map-node-core" cx="630" cy="180" r="5" fill="var(--accent-green)"/>
                                     </g>
@@ -483,389 +366,373 @@
                                 <div class="map-tooltip" id="map-tooltip" style="opacity: 0; padding: 0.6rem; max-width: 320px;">
                                     <div class="map-tooltip-title" id="map-tooltip-title" style="font-size: 0.85rem; font-weight: 700; margin-bottom: 0.2rem;">Taiwan</div>
                                     <div class="map-tooltip-body" id="map-tooltip-body" style="font-size: 0.75rem; line-height: 1.3;">
-                                        Global capital of foundry fabrication. Fabs like TSMC construct over 60% of all microchips.
+                                        Wafer fabrication epicenter. Fabs like TSMC process over 90% of advanced logic microchips.
                                     </div>
                                 </div>
                             </div>
                             
-                            <div style="display: flex; gap: 0.35rem; align-items: center; justify-content: center; font-size: 0.78rem; border-top: 1px solid var(--border-color); padding-top: 0.4rem; color: var(--text-secondary);">
-                                <span style="background: var(--accent-cyan); width: 8px; height: 8px; border-radius: 50%;"></span> R&amp;D
-                                <span style="color: var(--text-muted);">&#10142;</span> Design
-                                <span style="color: var(--text-muted);">&#10142;</span> EDA/IP
-                                <span style="color: var(--text-muted);">&#10142;</span> Wafer fabrication
-                                <span style="color: var(--text-muted);">&#10142;</span> Equipment/materials
-                                <span style="color: var(--text-muted);">&#10142;</span> Assembly + test
-                                <span style="color: var(--text-muted);">&#10142;</span> Distribution
-                                <span style="color: var(--text-muted);">&#10142;</span> End products
+                            <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.35; margin-top: 0.25rem;">
+                                The **Silicon Journey** represents an extreme division of labor. Disrupting a single region impacts the entire global electronics supply pipeline.
+                            </p>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>The 2026 Semiconductor Ecosystem</span>
+                            <span>Slide 06</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 8 (Slide 7 in content): ARCHITECTURE OF THE GVC -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">PART 2: THE GLOBAL SUPPLY CHAIN OF SEMICONDUCTORS</span>
+                            <h2 class="slide-title">Architecture of the Global Value Chain (GVC)</h2>
+                        </div>
+                        <div class="slide-body" style="gap: 1.5rem;">
+                            <div class="slide-content-left" style="flex: 1.25;">
+                                <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-purple); border-left: 3px solid var(--accent-purple); padding-left: 1rem; margin-bottom: 1rem; line-height: 1.45;">
+                                    Key Message: Value is highly concentrated in specialized clusters: U.S. (Design), Europe (Equipment), and East Asia (Manufacturing).
+                                </div>
+                                <ul class="bullet-list" style="font-size: 0.88rem; line-height: 1.6;">
+                                    <li><strong>Design &amp; EDA (United States):</strong> Dominance in core processor blueprints and layout compiler systems (NVIDIA, Apple, Qualcomm).</li>
+                                    <li><strong>SME Equipment (Europe):</strong> Monopoly on Extreme Ultraviolet tools (ASML) required to etch sub-7nm circuit nodes.</li>
+                                    <li><strong>Wafer Fabrication (East Asia):</strong> TSMC (Taiwan) and Samsung (Korea) form the production base for global advanced nodes.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right" style="flex: 0.75; display: flex; flex-direction: column; justify-content: center; gap: 0.75rem;">
+                                <div class="glass-panel highlight-border" style="padding: 0.8rem 1rem;">
+                                    <strong style="color: var(--accent-cyan); font-size: 0.85rem; text-transform: uppercase;">USA: Design IP</strong>
+                                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0.15rem 0 0 0;">80%+ market share in advanced EDA software tools.</p>
+                                </div>
+                                <div class="glass-panel highlight-border" style="padding: 0.8rem 1rem;">
+                                    <strong style="color: var(--accent-purple); font-size: 0.85rem; text-transform: uppercase;">ASML (EU): Lithography</strong>
+                                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 0.15rem 0 0 0;">100% monopsony on EUV printing technology.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Source: CSET</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
+                            <span>Slide 07</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 9 (Slide 8 in content): FRONT-END & BACK-END BOTTLENECKS -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">PART 2: THE GLOBAL SUPPLY CHAIN OF SEMICONDUCTORS</span>
+                            <h2 class="slide-title">Front-End &amp; Back-End Bottlenecks</h2>
+                        </div>
+                        <div class="slide-body" style="flex-direction: column; gap: 0.8rem; justify-content: flex-start;">
+                            <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-green); border-left: 3px solid var(--accent-green); padding-left: 1rem; margin-bottom: 0.5rem; line-height: 1.4;">
+                                Key Message: Advanced packaging (CoWoS, 3D Stacking) is the new primary growth limiter for the AI industry.
+                            </div>
+                            
+                            <div class="agenda-grid" style="grid-template-columns: 1fr 1fr; gap: 1.2rem; width: 100%; margin-top: 0.5rem;">
+                                <div class="glass-panel highlight-border" style="padding: 1rem 1.2rem; border-color: rgba(0, 242, 254, 0.2);">
+                                    <h4 style="color: var(--accent-cyan); font-family: var(--font-heading); margin-bottom: 0.4rem; font-size: 1rem;">Front-End: Node Scaling</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);">The race for the 2nm and 1.4nm nodes continues to demand immense capital investments for wafer fabrication lines.</p>
+                                </div>
+                                <div class="glass-panel highlight-border" style="padding: 1rem 1.2rem; border-color: rgba(57, 211, 83, 0.2);">
+                                    <h4 style="color: var(--accent-green); font-family: var(--font-heading); margin-bottom: 0.4rem; font-size: 1rem;">Back-End: Advanced Packaging Chokepoint</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);">Integrating multiple logic dies and High Bandwidth Memory (HBM) via CoWoS interposers is more constrained than wafer printing.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="padding: 0.6rem 1rem; border-left: 3px solid var(--accent-green); background: rgba(57, 211, 83, 0.04); font-size: 0.82rem; color: var(--text-secondary); width: 100%; margin-top: 0.25rem;">
+                                <strong>Logistics bottleneck:</strong> Reaching target AI yields depends heavily on advanced back-end capacity, not just front-end print nodes.
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>The 2026 Semiconductor Ecosystem</span>
+                            <span>Slide 08</span>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 10 (Slide 9 in content): SME, MATERIALS & GEOPOLITICAL FRAGMENTATION -->
+                    <div class="slide">
+                        <div class="slide-header">
+                            <span class="slide-tag">PART 2: THE GLOBAL SUPPLY CHAIN OF SEMICONDUCTORS</span>
+                            <h2 class="slide-title">SME, Materials &amp; Geopolitical Fragmentation</h2>
+                        </div>
+                        <div class="slide-body" style="gap: 1.5rem;">
+                            <div class="slide-content-left" style="flex: 1.2;">
+                                <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-rose); border-left: 3px solid var(--accent-rose); padding-left: 1rem; margin-bottom: 1rem; line-height: 1.45;">
+                                    Key Message: Geopolitics has created a "Multi-Polar" silicon world, where export controls and subsidies drive regionalization.
+                                </div>
+                                <ul class="bullet-list" style="font-size: 0.9rem; line-height: 1.55;">
+                                    <li><strong>The US CHIPS Act ($52B):</strong> Funding the domestic establishment of advanced logic fabs to balance East Asian concentration.</li>
+                                    <li><strong>Europe &amp; China Reshoring:</strong> Multi-billion dollar state-supported programs targeting semiconductor in-sourcing.</li>
+                                    <li><strong>Material Chokepoints:</strong> Strict export controls placed on critical trace materials like Gallium and Germanium.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right" style="flex: 0.8; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="glass-panel highlight-border" style="padding: 1.2rem; text-align: center; border-color: rgba(244, 63, 94, 0.2);">
+                                    <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-rose); line-height: 1; margin-bottom: 0.25rem;">Geopolitical Lever</div>
+                                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase;">Gallium &amp; Germanium</div>
+                                    <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.5rem; font-style: italic;">Critical raw material limits</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slide-footer-watermark">
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 09</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 10: REGIONAL SPECIALIZATION -->
+                    <!-- SLIDE 11 (Slide 10 in content): SUPPLY CHAIN RESILIENCE -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">REGIONAL SPECIALIZATION</span>
-                            <h2 class="slide-title">Who does what in the chip chain?</h2>
+                            <span class="slide-tag">PART 2: THE GLOBAL SUPPLY CHAIN OF SEMICONDUCTORS</span>
+                            <h2 class="slide-title">Supply Chain Resilience: Digital &amp; Circular</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.6rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">Different regions lead different steps of the value chain.</p>
+                        <div class="slide-body" style="flex-direction: column; gap: 1rem; justify-content: flex-start;">
+                            <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-cyan); border-left: 3px solid var(--accent-cyan); padding-left: 1rem; margin-bottom: 0.5rem; line-height: 1.4;">
+                                Key Message: The future of the supply chain is "Circular and Autonomous," using AI to self-heal and recycling to secure raw materials.
+                            </div>
                             
-                            <div class="agenda-grid" style="grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 0.6rem; width: 100%; flex-grow: 1;">
-                                <div class="glass-panel" style="padding: 0.5rem 0.8rem; display: flex; align-items: center; gap: 1rem;">
-                                    <strong style="color: var(--accent-cyan); font-size: 0.9rem; min-width: 100px;">United States</strong>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">R&amp;D, chip design, EDA software, core IP, equipment strength</span>
+                            <div class="agenda-grid" style="grid-template-columns: 1fr 1fr; gap: 1.2rem; width: 100%; margin-top: 0.5rem;">
+                                <div class="glass-panel highlight-border" style="padding: 1rem 1.2rem; border-color: rgba(0, 242, 254, 0.2);">
+                                    <h4 style="color: var(--accent-cyan); font-family: var(--font-heading); margin-bottom: 0.4rem; font-size: 1rem;">Deep Supply Mapping</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);">Leading manufacturers utilize digital mapping tools to trace supply down to Tier-4 and Tier-5 chemical suppliers.</p>
                                 </div>
-                                <div class="glass-panel" style="padding: 0.5rem 0.8rem; display: flex; align-items: center; gap: 1rem;">
-                                    <strong style="color: var(--accent-purple); font-size: 0.9rem; min-width: 100px;">Taiwan</strong>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Advanced foundry manufacturing and strong packaging/test ecosystem</span>
-                                </div>
-                                <div class="glass-panel" style="padding: 0.5rem 0.8rem; display: flex; align-items: center; gap: 1rem;">
-                                    <strong style="color: var(--accent-green); font-size: 0.9rem; min-width: 100px;">South Korea</strong>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Memory chips, advanced manufacturing, materials and production capability</span>
-                                </div>
-                                <div class="glass-panel" style="padding: 0.5rem 0.8rem; display: flex; align-items: center; gap: 1rem;">
-                                    <strong style="color: var(--accent-amber); font-size: 0.9rem; min-width: 100px;">Japan</strong>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Materials, manufacturing equipment, and mature-node chips</span>
-                                </div>
-                                <div class="glass-panel" style="padding: 0.5rem 0.8rem; display: flex; align-items: center; gap: 1rem;">
-                                    <strong style="color: var(--accent-cyan); font-size: 0.9rem; min-width: 100px;">Europe</strong>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Semiconductor manufacturing equipment, photolithography, materials, core IP</span>
-                                </div>
-                                <div class="glass-panel" style="padding: 0.5rem 0.8rem; display: flex; align-items: center; gap: 1rem;">
-                                    <strong style="color: var(--accent-rose); font-size: 0.9rem; min-width: 100px;">China + SE Asia</strong>
-                                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Large market, assembly/test, packaging, and growing manufacturing base</span>
+                                <div class="glass-panel highlight-border" style="padding: 1rem 1.2rem; border-color: rgba(57, 211, 83, 0.2);">
+                                    <h4 style="color: var(--accent-green); font-family: var(--font-heading); margin-bottom: 0.4rem; font-size: 1rem;">Circular Mineral Reclamation</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);">Firms actively recycle e-waste, reclaiming trace copper, silicon, and gold substrates to buffer raw mining volatility.</p>
                                 </div>
                             </div>
                             
-                            <p style="font-size: 0.85rem; font-weight: 600; text-align: center; color: var(--accent-purple); margin-top: 0.25rem;">
-                                Because each region specializes, supply-chain resilience depends on coordination, not isolation.
-                            </p>
+                            <div class="glass-panel" style="padding: 0.75rem 1.2rem; font-size: 0.82rem; color: var(--text-muted); border-left: 3px solid var(--accent-cyan);">
+                                Mapping and recycling shield operations from supply disruptions and support sustainable GVC mandates.
+                            </div>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Source: CSET</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 10</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 11: FROM DESIGN FILE TO FINAL PRODUCT -->
+                    <!-- SLIDE 12: SECTION DIVIDER - PART 3 -->
+                    <div class="slide section-divider-page">
+                        <div class="section-divider-badge">Part 3</div>
+                        <h1 style="font-size: 2.8rem; font-family: var(--font-heading); color: #ffffff; margin-bottom: 0.8rem;">End-User Industries &amp; Application Ecosystem</h1>
+                        <p style="color: var(--text-secondary); max-width: 500px; font-size: 1rem; line-height: 1.5;">An overview of structural demand changes, AI intelligence engines, automotive integration, and edge computing.</p>
+                    </div>
+
+                    <!-- SLIDE 13 (Slide 11 in content): THE UBIQUITY OF SILICON -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">GLOBAL FLOW</span>
-                            <h2 class="slide-title">From design file to final product</h2>
+                            <span class="slide-tag">PART 3: END-USER INDUSTRIES &amp; APPLICATION ECOSYSTEM</span>
+                            <h2 class="slide-title">The Ubiquity of Silicon: Powering the Modern World</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.75rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">A chip crosses companies, borders, and quality checks before it reaches a customer.</p>
-                            
-                            <div class="flow-step-container">
-                                <div class="flow-steps">
-                                    <div class="glass-panel flow-step active" 
-                                         data-title="1. Design house" 
-                                         data-desc="Architecting logic processors, generating blueprints, and testing structures within hardware-description simulator software.">
-                                        <div class="flow-step-num">1</div>
-                                        <div class="flow-step-title">Design house</div>
-                                        <div class="flow-step-desc">Blueprint &amp; architecture</div>
-                                    </div>
-                                    <div class="glass-panel flow-step" 
-                                         data-title="2. Foundry fab" 
-                                         data-desc="Securing raw wafers and physical manufacturing components. Processing silicon substrates inside multi-billion dollar cleanrooms.">
-                                        <div class="flow-step-num">2</div>
-                                        <div class="flow-step-title">Foundry fab</div>
-                                        <div class="flow-step-desc">Wafer production</div>
-                                    </div>
-                                    <div class="glass-panel flow-step" 
-                                         data-title="3. OSAT" 
-                                         data-desc="Receiving processed wafer plates. Dicing them into raw chips, enclosing them in packages, and executing thermal-stress validations.">
-                                        <div class="flow-step-num">3</div>
-                                        <div class="flow-step-title">OSAT</div>
-                                        <div class="flow-step-desc">Assembly, packaging, test</div>
-                                    </div>
-                                    <div class="glass-panel flow-step" 
-                                         data-title="4. Distributor / OEM" 
-                                         data-desc="Handling inventory allocations and distribution paths. Integrating processed components onto device motherboards.">
-                                        <div class="flow-step-num">4</div>
-                                        <div class="flow-step-title">Distributor / OEM</div>
-                                        <div class="flow-step-desc">Inventory &amp; final integration</div>
-                                    </div>
-                                    <div class="glass-panel flow-step" 
-                                         data-title="5. End customer" 
-                                         data-desc="Integrating completed microcomponents into end user devices, including mobile smartphones, electric cars, and AI servers.">
-                                        <div class="flow-step-num">5</div>
-                                        <div class="flow-step-title">End customer</div>
-                                        <div class="flow-step-desc">Phone, car, server, machine</div>
-                                    </div>
+                        <div class="slide-body" style="gap: 1.5rem;">
+                            <div class="slide-content-left" style="flex: 1.2;">
+                                <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-purple); border-left: 3px solid var(--accent-purple); padding-left: 1rem; margin-bottom: 1rem; line-height: 1.45;">
+                                    Key Message: Semiconductors are the "nerve system" of the global economy; no modern industry can function without them.
                                 </div>
-                                
-                                <div class="flow-detail-display" style="min-height: 80px; margin-top: 0.5rem; padding: 0.8rem;">
-                                    <div class="flow-detail-title" id="flow-detail-title" style="font-size: 0.95rem; margin-bottom: 0.25rem;">1. Design house</div>
-                                    <div class="flow-detail-body" id="flow-detail-body" style="font-size: 0.8rem; line-height: 1.4;">
-                                        Architecting logic processors, generating blueprints, and testing structures within hardware-description simulator software.
-                                    </div>
+                                <ul class="bullet-list" style="font-size: 0.9rem; line-height: 1.6;">
+                                    <li><strong>Central Nerve System:</strong> Microchips control the storage, routing, and processing of every piece of data globally.</li>
+                                    <li><strong>Silicon Intensity Metric:</strong> The total value of silicon content per product is the primary metric of industrial scaling.</li>
+                                    <li><strong>Ubiquitous Integration:</strong> Foundational logic layers power smart municipal grids, medical machinery, and neural processors.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right" style="flex: 0.8; display: flex; flex-direction: column; justify-content: center; gap: 0.75rem;">
+                                <div class="glass-panel highlight-border" style="padding: 1.2rem; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-purple); line-height: 1.1; margin-bottom: 0.25rem;">Silicon Intensity</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-secondary);">Primary industrial competitiveness index</div>
                                 </div>
                             </div>
-                            
-                            <p style="font-size: 0.8rem; line-height: 1.35; color: var(--text-muted); margin-top: 0.25rem;">
-                                <strong>Example:</strong> An AI chip can be designed by a fabless company, fabricated by a foundry, packaged with high-bandwidth memory, shipped to server makers, and installed in data centers.
-                                <br>
-                                <strong>Logistics challenge:</strong> every handoff needs documentation, temperature/shock control, traceability, customs compliance, and quality records.
-                            </p>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Semiconductors | 30-minute presentation</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 11</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 12: WHY SEMICONDUCTOR SUPPLY CHAINS BECOME FRAGILE -->
+                    <!-- SLIDE 14 (Slide 12 in content): DEMAND LANDSCAPE IN 2026 -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">BOTTLENECKS</span>
-                            <h2 class="slide-title">Why semiconductor supply chains become fragile</h2>
+                            <span class="slide-tag">PART 3: END-USER INDUSTRIES &amp; APPLICATION ECOSYSTEM</span>
+                            <h2 class="slide-title">Executive Summary: The Demand Landscape in 2026</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.75rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">The chain is capital-intensive and contains several chokepoints.</p>
-                            
-                            <div class="agenda-grid" style="grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0.75rem; width: 100%; flex-grow: 1;">
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem; border-left: 3px solid var(--accent-cyan);">
-                                    <h4 style="font-family: var(--font-heading); color: var(--accent-cyan); font-size: 0.95rem; margin-bottom: 0.3rem;">Advanced tools</h4>
-                                    <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.3;">EUV lithography and precision tools are hard to substitute.</p>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem; border-left: 3px solid var(--accent-purple);">
-                                    <h4 style="font-family: var(--font-heading); color: var(--accent-purple); font-size: 0.95rem; margin-bottom: 0.3rem;">Capacity</h4>
-                                    <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.3;">Building fabs takes years and billions of dollars.</p>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem; border-left: 3px solid var(--accent-green);">
-                                    <h4 style="font-family: var(--font-heading); color: var(--accent-green); font-size: 0.95rem; margin-bottom: 0.3rem;">Materials</h4>
-                                    <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.3;">Shortage of wafers, gases, or chemicals can delay production.</p>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.8rem; border-left: 3px solid var(--accent-rose);">
-                                    <h4 style="font-family: var(--font-heading); color: var(--accent-rose); font-size: 0.95rem; margin-bottom: 0.3rem;">Policy risk</h4>
-                                    <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.3;">Export controls, tariffs, and national-security rules affect trade.</p>
-                                </div>
+                        <div class="slide-body" style="flex-direction: column; gap: 1rem; justify-content: flex-start;">
+                            <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-cyan); border-left: 3px solid var(--accent-cyan); padding-left: 1rem; margin-bottom: 0.5rem; line-height: 1.4;">
+                                Key Message: Demand is shifting from traditional computing toward AI infrastructure, Automotive, and Industrial Automation.
                             </div>
                             
-                            <div style="font-size: 0.85rem; font-weight: 700; color: var(--accent-rose); text-align: center; margin-top: 0.25rem;">
-                                Result: a shortage in one narrow segment can affect many industries at the same time.
+                            <div class="agenda-grid" style="grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%; margin-top: 0.5rem;">
+                                <div class="glass-panel highlight-border" style="padding: 1rem;">
+                                    <strong style="color: var(--accent-cyan); font-size: 0.9rem; display: block; margin-bottom: 0.4rem;">AI Datacenters</strong>
+                                    <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-secondary);">Nearly 50% of semiconductor industry growth and revenue is driven by high-performance AI accelerators.</p>
+                                </div>
+                                <div class="glass-panel highlight-border" style="padding: 1rem;">
+                                    <strong style="color: var(--accent-purple); font-size: 0.9rem; display: block; margin-bottom: 0.4rem;">Automotive</strong>
+                                    <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-secondary);">The fastest growing volume segment, requiring massive numbers of legacy control nodes and SiC power chips.</p>
+                                </div>
+                                <div class="glass-panel highlight-border" style="padding: 1rem;">
+                                    <strong style="color: var(--accent-green); font-size: 0.9rem; display: block; margin-bottom: 0.4rem;">Smartphones &amp; PCs</strong>
+                                    <p style="font-size: 0.78rem; line-height: 1.4; color: var(--text-secondary);">Traditional core segments face volume saturation, driving consolidation and focus on specialized edge accelerators.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Sources: CSET; ASML; NIST</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 12</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 13: ASSIGNMENT 3 - INDUSTRIES THAT SEMICONDUCTORS END UP USING -->
+                    <!-- SLIDE 15 (Slide 13 in content): AI & DATA CENTERS -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">ASSIGNMENT 3</span>
-                            <h2 class="slide-title">Industries that semiconductors end up using</h2>
+                            <span class="slide-tag">PART 3: END-USER INDUSTRIES &amp; APPLICATION ECOSYSTEM</span>
+                            <h2 class="slide-title">AI &amp; Data Centers: The Generative Revolution</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.75rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">Every modern industry uses chips, but each industry needs different chip types.</p>
-                            
-                            <div class="agenda-grid" style="grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0.6rem; width: 100%; flex-grow: 1;">
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <div style="color: var(--accent-cyan); font-size: 1.5rem; margin-bottom: 0.25rem;">💻</div>
-                                    <strong style="font-size: 0.8rem; color: var(--text-primary);">Consumer electronics</strong>
+                        <div class="slide-body" style="gap: 1.5rem;">
+                            <div class="slide-content-left" style="flex: 1.2;">
+                                <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-green); border-left: 3px solid var(--accent-green); padding-left: 1rem; margin-bottom: 1rem; line-height: 1.45;">
+                                    Key Message: Data centers have evolved into "Intelligence Engines," consuming the highest-value silicon ever produced.
                                 </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <div style="color: var(--accent-purple); font-size: 1.5rem; margin-bottom: 0.25rem;">🚗</div>
-                                    <strong style="font-size: 0.8rem; color: var(--text-primary);">Automotive + EV</strong>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <div style="color: var(--accent-green); font-size: 1.5rem; margin-bottom: 0.25rem;">🧠</div>
-                                    <strong style="font-size: 0.8rem; color: var(--text-primary);">AI/data centers</strong>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <div style="color: var(--accent-rose); font-size: 1.5rem; margin-bottom: 0.25rem;">🏥</div>
-                                    <strong style="font-size: 0.8rem; color: var(--text-primary);">Healthcare</strong>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <div style="color: var(--accent-cyan); font-size: 1.5rem; margin-bottom: 0.25rem;">🤖</div>
-                                    <strong style="font-size: 0.8rem; color: var(--text-primary);">Industrial automation</strong>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <div style="color: var(--accent-purple); font-size: 1.5rem; margin-bottom: 0.25rem;">⚡</div>
-                                    <strong style="font-size: 0.8rem; color: var(--text-primary);">Energy + infra</strong>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <div style="color: var(--accent-green); font-size: 1.5rem; margin-bottom: 0.25rem;">🚀</div>
-                                    <strong style="font-size: 0.8rem; color: var(--text-primary);">Aerospace + defense</strong>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-                                    <div style="color: var(--accent-rose); font-size: 1.5rem; margin-bottom: 0.25rem;">📡</div>
-                                    <strong style="font-size: 0.8rem; color: var(--text-primary);">Telecom + network</strong>
+                                <ul class="bullet-list" style="font-size: 0.9rem; line-height: 1.6;">
+                                    <li><strong>Accelerator Market ($500B):</strong> Generative models and neural computing demand massive scaling of TPU and GPU nodes.</li>
+                                    <li><strong>Sub-3nm Node Sourcing:</strong> The primary consumers of the most advanced wafer print architectures globally.</li>
+                                    <li><strong>Memory &amp; Interconnect:</strong> Demands extreme density of High Bandwidth Memory (HBM) and customized routing interconnect silicon.</li>
+                                </ul>
+                            </div>
+                            <div class="slide-content-right" style="flex: 0.8; display: flex; flex-direction: column; justify-content: center;">
+                                <div class="glass-panel highlight-border" style="padding: 1.5rem; text-align: center; border-color: rgba(57, 211, 83, 0.2);">
+                                    <div style="font-size: 2.8rem; font-weight: 800; color: var(--accent-green); line-height: 1; margin-bottom: 0.5rem;">$500B</div>
+                                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">AI Accelerator Market</div>
+                                    <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.5rem; font-style: italic;">2026 Industry Projection</div>
                                 </div>
                             </div>
-                            
-                            <p style="font-size: 0.85rem; font-weight: 600; text-align: center; color: var(--accent-cyan); margin-top: 0.25rem;">
-                                Semiconductors are both enabling products and creating competition for limited manufacturing capacity.
-                            </p>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Source: NIST CHIPS overview</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 13</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 14: AUTOMOTIVE AND ELECTRIC VEHICLES -->
+                    <!-- SLIDE 16 (Slide 14 in content): AUTOMOTIVE: THE SMARTPHONE ON WHEELS -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">INDUSTRY DEEP DIVE</span>
-                            <h2 class="slide-title">Automotive and electric vehicles</h2>
+                            <span class="slide-tag">PART 3: END-USER INDUSTRIES &amp; APPLICATION ECOSYSTEM</span>
+                            <h2 class="slide-title">Automotive: The "Smartphone on Wheels"</h2>
                         </div>
                         <div class="slide-body" style="gap: 1.5rem;">
-                            <div class="slide-content-left" style="flex: 1.2;">
-                                <p class="subtitle" style="margin-bottom: 0.5rem; font-size: 0.9rem;">Modern vehicles are becoming computers on wheels.</p>
-                                
-                                <div style="display: flex; flex-direction: column; gap: 0.35rem;">
-                                    <div class="glass-panel" style="padding: 0.4rem 0.6rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
-                                        <strong style="color: var(--accent-cyan); width: 80px;">MCUs</strong>
-                                        <span style="color: var(--text-secondary); flex: 1; text-align: left; padding-left: 1rem;">Control engine, braking, doors, safety systems</span>
-                                    </div>
-                                    <div class="glass-panel" style="padding: 0.4rem 0.6rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
-                                        <strong style="color: var(--accent-purple); width: 80px;">Power</strong>
-                                        <span style="color: var(--text-secondary); flex: 1; text-align: left; padding-left: 1rem;">Convert and manage electricity in EVs</span>
-                                    </div>
-                                    <div class="glass-panel" style="padding: 0.4rem 0.6rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
-                                        <strong style="color: var(--accent-green); width: 80px;">Sensors</strong>
-                                        <span style="color: var(--text-secondary); flex: 1; text-align: left; padding-left: 1rem;">Radar, cameras, lidar, battery monitoring</span>
-                                    </div>
-                                    <div class="glass-panel" style="padding: 0.4rem 0.6rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
-                                        <strong style="color: var(--accent-amber); width: 80px;">Infotainment</strong>
-                                        <span style="color: var(--text-secondary); flex: 1; text-align: left; padding-left: 1rem;">Displays, navigation, wireless modules</span>
-                                    </div>
-                                    <div class="glass-panel" style="padding: 0.4rem 0.6rem; display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem;">
-                                        <strong style="color: var(--accent-rose); width: 80px;">ADAS</strong>
-                                        <span style="color: var(--text-secondary); flex: 1; text-align: left; padding-left: 1rem;">AI compute for driver assistance</span>
-                                    </div>
+                            <div class="slide-content-left" style="flex: 1.25;">
+                                <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-cyan); border-left: 3px solid var(--accent-cyan); padding-left: 1rem; margin-bottom: 1rem; line-height: 1.45;">
+                                    Key Message: The transition to EVs and ADAS is doubling semiconductor content per vehicle, reaching over $1,000 per unit.
                                 </div>
+                                <ul class="bullet-list" style="font-size: 0.88rem; line-height: 1.6;">
+                                    <li><strong>Silicon Carbide (SiC) Power:</strong> Drives high-efficiency power switches in high-voltage EV battery platforms.</li>
+                                    <li><strong>ADAS Autonomous Compute:</strong> Self-driving capabilities demand heavy on-board computational units for sensor fusion.</li>
+                                    <li><strong>Sensor Arrays Sourcing:</strong> Vehicles integrate multiple LiDAR, radar, and camera chip sets for 360-degree coverage.</li>
+                                </ul>
                             </div>
-                            
-                            <div class="slide-content-right" style="flex: 0.8; display: flex; flex-direction: column; gap: 0.5rem; justify-content: space-between;">
-                                <div class="glass-panel highlight-border" style="padding: 0; overflow: hidden; border-radius: 8px; flex-grow: 1; border-color: rgba(0, 242, 254, 0.2);">
-                                    <!-- Use generated advanced packaging / EV chip image -->
-                                    <img src="advanced_packaging_microchip.png" alt="EV Chip Package view" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div style="font-size: 0.75rem; line-height: 1.3; color: var(--text-primary); background: rgba(0, 242, 254, 0.03); border-left: 3px solid var(--accent-cyan); padding: 0.4rem 0.6rem; border-radius: 4px;">
-                                    <strong>Supply-chain implication:</strong> automakers often need mature-node chips, not only the newest AI chips. Shortages can still stop vehicle production.
+                            <div class="slide-content-right" style="flex: 0.75; display: flex; flex-direction: column; justify-content: center; gap: 0.75rem;">
+                                <div class="glass-panel highlight-border" style="padding: 1rem; text-align: center;">
+                                    <div style="font-size: 2.2rem; font-weight: 800; color: var(--accent-cyan); line-height: 1;">$1,000+</div>
+                                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Semiconductor content per EV unit</div>
                                 </div>
                             </div>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Semiconductors | 30-minute presentation</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 14</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 15: AI, DATA CENTERS, HEALTHCARE, AND INDUSTRY -->
+                    <!-- SLIDE 17 (Slide 15 in content): INDUSTRIAL, IOT & HEALTHCARE -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">INDUSTRY DEEP DIVE</span>
-                            <h2 class="slide-title">AI, data centers, healthcare, and industry</h2>
+                            <span class="slide-tag">PART 3: END-USER INDUSTRIES &amp; APPLICATION ECOSYSTEM</span>
+                            <h2 class="slide-title">Industrial, IoT &amp; Healthcare: Intelligence at the Edge</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.6rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">Advanced computing is increasing demand for logic, memory, networking, power, and sensors.</p>
-                            
-                            <div class="agenda-grid" style="grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 0.6rem; width: 100%; flex-grow: 1;">
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem 0.8rem;">
-                                    <strong style="color: var(--accent-cyan); font-size: 0.85rem; display: block; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem; margin-bottom: 0.35rem;">AI + data centers</strong>
-                                    <span style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.35; display: block;">GPUs/AI accelerators, High-bandwidth memory, Networking chips, Power management</span>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem 0.8rem;">
-                                    <strong style="color: var(--accent-purple); font-size: 0.85rem; display: block; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem; margin-bottom: 0.35rem;">Healthcare</strong>
-                                    <span style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.35; display: block;">Imaging systems, Wearable sensors, Diagnostics, Surgical robotics</span>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem 0.8rem;">
-                                    <strong style="color: var(--accent-green); font-size: 0.85rem; display: block; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem; margin-bottom: 0.35rem;">Industrial automation</strong>
-                                    <span style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.35; display: block;">Robotics, Machine vision, PLC/control chips, Predictive maintenance</span>
-                                </div>
-                                <div class="glass-panel highlight-border" style="padding: 0.6rem 0.8rem;">
-                                    <strong style="color: var(--accent-amber); font-size: 0.85rem; display: block; border-bottom: 1px solid var(--border-color); padding-bottom: 0.25rem; margin-bottom: 0.35rem;">Telecom + infrastructure</strong>
-                                    <span style="font-size: 0.75rem; color: var(--text-secondary); line-height: 1.35; display: block;">Base stations, Optical networking, Edge devices, Power systems</span>
-                                </div>
+                        <div class="slide-body" style="flex-direction: column; gap: 1rem; justify-content: flex-start;">
+                            <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-purple); border-left: 3px solid var(--accent-purple); padding-left: 1rem; margin-bottom: 0.5rem; line-height: 1.4;">
+                                Key Message: Edge AI is transforming manufacturing and healthcare, prioritizing long-lifecycle, high-reliability silicon.
                             </div>
                             
-                            <p style="font-size: 0.82rem; line-height: 1.3; color: var(--text-primary); text-align: center; border-top: 1px solid var(--border-color); padding-top: 0.4rem; margin-top: 0.2rem;">
-                                <strong>SIA reported 2025 industry growth</strong> was driven strongly by logic and memory products, reflecting AI and computing demand.
-                            </p>
+                            <div class="agenda-grid" style="grid-template-columns: 1fr 1fr; gap: 1.2rem; width: 100%; margin-top: 0.5rem;">
+                                <div class="glass-panel highlight-border" style="padding: 1rem 1.2rem; border-color: rgba(192, 132, 252, 0.2);">
+                                    <h4 style="color: var(--accent-purple); font-family: var(--font-heading); margin-bottom: 0.4rem; font-size: 1rem;">Industry 4.0 Edge Analytics</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);">Factory floor nodes execute real-time local algorithms for predictive maintenance and machine vision controls.</p>
+                                </div>
+                                <div class="glass-panel highlight-border" style="padding: 1rem 1.2rem; border-color: rgba(57, 211, 83, 0.2);">
+                                    <h4 style="color: var(--accent-green); font-family: var(--font-heading); margin-bottom: 0.4rem; font-size: 1rem;">Healthcare Personalized Sourcing</h4>
+                                    <p style="font-size: 0.8rem; line-height: 1.45; color: var(--text-secondary);">Semiconductors enable smart wearable diagnostics, active health implants, and personalized diagnostics.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Sources: SIA 2026; NIST</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 15</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 16: SUMMARY / KEY TAKEAWAYS -->
+                    <!-- SLIDE 18 (Slide 16 in content): CONSUMER ELECTRONICS & FRONTIERS -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">SUMMARY</span>
-                            <h2 class="slide-title">Key takeaways</h2>
+                            <span class="slide-tag">PART 3: END-USER INDUSTRIES &amp; APPLICATION ECOSYSTEM</span>
+                            <h2 class="slide-title">Consumer Electronics &amp; Emerging Frontiers</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.75rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">The three assignments connect into one business logic: chips are strategic supply-chain products.</p>
-                            
-                            <div style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%; flex-grow: 1;">
-                                <div class="glass-panel" style="padding: 0.6rem 0.8rem; border-left: 3px solid var(--accent-cyan); display: flex; gap: 1rem; align-items: flex-start;">
-                                    <span style="font-weight: 800; color: var(--accent-cyan); font-size: 1rem; min-width: 15px; text-align: right;">1</span>
-                                    <div>
-                                        <strong style="font-size: 0.85rem; color: var(--text-primary); display: block; margin-bottom: 0.15rem;">Procurement</strong>
-                                        <span style="font-size: 0.78rem; color: var(--text-secondary);">Buying semiconductors requires specifications, qualification, supplier strategy, compliance, and risk planning.</span>
-                                    </div>
+                        <div class="slide-body" style="gap: 1.5rem;">
+                            <div class="slide-content-left" style="flex: 1.25;">
+                                <div style="font-size: 1.1rem; font-weight: 600; color: var(--accent-green); border-left: 3px solid var(--accent-green); padding-left: 1rem; margin-bottom: 1rem; line-height: 1.45;">
+                                    Key Message: While traditional consumer tech matures, frontiers like Quantum, 6G, and Neuromorphic computing define the 2030 roadmap.
                                 </div>
-                                <div class="glass-panel" style="padding: 0.6rem 0.8rem; border-left: 3px solid var(--accent-purple); display: flex; gap: 1rem; align-items: flex-start;">
-                                    <span style="font-weight: 800; color: var(--accent-purple); font-size: 1rem; min-width: 15px; text-align: right;">2</span>
-                                    <div>
-                                        <strong style="font-size: 0.85rem; color: var(--text-primary); display: block; margin-bottom: 0.15rem;">Supply chain</strong>
-                                        <span style="font-size: 0.78rem; color: var(--text-secondary);">The chip chain is global, specialized, and interdependent across design, fabrication, materials, equipment, packaging, and distribution.</span>
-                                    </div>
-                                </div>
-                                <div class="glass-panel" style="padding: 0.6rem 0.8rem; border-left: 3px solid var(--accent-green); display: flex; gap: 1rem; align-items: flex-start;">
-                                    <span style="font-weight: 800; color: var(--accent-green); font-size: 1rem; min-width: 15px; text-align: right;">3</span>
-                                    <div>
-                                        <strong style="font-size: 0.85rem; color: var(--text-primary); display: block; margin-bottom: 0.15rem;">End-use industries</strong>
-                                        <span style="font-size: 0.78rem; color: var(--text-secondary);">Cars, AI servers, phones, medical devices, factories, telecom, and infrastructure all compete for semiconductor supply.</span>
-                                    </div>
-                                </div>
+                                <ul class="bullet-list" style="font-size: 0.88rem; line-height: 1.6;">
+                                    <li><strong>On-Device NPU Logic:</strong> Integrating Neural Processing Units (NPUs) into laptops and mobile phones to enable local AI execution.</li>
+                                    <li><strong>Neuromorphic Computing:</strong> Researching brain-inspired architectures targeting extreme computing power efficiency.</li>
+                                    <li><strong>Next-Gen Frontiers:</strong> Developing quantum structures and 6G communications hardware blocks.</li>
+                                </ul>
                             </div>
-                            
-                            <div style="padding: 0.5rem 1rem; border-left: 3px solid var(--accent-rose); background: rgba(244, 63, 94, 0.04); font-size: 0.85rem; font-weight: 600; width: 100%; margin-top: 0.25rem;">
-                                Final message: A semiconductor shortage is not only a tech problem. It is a procurement, logistics, manufacturing, and industry-planning problem.
+                            <div class="slide-content-right" style="flex: 0.75; display: flex; flex-direction: column; justify-content: center; gap: 0.75rem;">
+                                <div class="glass-panel highlight-border" style="padding: 1rem; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent-green); line-height: 1.1;">NPU Cores</div>
+                                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">Standard hardware in 2026 client electronics</div>
+                                </div>
                             </div>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Semiconductors | 30-minute presentation</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 16</span>
                         </div>
                     </div>
 
-                    <!-- SLIDE 17: SOURCES USED / REFERENCES -->
+                    <!-- SLIDE 19 (Slide 17 in content): CONCLUSION & KEY TAKEAWAYS -->
                     <div class="slide">
                         <div class="slide-header">
-                            <span class="slide-tag">REFERENCES</span>
-                            <h2 class="slide-title">Sources used</h2>
+                            <span class="slide-tag">SUMMARY &amp; ROADMAP</span>
+                            <h2 class="slide-title">Conclusion: A Silicon-Dependent Civilization</h2>
                         </div>
-                        <div class="slide-body" style="flex-direction: column; gap: 0.75rem; justify-content: flex-start;">
-                            <p class="subtitle" style="margin-bottom: 0.2rem; font-size: 0.95rem;">Use this slide as the final reference slide after Q&amp;A.</p>
-                            
-                            <div class="glass-panel" style="width: 100%; font-size: 0.72rem; line-height: 1.35; padding: 0.75rem 1rem; display: flex; flex-direction: column; gap: 0.4rem; flex-grow: 1; overflow-y: auto;">
-                                <div>1. SIA, Global Annual Semiconductor Sales Increase 25.6% to $791.7 Billion in 2025, Feb. 6, 2026. <a href="https://www.semiconductors.org/global-annual-semiconductor-sales-increase-25-6-to-791-7-billion-in-2025/" target="_blank" style="color: var(--accent-cyan);">Link</a></div>
-                                <div>2. NIST, CHIPS for America overview. <a href="https://www.nist.gov/chips" target="_blank" style="color: var(--accent-cyan);">Link</a></div>
-                                <div>3. CSET, The Semiconductor Supply Chain: Assessing National Competitiveness, 2021. <a href="https://cset.georgetown.edu/publication/the-semiconductor-supply-chain/" target="_blank" style="color: var(--accent-cyan);">Link</a></div>
-                                <div>4. ASML, Changing the world one nanometer at a time / lithography overview. <a href="https://www.asml.com/en" target="_blank" style="color: var(--accent-cyan);">Link</a></div>
-                                <div>5. WSTS, Semiconductor Market Forecast Spring 2025. <a href="https://www.wsts.org/76/103/WSTS-Semiconductor-Market-Forecast-Spring-2025" target="_blank" style="color: var(--accent-cyan);">Link</a></div>
-                                <div>6. Image references include Angstrom Technology cleanroom image and MM Thailand semiconductor supply chain infographic.</div>
+                        <div class="slide-body" style="flex-direction: column; gap: 0.5rem; justify-content: flex-start;">
+                            <div style="font-size: 1.05rem; font-weight: 600; color: var(--accent-cyan); border-left: 3px solid var(--accent-cyan); padding-left: 1rem; margin-bottom: 0.3rem; line-height: 1.4;">
+                                Key Message: We have reached a point of "Total Silicon Dependency." The path to a $2 trillion industry is certain.
                             </div>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.45; margin-bottom: 0.2rem;">
+                                Mastery of the semiconductor ecosystem is mastery of the future. The "Chip Wars" aren't just about manufacturing; they are about who can best harness silicon to transform their industries.
+                            </p>
                             
-                            <div style="font-size: 0.8rem; font-weight: 600; text-align: center; color: var(--accent-amber); margin-top: 0.25rem;">
-                                Suggested presentation style: speak from the notes, do not read every slide line. Keep each content slide around 1.5-2 minutes.
+                            <!-- Key Takeaways block directly inside slide 17 -->
+                            <div style="border-top: 1px solid var(--border-color); padding-top: 0.8rem; margin-top: 0.2rem; width: 100%;">
+                                <div style="font-family: var(--font-heading); font-size: 0.95rem; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.6rem;">Key Takeaways Summary</div>
+                                <div class="key-takeaway-container">
+                                    <div class="key-takeaway-card">
+                                        <h4 style="color: var(--accent-cyan);">Procurement</h4>
+                                        <p>Shift from JIT to Strategic Hybrid; resilience is the new ROI.</p>
+                                    </div>
+                                    <div class="key-takeaway-card">
+                                        <h4 style="color: var(--accent-purple);">Supply Chain</h4>
+                                        <p>Chokepoints in Advanced Packaging and SME are the new strategic risks.</p>
+                                    </div>
+                                    <div class="key-takeaway-card">
+                                        <h4 style="color: var(--accent-green);">Industries</h4>
+                                        <p>AI is the Value King; Automotive is the Volume King.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="slide-footer-watermark">
-                            <span>Semiconductors | 30-minute presentation</span>
+                            <span>The 2026 Semiconductor Ecosystem</span>
                             <span>Slide 17</span>
                         </div>
                     </div>
