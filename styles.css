@@ -1240,3 +1240,65 @@ header, footer {
 .key-message-callout {
     font-family: 'Bookman ITC Std', Georgia, serif !important;
 }
+
+/* Custom premium tooltip for locked popout button */
+#btn-popout-presenter {
+    position: relative;
+}
+
+#btn-popout-presenter[data-locked="true"] {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+#btn-popout-presenter[data-locked="true"]:hover {
+    background-color: var(--color-surface) !important;
+    color: var(--color-text) !important;
+    border-color: var(--color-border) !important;
+}
+
+#btn-popout-presenter[data-locked="true"]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translate(-50%, 4px);
+    background-color: var(--color-primary);
+    color: #ffffff !important;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    letter-spacing: 0.02em;
+}
+
+#btn-popout-presenter[data-locked="true"]::before {
+    content: "";
+    position: absolute;
+    bottom: 112%;
+    left: 50%;
+    transform: translate(-50%, 4px);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--color-primary) transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10000;
+}
+
+#btn-popout-presenter[data-locked="true"]:hover::after,
+#btn-popout-presenter[data-locked="true"]:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}

@@ -521,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.btnTheme.addEventListener('click', toggleTheme);
         elements.btnPresenter.addEventListener('click', togglePresenterMode);
         elements.btnPopoutPresenter.addEventListener('click', () => {
-            if (elements.btnPopoutPresenter.hasAttribute('disabled')) return;
+            if (elements.btnPopoutPresenter.getAttribute('data-locked') === 'true') return;
             const presenterWindow = window.open('presenter.html', 'SemiconductorPresenterConsole', 'width=950,height=750');
             if (presenterWindow) {
                 presenterWindow.focus();
