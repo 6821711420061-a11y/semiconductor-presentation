@@ -139,6 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const syncChannel = new BroadcastChannel('semiconductor-presentation');
  
     function init() {
+        if (window.lucide) {
+            lucide.createIcons();
+        }
         setupEventListeners();
         syncChannel.postMessage({ type: 'REQUEST_INITIAL_SYNC' });
     }
@@ -197,9 +200,9 @@ document.addEventListener('DOMContentLoaded', () => {
  
     function syncThemeUI() {
         if (isDarkTheme) {
-            document.documentElement.removeAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', 'dark');
         } else {
-            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.removeAttribute('data-theme');
         }
     }
  

@@ -5,71 +5,166 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presenter Console - Semiconductor Ecosystem</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
-            background-color: #0b0f19;
+            background-color: var(--color-bg);
+            color: var(--color-text);
             height: 100vh;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            font-family: var(--font-ui);
         }
         #presenter-console-container {
             display: flex;
             flex-direction: column;
             flex: 1;
             height: 100vh;
-            background: #0f172a;
-        }
-        /* Make script section take maximum space */
-        .script-section {
-            flex: 1;
-            padding: 2rem;
-            overflow-y: auto;
-            border-bottom: 1px solid var(--border-color);
+            background: var(--color-surface);
         }
         .console-header {
             padding: 1rem 2rem;
-            background: rgba(15, 23, 42, 0.9);
-            border-bottom: 1px solid var(--border-color);
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .console-title {
-            font-family: var(--font-heading);
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
+            font-family: var(--font-ui);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-primary);
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        .console-footer-nav {
-            padding: 1.5rem 2rem;
-            background: rgba(15, 23, 42, 0.9);
+        .timer-section {
+            padding: 1rem 2rem;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .timer-display {
+            font-family: var(--font-mono);
+            font-size: 36px;
+            font-weight: 500;
+            color: var(--color-text);
+        }
+        .timer-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .pacing-guide {
+            font-family: var(--font-ui);
+            font-size: 13px;
+            color: var(--color-text-muted);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .pacing-target {
+            font-weight: 500;
+            color: var(--color-text);
+        }
+        .script-section {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .script-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 0.5rem;
         }
-        .preview-section {
-            padding: 1.5rem 2rem;
-            background: rgba(0, 0, 0, 0.15);
-            border-top: 1px solid var(--border-color);
+        .text-resize {
+            display: flex;
+            gap: 0.25rem;
+        }
+        .text-resize button {
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-family: var(--font-ui);
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .script-label {
+            font-family: var(--font-ui);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
         .script-text {
-            font-size: 1.2rem;
-            line-height: 1.7;
+            font-family: var(--font-ui);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-text);
+            white-space: pre-wrap;
+            padding-bottom: 4rem;
+            user-select: text;
         }
-        /* Light Theme overrides for presenter console */
-        [data-theme="light"] body {
-            background-color: #f1f5f9;
+        .preview-section {
+            padding: 1rem 2rem;
+            background: var(--color-bg);
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            gap: 1.5rem;
         }
-        [data-theme="light"] #presenter-console-container {
-            background: #ffffff;
+        .preview-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
         }
-        [data-theme="light"] .console-header,
-        [data-theme="light"] .console-footer-nav {
-            background: #f8fafc;
+        .preview-box-label {
+            font-family: var(--font-ui);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .preview-box-title {
+            font-family: var(--font-primary);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .console-footer-nav {
+            padding: 1.25rem 2rem;
+            background: var(--color-surface);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--color-border);
+        }
+        .autoscroll-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: var(--font-ui);
+            font-size: 13px;
+            color: var(--color-text-muted);
+            cursor: pointer;
         }
     </style>
 </head>
@@ -78,9 +173,7 @@
         <!-- Header -->
         <div class="console-header">
             <div class="console-title">
-                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-                    <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v14zM10 7H8v6H5v2h5v-2H8V9h2V7zm5 0h-5v8h5c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zm0 6h-3V9h3v4z"/>
-                </svg>
+                <i data-lucide="presentation" class="lucide-sm" style="color: var(--color-primary);"></i>
                 Presenter Console (MacBook Screen)
             </div>
             <div class="autoscroll-toggle">
@@ -90,25 +183,25 @@
         </div>
 
         <!-- Timer Panel -->
-        <div class="timer-section" style="padding: 1rem 2rem;">
-            <div class="timer-display" id="timer-display" style="font-size: 2.5rem;">00:00</div>
+        <div class="timer-section">
+            <div class="timer-display" id="timer-display">00:00</div>
             <div class="timer-controls">
-                <button class="timer-btn" id="btn-timer-play" style="padding: 0.5rem 1.25rem; font-size: 0.95rem;">Start</button>
-                <button class="timer-btn" id="btn-timer-reset" style="padding: 0.5rem 1.25rem; font-size: 0.95rem;">Reset</button>
+                <button class="timer-btn" id="btn-timer-play">Start</button>
+                <button class="timer-btn" id="btn-timer-reset">Reset</button>
             </div>
             <div class="pacing-guide">
-                <span id="pacing-target" class="pacing-target" style="font-size: 1rem;">Target: < 01:30</span>
-                <span id="pacing-status" style="font-size: 0.95rem; font-weight: 600;">Timer inactive</span>
+                <span id="pacing-target" class="pacing-target">Target: < 01:30</span>
+                <span id="pacing-status">Timer inactive</span>
             </div>
         </div>
 
         <!-- Speaker Script Text Area -->
         <div class="script-section">
             <div class="script-controls">
-                <span class="script-label" style="font-size: 0.9rem;">Speaking Script</span>
+                <span class="script-label">Speaking Script</span>
                 <div class="text-resize">
-                    <button id="btn-text-dec" style="width: 32px; height: 32px; font-size: 1.1rem;">A-</button>
-                    <button id="btn-text-inc" style="width: 32px; height: 32px; font-size: 1.1rem;">A+</button>
+                    <button id="btn-text-dec" title="Decrease size">A-</button>
+                    <button id="btn-text-inc" title="Increase size">A+</button>
                 </div>
             </div>
             <div class="script-text script-font-md" id="script-text">Syncing presentation script...</div>
@@ -118,24 +211,22 @@
         <div class="preview-section">
             <div class="preview-box">
                 <span class="preview-box-label">Current Slide</span>
-                <div class="preview-box-title" id="preview-current-title" style="font-size: 1.1rem; color: var(--accent-cyan);">1. Title Slide</div>
+                <div class="preview-box-title" id="preview-current-title">1. Cover Title</div>
             </div>
-            <div class="preview-box" style="border-left: 1px solid var(--border-color); padding-left: 2rem;">
+            <div class="preview-box" style="border-left: 1px solid var(--color-border); padding-left: 1.5rem;">
                 <span class="preview-box-label">Next Slide</span>
-                <div class="preview-box-title" id="preview-next-title" style="font-size: 1.1rem;">2. Agenda</div>
+                <div class="preview-box-title" id="preview-next-title">2. Agenda</div>
             </div>
         </div>
 
         <!-- Bottom Navigation Controls -->
         <div class="console-footer-nav">
-            <button class="btn-nav" id="btn-prev" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
-                <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-                Previous Slide
+            <button class="btn-nav" id="btn-prev">
+                <i data-lucide="chevron-left" class="lucide-sm"></i> Previous Slide
             </button>
-            <div class="slide-number-indicator" id="slide-num-indicator" style="font-size: 1.1rem; padding: 0.4rem 1rem;">Slide 1 of 15</div>
-            <button class="btn-nav" id="btn-next" style="padding: 0.75rem 1.5rem; font-size: 1rem;">
-                Next Slide
-                <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            <div class="slide-number-indicator" id="slide-num-indicator" style="font-size: 14px; font-weight: 500; font-family: var(--font-ui); color: var(--color-text-muted);">Slide 1 of 19</div>
+            <button class="btn-nav" id="btn-next">
+                Next Slide <i data-lucide="chevron-right" class="lucide-sm"></i>
             </button>
         </div>
     </div>

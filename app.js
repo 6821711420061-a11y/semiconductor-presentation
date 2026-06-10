@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnPrev: document.getElementById('btn-prev'),
         btnNext: document.getElementById('btn-next'),
         slideNumIndicator: document.getElementById('slide-num-indicator'),
-        progressBarFill: document.getElementById('progress-bar-fill'),
+        progressBarFill: document.getElementById('sidebar-progress-fill'),
         btnTheme: document.getElementById('btn-theme'),
         btnPresenter: document.getElementById('btn-presenter'),
         btnPopoutPresenter: document.getElementById('btn-popout-presenter'),
@@ -133,11 +133,26 @@ document.addEventListener('DOMContentLoaded', () => {
  
     // Initialize UI
     function init() {
+        if (window.lucide) {
+            lucide.createIcons();
+        }
         loadSettings();
+        setupSidebarLinks();
         updateSlideVisibility();
         setupEventListeners();
         initInteractiveComponents();
         setupSyncChannel();
+    }
+
+    function setupSidebarLinks() {
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                const idx = parseInt(link.getAttribute('data-index'), 10);
+                goToSlide(idx);
+                e.preventDefault();
+            });
+        });
     }
  
     function setupSyncChannel() {
@@ -183,10 +198,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load persisted settings from LocalStorage
     function loadSettings() {
         const storedTheme = localStorage.getItem('theme');
-        if (storedTheme === 'light') {
-            isDarkTheme = false;
-            document.documentElement.setAttribute('data-theme', 'light');
+        if (storedTheme === 'dark') {
+            isDarkTheme = true;
+            document.documentElement.setAttribute('data-theme', 'dark');
         } else {
+            isDarkTheme = false;
             document.documentElement.removeAttribute('data-theme');
         }
         updateThemeIcon();
@@ -247,16 +263,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
  
-        // Update footer navigation buttons
-        elements.btnPrev.disabled = currentSlide === 0;
-        elements.btnNext.disabled = currentSlide === totalSlides - 1;
+        // Update navigation buttons
+        if (elements.btnPrev) elements.btnPrev.disabled = currentSlide === 0;
+        if (elements.btnNext) elements.btnNext.disabled = currentSlide === totalSlides - 1;
  
         // Slide Indicators
-        elements.slideNumIndicator.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
+        if (elements.slideNumIndicator) {
+            elements.slideNumIndicator.textContent = `Slide ${currentSlide + 1} of ${totalSlides}`;
+        }
         
+        // Update sidebar links active class
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        sidebarLinks.forEach(link => {
+            const idx = parseInt(link.getAttribute('data-index'), 10);
+            if (idx === currentSlide) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+
         // Progress Bar
-        const progressPercent = (currentSlide / (totalSlides - 1)) * 100;
-        elements.progressBarFill.style.width = `${progressPercent}%`;
+        if (elements.progressBarFill) {
+            const progressPercent = (currentSlide / (totalSlides - 1)) * 100;
+            elements.progressBarFill.style.width = `${progressPercent}%`;
+        }
  
         // Update script and presenter details
         elements.scriptText.textContent = slideScripts[currentSlide];
@@ -434,10 +465,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleTheme() {
         isDarkTheme = !isDarkTheme;
         if (isDarkTheme) {
-            document.documentElement.removeAttribute('data-theme');
+            document.documentElement.setAttribute('data-theme', 'dark');
             saveSetting('theme', 'dark');
         } else {
-            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.removeAttribute('data-theme');
             saveSetting('theme', 'light');
         }
         updateThemeIcon();
@@ -450,12 +481,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
  
     function updateThemeIcon() {
-        if (isDarkTheme) {
-            // Show sun icon
-            elements.btnTheme.innerHTML = `<svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L18.36 16.95zm1.06-12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.03 0-1.41zm-12.37 12.37c-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06c.39-.38.39-1.03 0-1.41z"/></svg>`;
-        } else {
-            // Show moon icon
-            elements.btnTheme.innerHTML = `<svg viewBox="0 0 24 24"><path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-9 8.3-9.9.5-.1.9.3.8.8-.4 2 .2 4 1.6 5.4 1.4 1.4 3.4 2 5.4 1.6.5-.1.9.3.8.8-.9 4.8-5.1 8.3-9.8 8.3z"/></svg>`;
+        if (!elements.btnTheme) return;
+        elements.btnTheme.innerHTML = `<i data-lucide="${isDarkTheme ? 'sun' : 'moon'}" class="lucide-sm"></i>`;
+        if (window.lucide) {
+            lucide.createIcons();
         }
     }
  

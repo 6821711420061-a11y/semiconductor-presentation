@@ -6,17 +6,45 @@ const path = require('path');
 let pptx = new pptxgen();
 pptx.layout = 'LAYOUT_16x9';
  
-// Theme Colors
-const COLOR_BG = '0B0F19';       // Deep Charcoal Navy
-const COLOR_CARD = '121826';     // Graphite
-const COLOR_TEXT_PRI = 'FFFFFF'; // White
-const COLOR_TEXT_SEC = 'A0AEC0'; // Light Gray
-const COLOR_MUTED = '505D6F';    // Dark Gray
-const COLOR_ACCENT_CYAN = '00F2FE';   // Electric Cyan
-const COLOR_ACCENT_GREEN = '00FF87';  // Silicon Green
-const COLOR_ACCENT_PURPLE = 'C084FC'; // Electric Purple
-const COLOR_ACCENT_ROSE = 'F43F5E';   // Electric Rose
-const COLOR_ACCENT_AMBER = 'FBBF24';  // Amber
+// Hook into Slide prototype to inject warm editorial typography rules
+const tempSlideForProto = pptx.addSlide();
+const slideProto = Object.getPrototypeOf(tempSlideForProto);
+const originalAddText = slideProto.addText;
+slideProto.addText = function(text, options) {
+    if (options && options.fontFace === 'Helvetica') {
+        let useSerif = false;
+        if (options.fontSize >= 32) {
+            useSerif = true; // Slide Title, Cover Title, Stat numbers
+        } else if (options.fontSize === 20 && options.bold) {
+            useSerif = true; // Card Titles are fontSize 20 and bold: true
+        } else if (options.fontSize === 24) {
+            useSerif = true; // Flow / Card numbers
+        } else if (options.fontSize === 36) {
+            useSerif = true; // Stat display numbers
+        } else if (options.fontSize === 50 || options.fontSize === 54) {
+            useSerif = true; // Large stat numbers
+        }
+        
+        options.fontFace = useSerif ? 'Georgia' : 'Arial';
+    }
+    return originalAddText.call(this, text, options);
+};
+pptx._slides = []; // Clear the temporary slide so we start fresh
+
+// Theme Colors - Warm Light Editorial Style
+const COLOR_BG = 'F5F0E8';       // Warm off-white background
+const COLOR_CARD = 'FFFDF8';     // Paper surface card
+const COLOR_TEXT_PRI = '1A1714'; // Near-black main text
+const COLOR_TEXT_SEC = '6B6560'; // Warm muted text
+const COLOR_MUTED = 'E0D9D0';    // Border color
+const COLOR_BORDER = 'E0D9D0';   // Border color
+
+// Warm low-saturation accent colors mapping to original visual hierarchy
+const COLOR_ACCENT_CYAN = 'B84A2F';   // Terracotta Red (primary accent)
+const COLOR_ACCENT_GREEN = '768C7C';  // Sage Green
+const COLOR_ACCENT_PURPLE = '9E7D84'; // Plum Rose
+const COLOR_ACCENT_ROSE = 'B84A2F';   // Terracotta Red
+const COLOR_ACCENT_AMBER = 'B08E66';  // Ochre
  
 // Helper to set background and base formatting
 function createBaseSlide(category, title, slideNum, notes) {
@@ -58,7 +86,7 @@ function createBaseSlide(category, title, slideNum, notes) {
         h: 0.3,
         fontSize: 10,
         fontFace: 'Helvetica',
-        color: COLOR_MUTED
+        color: COLOR_TEXT_SEC
     });
     
     // Speaker Notes
