@@ -25,7 +25,7 @@ slideProto.addText = function(text, options) {
             useSerif = true; // Large stat numbers
         }
         
-        options.fontFace = useSerif ? 'Georgia' : 'Arial';
+        options.fontFace = useSerif ? 'PP Mondwest' : 'VVDS Fifties';
     }
     return originalAddText.call(this, text, options);
 };

@@ -12,8 +12,8 @@
     --color-error: #C0392B;
     
     /* Font Families */
-    --font-primary: 'Instrument Serif', Georgia, serif;
-    --font-ui: 'DM Sans', sans-serif;
+    --font-primary: 'PP Mondwest', 'Instrument Serif', Georgia, serif;
+    --font-ui: 'VVDS Fifties', 'DM Sans', sans-serif;
     --font-mono: 'Fira Code', monospace;
     
     --slide-aspect: 16/9;
