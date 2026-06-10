@@ -12,7 +12,7 @@ const slideProto = Object.getPrototypeOf(tempSlideForProto);
 const originalAddText = slideProto.addText;
 slideProto.addText = function(text, options) {
     if (options && options.fontFace === 'Helvetica') {
-        let fontName = 'VVDS Fifties SCond Reg'; // Default body (SCond Reg)
+        let fontName = 'Aeonik'; // Default body (Aeonik)
         
         if (options.fontSize >= 32 || options.fontSize === 36 || options.fontSize === 50 || options.fontSize === 54) {
             fontName = 'PP Mondwest'; // Display/Title (PP Mondwest)
@@ -21,7 +21,7 @@ slideProto.addText = function(text, options) {
         } else if (options.fontSize === 24) {
             fontName = 'PP Mondwest'; // Flow Card Numbers (PP Mondwest)
         } else if (options.fontSize === 12 || options.fontSize === 14 || options.fontSize === 10) {
-            fontName = 'VVDS Fifties Exp Reg'; // Category / Labels / Footers (Exp Reg)
+            fontName = 'Aeonik'; // Category / Labels / Footers (Aeonik)
         }
         
         options.fontFace = fontName;
