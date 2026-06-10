@@ -71,40 +71,56 @@ function createBaseSlide(category, title, slideNum, notes) {
  
 // Speaker notes data
 const scripts = [
-    // Slide 1
-    "Good morning everyone, and welcome to this strategic briefing. Today, we are reviewing 'The 2026 Semiconductor Ecosystem' with a focus on procurement, global supply chains, and end-user verticals.\n\nIn 2026, semiconductor procurement has transitioned from a back-office utility into a core strategic capability for technological growth, commercial innovation, and national security. Over this session, we will analyze how organizations can navigate this crucial field to manage risk and secure supply.",
-    // Slide 2
-    "Let's begin with our executive summary on the procurement paradox. The semiconductor industry has reached a massive $1.3 trillion market valuation. However, this record-breaking growth is accompanied by systemic fragility. Sourcing critical logic nodes and High Bandwidth Memory (HBM) remains highly constrained. To thrive, procurement executives must pivot from traditional transactional buying to deep, long-term strategic relationship management.",
-    // Slide 3
-    "The traditional 'Just-in-Time' inventory model is obsolete for critical semiconductor components. In 2026, the new standard is a hybrid inventory model. Organizations are maintaining 3 to 6 months of buffer stock for high-value, sole-sourced components, while keeping lean, JIT structures for commoditized parts. This balances operational resilience with capital efficiency.",
-    // Slide 4
-    "Category management is the key tool to combat supply chain opacity. We segment the procurement landscape into Leading-edge nodes (sub-7nm) and Legacy nodes (28nm and above). Sourcing leading-edge chips requires deep, multi-year R&D partnerships, while legacy sourcing focuses on active multi-sourcing, life-cycle tracking, and securing long-term supply guarantees.",
-    // Slide 5
-    "Resilience in 2026 is data-driven. Leading procurement teams utilize AI-enabled 'Business Intelligence Cockpits' to map supplier networks and forecast shortages 6 to 12 months ahead. Furthermore, securing capacity requires proactive commercial structures, including capacity reservation fees and take-or-pay long-term agreements (LTAs).",
-    // Slide 6
-    "Now we begin Part 2: The Global Supply Chain. A single microchip can cross international borders over 70 times before completion, making it the most complex value chain in industrial history. This 'Silicon Journey' connects chip designers in the US, equipment manufacturers in Europe, silicon fabricators in East Asia, and packaging facilities in Southeast Asia. This creates unmatched efficiency but extreme vulnerability to regional disruptions.",
-    // Slide 7
-    "The Global Value Chain is characterized by extreme cluster concentration. The US controls research, design IP, and EDA software; Europe dominates specialized tooling, led by ASML's monopoly on EUV lithography scanners; and East Asia (specifically TSMC and Samsung) commands wafer fabrication. This high specialization means any single failure point halts the entire global system.",
-    // Slide 8
-    "While wafer fabrication nodes (like 3nm and the emerging 2nm node) capture public attention, the primary bottleneck in 2026 is back-end advanced packaging. Heterogeneous packaging techniques like Chip-on-Wafer-on-Substrate (CoWoS) and 3D stacking are highly constrained, making packaging the primary growth limiter for high-performance AI chips.",
-    // Slide 9
-    "Geopolitics has fragmented the silicon landscape into a multi-polar world. Government initiatives—such as the US CHIPS Act ($52B) and massive state funding in Europe and China—have triggered a reshoring race. Crucially, raw material chokepoints like Gallium and Germanium are now active levers of trade and foreign policy.",
-    // Slide 10
-    "To build resilience, leading firms are mapping their supply networks down to Tier-4 and Tier-5 suppliers. Additionally, we are seeing the rise of circular supply chains, where firms recover rare earth metals and copper from e-waste to insulate themselves from mining volatility and supply disruptions.",
-    // Slide 11
-    "We now transition to Part 3: End-User Industries. Semiconductors have become the central nervous system of the global economy. 'Silicon Intensity'—the value of semiconductor content per product unit—is now the primary metric of industrial competitiveness. No modern industry can run or innovate without silicon.",
-    // Slide 12
-    "The demand landscape in 2026 shows a major structural shift. AI infrastructure, automotive electronics, and factory robotics are capturing the majority of growth. While traditional smartphone and PC markets face saturation, specialized automotive and AI accelerator segments are driving industry revenues to new heights.",
-    // Slide 13
-    "AI accelerators have turned data centers into massive intelligence engines, with the market approaching $500 billion. This segment is the primary consumer of leading-edge 3nm and 2nm foundry nodes, consuming massive volumes of High Bandwidth Memory and advanced networking silicon.",
-    // Slide 14
-    "Electric Vehicles and Advanced Driver Assistance Systems (ADAS) are doubling the semiconductor value per vehicle, now exceeding $1,000 per unit. EVs depend heavily on Silicon Carbide (SiC) power electronics for battery efficiency, while autonomous drive systems require massive local compute power and LiDAR arrays.",
-    // Slide 15
-    "Edge AI is transforming industrial automation and healthcare. Industry 4.0 uses real-time edge analytics for predictive maintenance. In healthcare, semiconductors enable smart implants, wearable biosensors, and personalized diagnostics, demanding highly rugged, long-lifecycle silicon.",
-    // Slide 16
-    "While traditional consumer volumes mature, manufacturers are integrating Neural Processing Units (NPUs) into laptops and phones to enable on-device AI. Looking forward, emerging frontiers like quantum computing, 6G telecom, and brain-inspired neuromorphic chips are defining the roadmap toward 2030.",
-    // Slide 17
-    "In conclusion, we have reached a state of total silicon dependency. The path to a $2 global industry by the early 2030s is clear. The 'Chip Wars' are not just about manufacturing footprint; they are about who can best harness silicon to transform their businesses. Let's summarize the key takeaways: Procurement must shift to a hybrid model; packaging is the new supply chokepoint; and AI and Automotive remain the primary engines of value and volume. Thank you, and I am open to any questions."
+    // Slide 1: Title
+    "Hello everyone. I’m Manus, and today we are conducting a deep-dive into the 'nerve system' of our modern civilization: the 2026 Semiconductor Ecosystem. Over the next 20 minutes, we are going to move beyond the headlines of 'chip shortages' and look at the actual structural mechanics of how silicon is procured, how it moves across the globe, and finally, how it is fundamentally rewriting the DNA of every major industry. Whether you are an investor, a procurement lead, or a strategic planner, this briefing is designed to give you the high-ground view of the $1.3 trillion silicon economy.",
+    
+    // Slide 2: Executive Summary: The Procurement Paradox
+    "We start with the 'Procurement Paradox.' In 2026, we are seeing record-breaking revenue, yet the supply chain has never felt more fragile. Why? Because the 'Just-in-Time' model we spent thirty years perfecting was built for a world of stability—not the world of 'Chip Wars' and AI super-cycles we live in today.",
+    
+    // Slide 3: Evolution of Procurement
+    "To survive, elite firms have pivoted to a Strategic Hybrid Model. We aren't just stockpiling everything—that’s expensive and inefficient. Instead, we are using 'Just-in-Case' logic for the high-value nodes: the 3nm processors and the High Bandwidth Memory that power AI. For everything else, we keep it lean. It’s about being surgical with your inventory.",
+    
+    // Slide 4: Key Procurement Challenges
+    "But you can't be surgical if you're blind. The biggest challenge in 2026 is Data Opacity. Most firms don't know who their Tier-3 or Tier-4 suppliers are. We are solving this through Category Management—segmenting our sourcing by technology node. We treat a 28nm legacy microcontroller for a car window very differently than a 2nm AI accelerator for a data center.",
+    
+    // Slide 5: Digitalization & Resilience
+    "Finally, look at the digitalization of the 'Buy' side. We are now using Business Intelligence Cockpits that use AI to scan geopolitical signals and weather patterns to predict shortages six months out. We are also seeing a rise in 'Friend-Shoring' and Long-Term Agreements. In 2026, a handshake isn't enough; you need 'take-or-pay' contracts and reservation fees to ensure you aren't left behind in the next allocation cycle.",
+    
+    // Slide 6: The Global Supply Chain
+    "Now, let's look at the 'Silicon Journey.' A single chip might cross 70 borders before it ever reaches a consumer. This is the most complex logistical web ever built. It’s a masterpiece of efficiency, but it’s also a 'Chokepoint Architecture.'",
+    
+    // Slide 7: GVC Architecture
+    "The value is incredibly concentrated. The U.S. owns the design; the Netherlands owns the lithography equipment; and East Asia—specifically Taiwan and South Korea—owns the fabrication. TSMC isn't just a company; it is a systemic pillar of the global economy. If that pillar shakes, the whole world feels it.",
+    
+    // Slide 8: Front-End & Back-End Bottlenecks
+    "The new bottleneck in 2026 isn't just the fab; it's the 'Back-End.' We’ve reached the limits of traditional chip design, so we are now 'stacking' chips using advanced packaging like CoWoS. This is where the AI war is being fought. If you can't get capacity in an advanced packaging facility, it doesn't matter how many wafers you can print.",
+    
+    // Slide 9: SME & Geopolitical Fragmentation
+    "And we cannot ignore the 'Chip Wars.' Geopolitics is now a primary architect of the supply chain. Between the U.S. CHIPS Act and China’s massive 'In-Sourcing' push, we are moving toward a multi-polar silicon world. Critical materials like Gallium and Germanium are now being used as strategic levers in a global game of chess.",
+    
+    // Slide 10: Supply Chain Resilience
+    "The response? Circular and Autonomous Supply Chains. We are using AI to 'self-heal' the supply chain—automatically re-routing orders when a port closes or a factory goes down. And we are starting to recycle. We are mining the 'urban mine'—recovering rare earth elements from old electronics to reduce our dependency on volatile mining regions.",
+    
+    // Slide 11: The Ubiquity of Silicon
+    "So, where does all this silicon end up? Everywhere. We have reached 'Total Silicon Dependency.' Every industry is now a 'tech industry' because every industry is built on chips.",
+    
+    // Slide 12: Executive Summary: Demand Landscape
+    "The demand landscape is shifting. While PCs and smartphones are maturing, AI Infrastructure and Automotive are exploding. AI and Data Centers now drive nearly half of the industry’s total value. We are in a 'multi-speed' market where the high-end is racing ahead while the low-end stabilizes.",
+    
+    // Slide 13: AI & Data Centers
+    "Look at the Data Center. It’s no longer just a place to store files; it’s an 'Intelligence Engine.' We are spending $500 billion a year on AI accelerators. This is the segment that is pushing us to 2nm and beyond. It is the 'Value King' of the semiconductor world.",
+    
+    // Slide 14: Automotive: The Smartphone on Wheels
+    "Then there is the car—the 'Smartphone on Wheels.' An EV in 2026 has over $1,000 worth of chips in it. We are talking about Silicon Carbide for power efficiency and massive SoCs for autonomous driving. The car has become a high-performance computer that just happens to have wheels.",
+    
+    // Slide 15: Industrial, IoT & Healthcare
+    "In the Industrial and Healthcare sectors, we are seeing the rise of 'Edge AI.' We aren't sending data to the cloud anymore; we are processing it right there on the factory floor or inside a medical implant. This requires ultra-reliable, long-lifecycle silicon that can survive for fifteen years in harsh environments.",
+    
+    // Slide 16: Consumer Electronics & Frontiers
+    "And looking at the horizon—Quantum, 6G, and Neuromorphic computing. These aren't science fiction anymore. We are already building the 2030 roadmap. We are designing chips that work like the human brain and networks that make 5G look like dial-up. The innovation cycle is actually accelerating.",
+    
+    // Slide 17: Conclusion
+    "To conclude, the 2026 ecosystem tells us one thing: Silicon Intensity is the new gold standard. The winners of the next decade won't just be the ones with the best software; they will be the ones who master the procurement, the supply chain, and the application of these chips.\n\nBefore we go, look at this infographic. These are the five materials that keep the lights on. From Gallium in your 5G phone to Neon in the lasers that print the chips, these are the true foundations. Most of these are concentrated in a few regions, which is why the 'Silicon Journey' is as much about geology as it is about geometry.\n\nThe 'Chip Wars' are far from over. In fact, they are just beginning. Mastery of this ecosystem is mastery of the future. Thank you for your time."
 ];
  
 // ==========================================
@@ -147,7 +163,7 @@ slide1.addShape(pptx.shapes.RECTANGLE, {
 });
  
 // Meta Info
-slide1.addText("Presenter: Phyoe Sat Paing\nBoardroom Strategic Briefing", {
+slide1.addText("Presenter: Manus\nBoardroom Strategic Briefing", {
     x: 0.8,
     y: 4.8,
     w: 5.0,
@@ -883,7 +899,7 @@ slide10.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_CYAN, width: 1.5 }
 });
-slide10.addText("Key Message: The future of the supply chain is \"Circular and Autonomous,\" using AI to self-heal and recycling to secure raw materials.", {
+slide10.addText("Key Message: The response? Circular and Autonomous Supply Chains. We are using AI to 'self-heal' the supply chain.", {
     x: 0.8,
     y: 1.6,
     w: 11.6,
@@ -904,7 +920,7 @@ slide10.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_MUTED, width: 1 }
 });
-slide10.addText("Deep Supply Mapping", {
+slide10.addText("Deep Supply Mapping & AI", {
     x: 0.9,
     y: 3.0,
     w: 5.1,
@@ -914,7 +930,7 @@ slide10.addText("Deep Supply Mapping", {
     color: COLOR_ACCENT_CYAN,
     bold: true
 });
-slide10.addText("Leading manufacturers utilize digital mapping tools to trace supply down to Tier-4 and Tier-5 chemical suppliers.", {
+slide10.addText("Automatically re-routing orders when a port closes or a factory goes down. Mapping up to Tier-4 and Tier-5 suppliers.", {
     x: 0.9,
     y: 3.6,
     w: 5.1,
@@ -933,7 +949,7 @@ slide10.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_MUTED, width: 1 }
 });
-slide10.addText("Circular Mineral Reclamation", {
+slide10.addText("Circular Reclamation", {
     x: 7.2,
     y: 3.0,
     w: 5.1,
@@ -943,7 +959,7 @@ slide10.addText("Circular Mineral Reclamation", {
     color: COLOR_ACCENT_GREEN,
     bold: true
 });
-slide10.addText("Firms actively recycle e-waste, reclaiming trace copper, silicon, and gold substrates to buffer raw mining volatility.", {
+slide10.addText("Mining the 'urban mine'—recovering rare earth elements from old electronics to reduce dependency on volatile mining regions.", {
     x: 7.2,
     y: 3.6,
     w: 5.1,
@@ -962,7 +978,7 @@ slide10.addShape(pptx.shapes.RECTANGLE, {
     fill: { color: COLOR_CARD },
     line: { color: COLOR_ACCENT_CYAN, width: 1 }
 });
-slide10.addText("Mapping and recycling shield operations from supply disruptions and support sustainable GVC mandates.", {
+slide10.addText("Autonomous logistics systems automatically scan trade flows to reroute containers before bottleneck events cause line shutdowns.", {
     x: 0.8,
     y: 5.8,
     w: 11.6,

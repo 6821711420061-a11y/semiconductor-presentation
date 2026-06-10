@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // State Variables
     let currentSlide = 0;
-    const totalSlides = 17;
+    const totalSlides = 19;
     let isDarkTheme = true;
     let timerSeconds = 0;
     let timerRunning = false;
@@ -10,100 +10,111 @@ document.addEventListener('DOMContentLoaded', () => {
     const fontSizes = ['sm', 'md', 'lg', 'xl'];
     let currentFontSizeIndex = 1;
  
-    // Slide Pacing Budget (seconds)
+    // Slide Pacing Budget (Target cumulative minutes for the end of each slide)
+    // For a 20-minute presentation across 19 slides (including transition dividers):
     const pacingTargets = [
-        1.5,   // Slide 1: Cover Title
-        3.0,   // Slide 2: Executive Summary: The Procurement Paradox
-        4.5,   // Slide 3: Evolution of Procurement: The Strategic Hybrid Model
-        6.0,   // Slide 4: Key Procurement Challenges & Strategic Sourcing
-        8.0,   // Slide 5: Digitalization & Resilience in Procurement
-        10.0,  // Slide 6: The Global Supply Chain: A Web of Unprecedented Complexity
-        12.0,  // Slide 7: Architecture of the Global Value Chain (GVC)
-        14.0,  // Slide 8: Front-End & Back-End Bottlenecks
-        16.0,  // Slide 9: SME, Materials & Geopolitical Fragmentation
-        18.0,  // Slide 10: Supply Chain Resilience: Digital & Circular
-        20.0,  // Slide 11: The Ubiquity of Silicon: Powering the Modern World
-        21.5,  // Slide 12: Executive Summary: The Demand Landscape in 2026
-        23.5,  // Slide 13: AI & Data Centers: The Generative Revolution
-        25.5,  // Slide 14: Automotive: The "Smartphone on Wheels"
-        27.0,  // Slide 15: Industrial, IoT & Healthcare: Intelligence at the Edge
-        28.5,  // Slide 16: Consumer Electronics & Emerging Frontiers
-        30.0   // Slide 17: Conclusion: A Silicon-Dependent Civilization
+        1.5,   // Slide 1: Cover Title (Intro 0:00 - 1:30)
+        2.6,   // Slide 2: Executive Summary: The Procurement Paradox
+        3.7,   // Slide 3: Evolution of Procurement: The Strategic Hybrid Model
+        4.8,   // Slide 4: Key Procurement Challenges & Strategic Sourcing
+        6.0,   // Slide 5: Digitalization & Resilience in Procurement (Part 1 ends 6:00)
+        6.2,   // Slide 6: Part 2 Section Divider (Transition)
+        7.2,   // Slide 7: The Global Supply Chain: A Web of Complexity
+        8.2,   // Slide 8: Architecture of the Global Value Chain (GVC)
+        9.2,   // Slide 9: Front-End & Back-End Bottlenecks
+        10.2,  // Slide 10: SME, Materials & Geopolitical Fragmentation
+        11.0,  // Slide 11: Supply Chain Resilience: Digital & Circular (Part 2 ends 11:00)
+        11.2,  // Slide 12: Part 3 Section Divider (Transition)
+        12.2,  // Slide 13: The Ubiquity of Silicon: Powering the Modern World
+        13.2,  // Slide 14: Executive Summary: The Demand Landscape in 2026
+        14.2,  // Slide 15: AI & Data Centers: The Generative Revolution
+        15.2,  // Slide 16: Automotive: The "Smartphone on Wheels"
+        16.2,  // Slide 17: Industrial, IoT & Healthcare: Intelligence at the Edge
+        17.0,  // Slide 18: Consumer Electronics & Emerging Frontiers (Part 3 ends 17:00)
+        20.0   // Slide 19: Conclusion: A Silicon-Dependent Civilization (Closing ends 20:00)
     ];
  
     // Slide scripts copy for standalone display
     const slideScripts = [
         // Slide 1: Title
-        "Good morning everyone, and welcome to this strategic briefing. Today, we are reviewing 'The 2026 Semiconductor Ecosystem' with a focus on procurement, global supply chains, and end-user verticals.\n\nIn 2026, semiconductor procurement has transitioned from a back-office utility into a core strategic capability for technological growth, commercial innovation, and national security. Over this session, we will analyze how organizations can navigate this crucial field to manage risk and secure supply.",
+        "Hello everyone. I’m Manus, and today we are conducting a deep-dive into the 'nerve system' of our modern civilization: the 2026 Semiconductor Ecosystem. Over the next 20 minutes, we are going to move beyond the headlines of 'chip shortages' and look at the actual structural mechanics of how silicon is procured, how it moves across the globe, and finally, how it is fundamentally rewriting the DNA of every major industry. Whether you are an investor, a procurement lead, or a strategic planner, this briefing is designed to give you the high-ground view of the $1.3 trillion silicon economy.",
         
         // Slide 2: Executive Summary: The Procurement Paradox
-        "Let's begin with our executive summary on the procurement paradox. The semiconductor industry has reached a massive $1.3 trillion market valuation. However, this record-breaking growth is accompanied by systemic fragility. Sourcing critical logic nodes and High Bandwidth Memory (HBM) remains highly constrained. To thrive, procurement executives must pivot from traditional transactional buying to deep, long-term strategic relationship management.",
+        "We start with the 'Procurement Paradox.' In 2026, we are seeing record-breaking revenue, yet the supply chain has never felt more fragile. Why? Because the 'Just-in-Time' model we spent thirty years perfecting was built for a world of stability—not the world of 'Chip Wars' and AI super-cycles we live in today.",
         
         // Slide 3: Evolution of Procurement
-        "The traditional 'Just-in-Time' inventory model is obsolete for critical semiconductor components. In 2026, the new standard is a hybrid inventory model. Organizations are maintaining 3 to 6 months of buffer stock for high-value, sole-sourced components, while keeping lean, JIT structures for commoditized parts. This balances operational resilience with capital efficiency.",
+        "To survive, elite firms have pivoted to a Strategic Hybrid Model. We aren't just stockpiling everything—that’s expensive and inefficient. Instead, we are using 'Just-in-Case' logic for the high-value nodes: the 3nm processors and the High Bandwidth Memory that power AI. For everything else, we keep it lean. It’s about being surgical with your inventory.",
         
         // Slide 4: Key Procurement Challenges
-        "Category management is the key tool to combat supply chain opacity. We segment the procurement landscape into Leading-edge nodes (sub-7nm) and Legacy nodes (28nm and above). Sourcing leading-edge chips requires deep, multi-year R&D partnerships, while legacy sourcing focuses on active multi-sourcing, life-cycle tracking, and securing long-term supply guarantees.",
+        "But you can't be surgical if you're blind. The biggest challenge in 2026 is Data Opacity. Most firms don't know who their Tier-3 or Tier-4 suppliers are. We are solving this through Category Management—segmenting our sourcing by technology node. We treat a 28nm legacy microcontroller for a car window very differently than a 2nm AI accelerator for a data center.",
         
         // Slide 5: Digitalization & Resilience
-        "Resilience in 2026 is data-driven. Leading procurement teams utilize AI-enabled 'Business Intelligence Cockpits' to map supplier networks and forecast shortages 6 to 12 months ahead. Furthermore, securing capacity requires proactive commercial structures, including capacity reservation fees and take-or-pay long-term agreements (LTAs).",
+        "Finally, look at the digitalization of the 'Buy' side. We are now using Business Intelligence Cockpits that use AI to scan geopolitical signals and weather patterns to predict shortages six months out. We are also seeing a rise in 'Friend-Shoring' and Long-Term Agreements. In 2026, a handshake isn't enough; you need 'take-or-pay' contracts and reservation fees to ensure you aren't left behind in the next allocation cycle.",
         
-        // Slide 6: The Global Supply Chain
-        "Now we begin Part 2: The Global Supply Chain. A single microchip can cross international borders over 70 times before completion, making it the most complex value chain in industrial history. This 'Silicon Journey' connects chip designers in the US, equipment manufacturers in Europe, silicon fabricators in East Asia, and packaging facilities in Southeast Asia. This creates unmatched efficiency but extreme vulnerability to regional disruptions.",
+        // Slide 6: Part 2 Section Divider
+        "Now, let's look at the 'Silicon Journey.' We move into Part 2: The Global Supply Chain Web, where we trace how chips move across borders, where the key bottlenecks lie, and how geopolitics and circular logic are rewriting supply chain strategies.",
+
+        // Slide 7: The Global Supply Chain
+        "Now, let's look at the 'Silicon Journey.' A single chip might cross 70 borders before it ever reaches a consumer. This is the most complex logistical web ever built. It’s a masterpiece of efficiency, but it’s also a 'Chokepoint Architecture.'",
         
-        // Slide 7: GVC Architecture
-        "The Global Value Chain is characterized by extreme cluster concentration. The US controls research, design IP, and EDA software; Europe dominates specialized tooling, led by ASML's monopoly on EUV lithography scanners; and East Asia (specifically TSMC and Samsung) commands wafer fabrication. This high specialization means any single failure point halts the entire global system.",
+        // Slide 8: GVC Architecture
+        "The value is incredibly concentrated. The U.S. owns the design; the Netherlands owns the lithography equipment; and East Asia—specifically Taiwan and South Korea—owns the fabrication. TSMC isn't just a company; it is a systemic pillar of the global economy. If that pillar shakes, the whole world feels it.",
         
-        // Slide 8: Front-End & Back-End Bottlenecks
-        "While wafer fabrication nodes (like 3nm and the emerging 2nm node) capture public attention, the primary bottleneck in 2026 is back-end advanced packaging. Heterogeneous packaging techniques like Chip-on-Wafer-on-Substrate (CoWoS) and 3D stacking are highly constrained, making packaging the primary growth limiter for high-performance AI chips.",
+        // Slide 9: Front-End & Back-End Bottlenecks
+        "The new bottleneck in 2026 isn't just the fab; it's the 'Back-End.' We’ve reached the limits of traditional chip design, so we are now 'stacking' chips using advanced packaging like CoWoS. This is where the AI war is being fought. If you can't get capacity in an advanced packaging facility, it doesn't matter how many wafers you can print.",
         
-        // Slide 9: SME & Geopolitical Fragmentation
-        "Geopolitics has fragmented the silicon landscape into a multi-polar world. Government initiatives—such as the US CHIPS Act ($52B) and massive state funding in Europe and China—have triggered a reshoring race. Crucially, raw material chokepoints like Gallium and Germanium are now active levers of trade and foreign policy.",
+        // Slide 10: SME & Geopolitical Fragmentation
+        "And we cannot ignore the 'Chip Wars.' Geopolitics is now a primary architect of the supply chain. Between the U.S. CHIPS Act and China’s massive 'In-Sourcing' push, we are moving toward a multi-polar silicon world. Critical materials like Gallium and Germanium are now being used as strategic levers in a global game of chess.",
         
-        // Slide 10: Supply Chain Resilience
-        "To build resilience, leading firms are mapping their supply networks down to Tier-4 and Tier-5 suppliers. Additionally, we are seeing the rise of circular supply chains, where firms recover rare earth metals and copper from e-waste to insulate themselves from mining volatility and supply disruptions.",
+        // Slide 11: Supply Chain Resilience
+        "The response? Circular and Autonomous Supply Chains. We are using AI to 'self-heal' the supply chain—automatically re-routing orders when a port closes or a factory goes down. And we are starting to recycle. We are mining the 'urban mine'—recovering rare earth elements from old electronics to reduce our dependency on volatile mining regions.",
         
-        // Slide 11: The Ubiquity of Silicon
-        "We now transition to Part 3: End-User Industries. Semiconductors have become the central nervous system of the global economy. 'Silicon Intensity'—the value of semiconductor content per product unit—is now the primary metric of industrial competitiveness. No modern industry can run or innovate without silicon.",
+        // Slide 12: Part 3 Section Divider
+        "Next, we explore Part 3: The End-User Revolution. Sourcing and supply chains ultimately feed into products. We will see how AI, automotive, edge computing, and future computing platforms are driving total silicon dependency across every industry.",
+
+        // Slide 13: The Ubiquity of Silicon
+        "So, where does all this silicon end up? Everywhere. We have reached 'Total Silicon Dependency.' Every industry is now a 'tech industry' because every industry is built on chips.",
         
-        // Slide 12: Executive Summary: Demand Landscape
-        "The demand landscape in 2026 shows a major structural shift. AI infrastructure, automotive electronics, and factory robotics are capturing the majority of growth. While traditional smartphone and PC markets face saturation, specialized automotive and AI accelerator segments are driving industry revenues to new heights.",
+        // Slide 14: Executive Summary: Demand Landscape
+        "The demand landscape is shifting. While PCs and smartphones are maturing, AI Infrastructure and Automotive are exploding. AI and Data Centers now drive nearly half of the industry’s total value. We are in a 'multi-speed' market where the high-end is racing ahead while the low-end stabilizes.",
         
-        // Slide 13: AI & Data Centers
-        "AI accelerators have turned data centers into massive intelligence engines, with the market approaching $500 billion. This segment is the primary driver of leading-edge 3nm and 2nm foundry nodes, consuming massive volumes of High Bandwidth Memory and advanced networking silicon.",
+        // Slide 15: AI & Data Centers
+        "Look at the Data Center. It’s no longer just a place to store files; it’s an 'Intelligence Engine.' We are spending $500 billion a year on AI accelerators. This is the segment that is pushing us to 2nm and beyond. It is the 'Value King' of the semiconductor world.",
         
-        // Slide 14: Automotive: The Smartphone on Wheels
-        "Electric Vehicles and Advanced Driver Assistance Systems (ADAS) are doubling the semiconductor value per vehicle, now exceeding $1,000 per unit. EVs depend heavily on Silicon Carbide (SiC) power electronics for battery efficiency, while autonomous drive systems require massive local compute power and LiDAR arrays.",
+        // Slide 16: Automotive: The Smartphone on Wheels
+        "Then there is the car—the 'Smartphone on Wheels.' An EV in 2026 has over $1,000 worth of chips in it. We are talking about Silicon Carbide for power efficiency and massive SoCs for autonomous driving. The car has become a high-performance computer that just happens to have wheels.",
         
-        // Slide 15: Industrial, IoT & Healthcare
-        "Edge AI is transforming industrial automation and healthcare. Industry 4.0 uses real-time edge analytics for predictive maintenance. In healthcare, semiconductors enable smart implants, wearable biosensors, and personalized diagnostics, demanding highly rugged, long-lifecycle silicon.",
+        // Slide 17: Industrial, IoT & Healthcare
+        "In the Industrial and Healthcare sectors, we are seeing the rise of 'Edge AI.' We aren't sending data to the cloud anymore; we are processing it right there on the factory floor or inside a medical implant. This requires ultra-reliable, long-lifecycle silicon that can survive for fifteen years in harsh environments.",
         
-        // Slide 16: Consumer Electronics & Frontiers
-        "While traditional consumer volumes mature, manufacturers are integrating Neural Processing Units (NPUs) into laptops and phones to enable on-device AI. Looking forward, emerging frontiers like quantum computing, 6G telecom, and brain-inspired neuromorphic chips are defining the roadmap toward 2030.",
+        // Slide 18: Consumer Electronics & Frontiers
+        "And looking at the horizon—Quantum, 6G, and Neuromorphic computing. These aren't science fiction anymore. We are already building the 2030 roadmap. We are designing chips that work like the human brain and networks that make 5G look like dial-up. The innovation cycle is actually accelerating.",
         
-        // Slide 17: Conclusion
-        "In conclusion, we have reached a state of total silicon dependency. The path to a $2 trillion global industry by the early 2030s is clear. The 'Chip Wars' are not just about manufacturing footprint; they are about which nations and companies can best harness silicon to transform their businesses. Let's summarize the key takeaways: Procurement must shift to a hybrid model; packaging is the new supply chokepoint; and AI and Automotive remain the primary engines of value and volume. Thank you, and I am open to any questions."
+        // Slide 19: Conclusion
+        "To conclude, the 2026 ecosystem tells us one thing: Silicon Intensity is the new gold standard. The winners of the next decade won't just be the ones with the best software; they will be the ones who master the procurement, the supply chain, and the application of these chips.\n\nBefore we go, look at this infographic. These are the five materials that keep the lights on. From Gallium in your 5G phone to Neon in the lasers that print the chips, these are the true foundations. Most of these are concentrated in a few regions, which is why the 'Silicon Journey' is as much about geology as it is about geometry.\n\nThe 'Chip Wars' are far from over. In fact, they are just beginning. Mastery of this ecosystem is mastery of the future. Thank you for your time."
     ];
  
     // Slide Titles
     const slideTitles = [
-        "The Strategic Imperative of Semiconductor Procurement",
+        "The 2026 Semiconductor Ecosystem",
         "Executive Summary: The Procurement Paradox",
         "Evolution of Procurement: The Strategic Hybrid Model",
         "Key Procurement Challenges & Strategic Sourcing",
         "Digitalization & Resilience in Procurement",
-        "The Global Supply Chain: A Web of Unprecedented Complexity",
+        "Part 2: The Global Supply Chain of Semiconductors",
+        "The Global Supply Chain: A Web of Complexity",
         "Architecture of the Global Value Chain (GVC)",
         "Front-End & Back-End Bottlenecks",
         "SME, Materials & Geopolitical Fragmentation",
         "Supply Chain Resilience: Digital & Circular",
+        "Part 3: End-User Industries & Application Ecosystem",
         "The Ubiquity of Silicon: Powering the Modern World",
         "Executive Summary: The Demand Landscape in 2026",
         "AI & Data Centers: The Generative Revolution",
-        "Automotive: The Smartphone on Wheels",
+        "Automotive: The \"Smartphone on Wheels\"",
         "Industrial, IoT & Healthcare: Intelligence at the Edge",
         "Consumer Electronics & Emerging Frontiers",
-        "Conclusion: A Silicon-Dependent Civilization"
+        "Conclusion: A Silicon-Dependent Civilization"ization"
     ];
  
     // DOM Elements
