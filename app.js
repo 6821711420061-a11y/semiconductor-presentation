@@ -510,6 +510,9 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.btnPresenter.addEventListener('click', togglePresenterMode);
         elements.btnPopoutPresenter.addEventListener('click', () => {
             const presenterWindow = window.open('presenter.html', 'SemiconductorPresenterConsole', 'width=950,height=750');
+            if (presenterWindow) {
+                presenterWindow.focus();
+            }
             window.addEventListener('beforeunload', () => {
                 if (presenterWindow && !presenterWindow.closed) {
                     presenterWindow.close();

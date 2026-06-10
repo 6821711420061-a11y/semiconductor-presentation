@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Automotive: The \"Smartphone on Wheels\"",
         "Industrial, IoT & Healthcare: Intelligence at the Edge",
         "Consumer Electronics & Emerging Frontiers",
-        "Conclusion: A Silicon-Dependent Civilization"ization"
+        "Conclusion: A Silicon-Dependent Civilization"
     ];
  
     // DOM Elements
