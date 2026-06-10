@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "For many years, the primary focus of semiconductor innovation was front-end node scaling—the relentless race to shrink transistors down to the 2-nanometer and 1.4-nanometer thresholds. While front-end fabrication lines still require monumental capital investments, a structural shift has occurred in 2026. The primary growth bottleneck for the artificial intelligence industry has moved from the front-end to the back-end. Advanced Back-End Packaging, specifically Chip-on-Wafer-on-Substrate or CoWoS, along with 3D stacking, is the new industry chokepoint. To create a modern AI accelerator, you must seamlessly integrate multiple logic dies with surrounding High Bandwidth Memory stacks onto a specialized silicon interposer. Currently, global back-end capacity is severely constrained. Reaching target production yields depends heavily on advanced back-end capacity, not just front-end printing nodes.",
         
         // Slide 10: SME, Materials & Geopolitical Fragmentation
-        "This hyper-concentration has turned the semiconductor supply chain into a prime geopolitical battleground, causing severe fragmentation. We have moved away from a unified global market into a highly regionalized, multi-polar silicon world. Governments are treating chips as assets of national sovereignty. For instance, the United States has deployed the 52 billion dollar CHIPS Act, providing massive financial subsidies to build domestic advanced logic fabs to balance the heavy East Asian concentration. Europe and China are engaged in similar multi-billion dollar state-supported reshoring initiatives. In retaliation, we see material chokepoints being leveraged as economic weapons. Strict export controls have been placed on critical trace materials like Gallium and Germanium. These elements are vital for power electronics and radar systems, and their restriction forces a global scramble for alternative supply loops.",
+        "This hyper-concentration has naturally turned the semiconductor supply chain into a prime geopolitical battleground, causing severe fragmentation. We have moved away from a unified global market into a highly regionalized, multi-polar silicon world. Governments are treating chips as assets of national sovereignty. For instance, the United States has deployed the 52 billion dollar CHIPS Act, providing massive financial subsidies to build domestic advanced logic fabs to balance the heavy East Asian concentration. Europe and China are engaged in similar multi-billion dollar state-supported reshoring initiatives. In retaliation, we see material chokepoints being leveraged as economic weapons. Strict export controls have been placed on critical trace materials like Gallium and Germanium. These elements are vital for power electronics and radar systems, and their restriction forces a global scramble for alternative supply loops.",
         
         // Slide 11: Supply Chain Resilience: Digital & Circular
         "To survive this fragmented environment, supply chain architectures are evolving from static, linear models into circular, autonomous networks. First, advanced manufacturers are utilizing deep digital mapping tools to achieve multi-tier visibility. They are tracing their supply structures past their direct partners, all the way down to Tier-4 and Tier-5 chemical facilities that supply raw acids and substrates. Second, the industry is investing heavily in Circular Mineral Reclamation. Rather than relying solely on volatile geopolitical mining nodes, firms are actively recycling electronic waste to reclaim high-purity copper, gold, and recycled silicon substrates. This circular economy integration acts as a critical strategic buffer, shielding foundry operations from raw material shocks while aligning with modern environmental sustainability mandates.",
@@ -96,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Slide 20: Thank You
         "Thank you everyone for your time. I would now like to open the floor to any questions and feedback you may have."
-    ];to any questions you may have."
     ];
  
     // Slide Titles
@@ -106,13 +105,13 @@ document.addEventListener('DOMContentLoaded', () => {
         "Evolution of Procurement: The Strategic Hybrid Model",
         "Key Procurement Challenges & Strategic Sourcing",
         "Digitalization & Resilience in Procurement",
-        "Part 2: The Global Supply Chain of Semiconductors",
+        "Global Supply Chain of Semiconductors",
         "The Global Supply Chain: A Web of Complexity",
         "Architecture of the Global Value Chain (GVC)",
         "Front-End & Back-End Bottlenecks",
         "SME, Materials & Geopolitical Fragmentation",
         "Supply Chain Resilience: Digital & Circular",
-        "Part 3: End-User Industries & Application Ecosystem",
+        "Downstream End-User Industries & Applications",
         "The Ubiquity of Silicon: Powering the Modern World",
         "Executive Summary: The Demand Landscape in 2026",
         "AI & Data Centers: The Generative Revolution",
