@@ -25,7 +25,7 @@ slideProto.addText = function(text, options) {
             useSerif = true; // Large stat numbers
         }
         
-        options.fontFace = useSerif ? 'PP Mondwest' : 'AT Aero';
+        options.fontFace = useSerif ? 'PP Mondwest' : 'Bookman ITC Std';
     }
     return originalAddText.call(this, text, options);
 };

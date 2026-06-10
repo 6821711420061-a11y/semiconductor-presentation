@@ -13,7 +13,7 @@
     
     /* Font Families */
     --font-primary: 'PP Mondwest', 'Instrument Serif', Georgia, serif;
-    --font-ui: 'AT Aero', 'DM Sans', sans-serif;
+    --font-ui: 'Bookman ITC Std', 'AT Aero', 'DM Sans', sans-serif;
     --font-mono: 'Fira Code', monospace;
     
     --slide-aspect: 16/9;
@@ -203,7 +203,7 @@ button, .btn-nav, .timer-btn, .btn-icon, .btn-toggle-presenter {
     color: var(--color-text);
     padding: 0.5rem 1rem;
     border-radius: 4px !important;
-    font-family: var(--font-ui) !important;
+    font-family: 'VVDS Fifties', 'DM Sans', sans-serif !important;
     font-size: 14px !important;
     font-weight: 500 !important;
     text-transform: uppercase !important;
@@ -726,6 +726,11 @@ button:disabled:hover, .btn-nav:disabled:hover {
     align-items: center;
     text-align: center;
     padding: 4rem;
+}
+
+.slide.section-divider-page h1 {
+    font-family: var(--font-primary);
+    color: var(--color-text);
 }
 
 .section-divider-badge {
